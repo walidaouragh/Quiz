@@ -1,0 +1,15 @@
+C:\Users\waouragh\Projects\Quiz\Quiz.API\Quiz.API\bin\Debug\netcoreapp2.2\Quiz.API.dll.config
+C:\Users\waouragh\Projects\Quiz\Quiz.API\Quiz.API\bin\Debug\netcoreapp2.2\Quiz.API.deps.json
+C:\Users\waouragh\Projects\Quiz\Quiz.API\Quiz.API\bin\Debug\netcoreapp2.2\Quiz.API.runtimeconfig.json
+C:\Users\waouragh\Projects\Quiz\Quiz.API\Quiz.API\bin\Debug\netcoreapp2.2\Quiz.API.runtimeconfig.dev.json
+C:\Users\waouragh\Projects\Quiz\Quiz.API\Quiz.API\bin\Debug\netcoreapp2.2\Quiz.API.dll
+C:\Users\waouragh\Projects\Quiz\Quiz.API\Quiz.API\bin\Debug\netcoreapp2.2\Quiz.API.pdb
+C:\Users\waouragh\Projects\Quiz\Quiz.API\Quiz.API\obj\Debug\netcoreapp2.2\Quiz.API.csprojAssemblyReference.cache
+C:\Users\waouragh\Projects\Quiz\Quiz.API\Quiz.API\obj\Debug\netcoreapp2.2\Quiz.API.csproj.CoreCompileInputs.cache
+C:\Users\waouragh\Projects\Quiz\Quiz.API\Quiz.API\obj\Debug\netcoreapp2.2\Quiz.API.RazorAssemblyInfo.cache
+C:\Users\waouragh\Projects\Quiz\Quiz.API\Quiz.API\obj\Debug\netcoreapp2.2\Quiz.API.RazorAssemblyInfo.cs
+C:\Users\waouragh\Projects\Quiz\Quiz.API\Quiz.API\obj\Debug\netcoreapp2.2\Quiz.API.AssemblyInfoInputs.cache
+C:\Users\waouragh\Projects\Quiz\Quiz.API\Quiz.API\obj\Debug\netcoreapp2.2\Quiz.API.AssemblyInfo.cs
+C:\Users\waouragh\Projects\Quiz\Quiz.API\Quiz.API\obj\Debug\netcoreapp2.2\Quiz.API.RazorTargetAssemblyInfo.cache
+C:\Users\waouragh\Projects\Quiz\Quiz.API\Quiz.API\obj\Debug\netcoreapp2.2\Quiz.API.dll
+C:\Users\waouragh\Projects\Quiz\Quiz.API\Quiz.API\obj\Debug\netcoreapp2.2\Quiz.API.pdb

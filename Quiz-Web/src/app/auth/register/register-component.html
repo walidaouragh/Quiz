@@ -1,0 +1,56 @@
+<div class="relative">
+    <div class="form-bg">
+        <div fxLayout="row" fxLayoutAlign="center start" class="pt-2">
+            <div fxLayout="column" fxFlex.xl="30" fxFlex.lg="30" fxFlex.md="50" fxFlex.sm="80" fxFlex.xs="90"
+                 class="register-card">
+                <mat-card class="login-session">
+                    <div *ngIf="errorMessage" class="alert">
+                        {{ errorMessage }}
+                    </div>
+                    <nav mat-tab-nav-bar mat-stretch-tabs>
+                        <a
+                                mat-tab-link
+                                [routerLink]="['/register']"
+                                routerLinkActive
+                                #RouterLinkActive="routerLinkActive"
+                                [active]="RouterLinkActive.isActive">
+                            Register
+                        </a>
+                        <a
+                                mat-tab-link
+                                [routerLink]="['/login']">
+                            Login
+                        </a>
+                    </nav>
+                    <h2 class="base-border">Register</h2>
+                    <p>Enter Your Details</p>
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
+                        <div fxLayout="column" fxLayoutAlign="start stretch">
+                            <mat-form-field style="width: 100%">
+                                <input matInput placeholder="First Name" type="text" formControlName="firstName">
+                            </mat-form-field>
+                            <mat-form-field style="width: 100%">
+                                <input matInput placeholder="Last Name" type="text" formControlName="lastName">
+                            </mat-form-field>
+                            <mat-form-field style="width: 100%">
+                                <input matInput placeholder="E Mail" type="email" formControlName="email">
+                            </mat-form-field>
+                            <button class="mat-green" mat-raised-button type="submit">Submit</button>
+                        </div>
+                        <div>
+                            <p>Sign Up Using</p>
+                            <a class="shared-icon mr-1 mat-blue">
+                                <i class="fa fa-facebook fa-lg mr-1"></i>
+                                Facebook
+                            </a>
+                            <a class="shared-icon mat-red">
+                                <i class="fa fa-google fa-lg mr-1"></i>
+                                Google
+                            </a>
+                        </div>
+                    </form>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

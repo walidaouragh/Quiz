@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="199bab02-150c-49b8-bf71-a7407be3d439" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="TypeScript File" />
+        <option value="SCSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/app/dashboard/dashboard.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/session/session.routing.ts" />
+        <option value="$PROJECT_DIR$/src/app/session/session.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.component.html" />
+        <option value="$PROJECT_DIR$/src/app/auth/auth-routing.ts" />
+        <option value="$PROJECT_DIR$/src/app/quiz/app.material.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/auth/auth.component.css" />
+        <option value="$PROJECT_DIR$/src/app/auth/login/login.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.material.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/auth/auth.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/auth/login/login-component.scss" />
+        <option value="$PROJECT_DIR$/src/app/auth/auth.component.html" />
+        <option value="$PROJECT_DIR$/src/app/auth/auth-routing.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/auth/login/login-component.html" />
+        <option value="$PROJECT_DIR$/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/_services/quiz.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/auth/register/register-component.scss" />
+        <option value="$PROJECT_DIR$/src/app/auth/register/register-component.html" />
+        <option value="$PROJECT_DIR$/src/app/_types/user.types.ts" />
+        <option value="$PROJECT_DIR$/src/app/index.ts" />
+        <option value="$PROJECT_DIR$/src/app/auth/auth.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.routing.ts" />
+        <option value="$PROJECT_DIR$/src/app/quiz/quiz.component.html" />
+        <option value="$PROJECT_DIR$/src/assets/styles/scss/core/_sessions.scss" />
+        <option value="$PROJECT_DIR$/src/assets/linea/styles.css" />
+        <option value="$PROJECT_DIR$/src/app/quiz/home/home.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/quiz/dialogs/confirm-dialog/confirm-dialog.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/quiz/quiz-routing.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/quiz/index.ts" />
+        <option value="$PROJECT_DIR$/src/app/quiz/result/result.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/quiz/quiz.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/_services/canDeactivate.ts" />
+        <option value="$PROJECT_DIR$/src/app/_services/candeactivateguard.service.ts" />
+        <option value="$PROJECT_DIR$/src/index.html" />
+        <option value="$PROJECT_DIR$/theme.scss" />
+        <option value="$PROJECT_DIR$/src/theme.scss" />
+        <option value="$PROJECT_DIR$/angular.json" />
+        <option value="$PROJECT_DIR$/src/assets/styles/scss/_material.variables.scss" />
+        <option value="$PROJECT_DIR$/src/app/quiz/navbar/navbar.component.html" />
+        <option value="$PROJECT_DIR$/src/app/quiz/dialogs/confirm-dialog/confirm-dialog.component.html" />
+        <option value="$PROJECT_DIR$/src/app/quiz/test/test.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/auth/register/register.component.ts" />
+        <option value="$PROJECT_DIR$/src/assets/styles/scss/core/_scaffolding.scss" />
+        <option value="$PROJECT_DIR$/src/app/quiz/test/test.component.html" />
+        <option value="$PROJECT_DIR$/src/app/quiz/test/test.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/quiz/result/result.component.html" />
+        <option value="$PROJECT_DIR$/src/app/quiz/result/result.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/quiz/navbar/navbar.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/quiz/home/home.component.html" />
+        <option value="$PROJECT_DIR$/src/app/quiz/home/home.component.scss" />
+      </list>
+    </option>
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\waouragh\Projects\Quiz\Quiz-Web\.idea\.idea.Quiz-Web.dir\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1SlVtkHgp36yxipRvgmLqrtotd7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Users\waouragh\Projects\Quiz1\Quiz-Web\node_modules\typescript\lib" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="199bab02-150c-49b8-bf71-a7407be3d439" name="Default Changelist" comment="" />
+      <created>1572138386360</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1572138386360</updated>
+      <workItem from="1572138390066" duration="33934000" />
+      <workItem from="1572270494826" duration="14721000" />
+      <workItem from="1572388787541" duration="5091000" />
+      <workItem from="1572394334326" duration="6235000" />
+      <workItem from="1572473534587" duration="8482000" />
+      <workItem from="1572563227612" duration="5963000" />
+      <workItem from="1572797809421" duration="342000" />
+      <workItem from="1572798226846" duration="849000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/polyfills.js" />
+      </list>
+    </option>
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

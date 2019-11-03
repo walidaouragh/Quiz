@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<div class="margin-top" style="line-height: 10">
+    <mat-card class="image">
+        <div class="text-center pink-text">
+                <h5>
+                    <mat-icon><i class="fa fa-pie-chart" aria-hidden="true"></i></mat-icon>
+                    Assessment Tests
+                </h5>
+                <h3><strong>Sample Tests</strong></h3>
+                    <p>In these sample tests you will experience how the assessment
+                        flows and the types of questions for all levels of difficulty,
+                        but you will not receive a score at the end and you will not experience the
+                        computer-adaptive technology as in the actual test. You must complete the Reading
+                        before the Writing and the Listening before the Speaking sections. </p>
+        </div>
+    </mat-card>
+</div>
+
+    <div  fxLayout="row" fxLayoutAlign="center center">
+        <mat-card *ngFor="let q of quizzes">
+            <a  mat-raised-button color="accent" (click)="onNavigateToQuiz(q.quizId)">
+                <mat-icon class="left"><i class="fa fa-clone" aria-hidden="true"></i></mat-icon>
+                {{ q.quizName }}</a>
+        </mat-card>
+    </div>
+
+
+
+
