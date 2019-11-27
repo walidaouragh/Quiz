@@ -4,6 +4,7 @@ import { NgModule } from "@angular/core";
 import { HomeComponent } from "./home/home.component";
 import { TestComponent } from "./test/test.component";
 import { ResultComponent } from "./result/result.component";
+import { CheckComponent } from "./check/check.component";
 
 const quizRoutes: Routes = [
     {
@@ -16,11 +17,15 @@ const quizRoutes: Routes = [
             },
             {
                 path: 'test/:id/:userId',
-                component: TestComponent
+                component: TestComponent,
             },
             {
-                path: 'result',
+                path: ':quizId/result',
                 component: ResultComponent
+            },
+            {
+                path: ':quizId/check',
+                component: CheckComponent
             }
         ]
     }

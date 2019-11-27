@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<div class="container margin-top">
+        <br>
+    <div>
+        <mat-card *ngFor="let q of quiz?.questions" class="mb-3 card">
+            <mat-radio-group aria-label="Select an option">
+                <h3 class="mb-3">{{q.questionText}}</h3>
+                <div *ngFor="let s of q.options; let i = index">
+                    <mat-radio-button [value]="s" disabled>{{s.optionText}}</mat-radio-button>
+                    <span *ngFor="let o of selectedOptions; let j = index">
+                        <span *ngIf="o.optionId === s.optionId && o.isCorrect" class="correct">
+                            <i class="fa fa-check"></i>
+                            Correct(your answer)
+                        </span>
+                        <span *ngIf="o.optionId === s.optionId && !o.isCorrect" class="incorrect">
+                             <i class="fa fa-times"></i>
+                            Incorrect(your answer)
+                        </span>
+                        <span *ngIf="(s.optionId !== o.optionId && s.questionId === o.questionId) && s.isCorrect" class="correct">Correct</span>
+                    </span>
+                </div>
+            </mat-radio-group>
+        </mat-card>
+    </div>
+</div>

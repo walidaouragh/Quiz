@@ -1,0 +1,67 @@
+.mat-radio-group {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.phone-option {
+  padding-bottom: 1.25em;
+  padding: .4375em 0;
+  border-top: .84375em solid transparent;
+}
+
+::ng-deep .mat-progress-bar-fill::after {
+  background-color: #28a745;;
+  height: 50px;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+  background: #c1c1c1;
+}
+
+::ng-deep.mat-progress-bar.mat-progress-bar.mat-primary {
+  height: 15px;
+  position: fixed;
+  top: 60px;
+  z-index: 1000;
+}
+
+.mat-card {
+  border-radius: 30px;
+  padding: 30px;
+
+}
+
+mat-radio-group {
+  padding: 15px;
+  /*box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);*/
+}
+.margin-top {
+  margin-top: 150px;
+}
+.sticky {
+  position: sticky;
+  top: 70px;
+  z-index: 1000;
+}
+
+.correct{
+  color: #205c47;
+  background-color:#48D76E;
+  border-radius: 30px;
+  padding: 5px;
+  margin-left: 45px;
+}
+
+.incorrect{
+  color: #721c24;
+  background-color:#EF473A;
+  border-radius: 30px;
+  padding: 5px;
+  margin-left: 45px;
+}
+
+
+
+
+
+
+

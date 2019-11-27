@@ -70,6 +70,7 @@ export class  TestComponent extends ComponentCanDeactivate implements OnInit {
     let  trueArray: any[] = [];
     let  falseArray: any[] = [];
     this.quizService.submitAnswers(this.answersForm.value.options).subscribe((options: IOption[]) => {
+      this.quizService.selectedAnswers$.next(this.answersForm.value.options);
       this.quizService.totalQuestions$.next(this.quiz.questions.length);
       options.forEach((o: any) => {
         if (o.isCorrect === true) {
@@ -102,7 +103,7 @@ export class  TestComponent extends ComponentCanDeactivate implements OnInit {
       if (confirmed) {
         this.onSubmitAnswers();
         this.dialog.closeAll();
-        this.router.navigate(["/quiz/result"])
+        this.router.navigate([`/quiz/${this.quizId}/result`])
       }
     });
   }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Observable, Subject } from "rxjs";
+import { BehaviorSubject, Observable, Subject } from "rxjs";
 import User = namespace.User;
 import IOption = namespace.IOption;
 
@@ -13,6 +13,7 @@ export class QuizService {
 
   public correctAnswers$: Subject<number> =  new Subject<number>();
   public totalQuestions$: Subject<number> =  new Subject<number>();
+  public selectedAnswers$: BehaviorSubject<IOption[]> =  new BehaviorSubject<IOption[]>([]);
 
   public getQuizzes(): Observable<any> {
     return this.http.get("https://localhost:5001/api/quiz")

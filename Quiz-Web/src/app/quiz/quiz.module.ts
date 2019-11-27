@@ -13,6 +13,8 @@ import { TestComponent } from './test/test.component';
 import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.component';
 import { ResultComponent } from './result/result.component';
 import { CanDeactivateGuard } from "../_services/candeactivateguard.service";
+import { CheckComponent } from './check/check.component';
+import { AuthModule } from "../auth/auth.module";
 
 @NgModule({
     imports: [
@@ -23,9 +25,10 @@ import { CanDeactivateGuard } from "../_services/candeactivateguard.service";
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
+        AuthModule
     ],
-    declarations: [QuizComponent, HomeComponent, NavbarComponent, TestComponent, ConfirmDialogComponent, ResultComponent],
+    declarations: [QuizComponent, HomeComponent, NavbarComponent, TestComponent, ConfirmDialogComponent, ResultComponent, CheckComponent],
     providers: [QuizService, CanDeactivateGuard],
     entryComponents: [ConfirmDialogComponent]
 })
