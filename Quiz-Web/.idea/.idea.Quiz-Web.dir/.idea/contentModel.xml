@@ -94,6 +94,7 @@
       <e p="node_modules\portfinder" t="IncludeRecursive" />
       <e p="node_modules\positioning" t="IncludeRecursive" />
       <e p="node_modules\postcss" t="IncludeRecursive" />
+      <e p="node_modules\prettier" t="IncludeRecursive" />
       <e p="node_modules\protractor" t="IncludeRecursive" />
       <e p="node_modules\quill" t="IncludeRecursive" />
       <e p="node_modules\reflect-metadata" t="IncludeRecursive" />

@@ -2,16 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="199bab02-150c-49b8-bf71-a7407be3d439" name="Default Changelist" comment="Initial commit">
+      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/prettier/bin-prettier.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/prettier/doc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/prettier/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/prettier/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-angular.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-babylon.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-flow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-glimmer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-graphql.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-html.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-markdown.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-postcss.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-typescript.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-yaml.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/prettier/standalone.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/prettier/third-party.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Quiz.API/.idea/.idea.Quiz.API/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Quiz-Web.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Quiz-Web.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Quiz-Web.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Quiz-Web.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_services/quiz.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/quiz.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/quiz/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/quiz/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/quiz/quiz-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/quiz/quiz-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/quiz/quiz.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/quiz/quiz.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/quiz/result/result.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/quiz/result/result.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/quiz/result/result.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/quiz/result/result.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/quiz/test/test.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/quiz/test/test.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Controllers/AnswerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Controllers/AnswerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Controllers/UserAnswerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Controllers/UserAnswerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Repositories/AnswerRepository/AnswerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Repositories/AnswerRepository/AnswerRepository.cs" afterDir="false" />
@@ -30,11 +43,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="SCSS File" />
         <option value="JavaScript File" />
         <option value="TypeScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -43,22 +56,11 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../Quiz.API/Quiz.API/Controllers/AnswerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.editorconfig" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/_types/user.types.ts" />
-        <option value="$PROJECT_DIR$/src/app/index.ts" />
-        <option value="$PROJECT_DIR$/src/app/app.routing.ts" />
-        <option value="$PROJECT_DIR$/src/assets/styles/scss/core/_sessions.scss" />
-        <option value="$PROJECT_DIR$/src/assets/linea/styles.css" />
-        <option value="$PROJECT_DIR$/src/app/quiz/dialogs/confirm-dialog/confirm-dialog.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/_services/canDeactivate.ts" />
-        <option value="$PROJECT_DIR$/src/app/_services/candeactivateguard.service.ts" />
-        <option value="$PROJECT_DIR$/theme.scss" />
-        <option value="$PROJECT_DIR$/src/theme.scss" />
-        <option value="$PROJECT_DIR$/angular.json" />
-        <option value="$PROJECT_DIR$/src/assets/styles/scss/_material.variables.scss" />
         <option value="$PROJECT_DIR$/src/app/quiz/navbar/navbar.component.html" />
         <option value="$PROJECT_DIR$/src/app/quiz/dialogs/confirm-dialog/confirm-dialog.component.html" />
         <option value="$PROJECT_DIR$/src/app/auth/register/register.component.ts" />
@@ -85,19 +87,31 @@
         <option value="$PROJECT_DIR$/src/app/_services/network-guard.service.ts" />
         <option value="$PROJECT_DIR$/src/app/auth/online-status/online-status.component.ts" />
         <option value="$PROJECT_DIR$/src/app/app.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/quiz/reuse-strategy.ts" />
-        <option value="$PROJECT_DIR$/src/app/quiz/quiz-routing.module.ts" />
         <option value="$PROJECT_DIR$/src/app/auth/online-status/online-status.component.scss" />
         <option value="$PROJECT_DIR$/src/app/auth/online-status/online-status.component.html" />
-        <option value="$PROJECT_DIR$/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/src/app/quiz/quiz.module.ts" />
         <option value="$PROJECT_DIR$/src/app/auth/auth-routing.module.ts" />
         <option value="$PROJECT_DIR$/src/app/auth/auth.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/quiz/quiz.component.html" />
-        <option value="$PROJECT_DIR$/src/app/quiz/quiz.component.ts" />
         <option value="$PROJECT_DIR$/src/app/quiz/check/check.component.ts" />
         <option value="$PROJECT_DIR$/src/app/quiz/check/check.component.scss" />
         <option value="$PROJECT_DIR$/src/app/quiz/check/check.component.html" />
+        <option value="$PROJECT_DIR$/src/app/quiz/offline/offline.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/quiz/offline/offline.component.html" />
+        <option value="$PROJECT_DIR$/src/app/quiz/quiz.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/quiz/quiz.component.html" />
+        <option value="$PROJECT_DIR$/src/app/quiz/reuse-strategy.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.routing.ts" />
+        <option value="$PROJECT_DIR$/src/app/quiz/quiz-routing.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/quiz/page-not-found/page-not-found.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/quiz/page-not-found/page-not-found.component.html" />
+        <option value="$PROJECT_DIR$/src/app/quiz/page-not-found/page-not-found.component.ts" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/package-lock.json" />
+        <option value="$PROJECT_DIR$/.prettierrc.html" />
+        <option value="$PROJECT_DIR$/.prettierrc.xml" />
+        <option value="$PROJECT_DIR$/.prettierrc" />
+        <option value="$PROJECT_DIR$/.editorconfig" />
       </list>
     </option>
   </component>
@@ -109,8 +123,11 @@
     </option>
   </component>
   <component name="ProjectId" id="1SlVtkHgp36yxipRvgmLqrtotd7" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
@@ -171,7 +188,7 @@
       <workItem from="1574014645575" duration="17802000" />
       <workItem from="1574614692811" duration="17742000" />
       <workItem from="1574785176290" duration="1186000" />
-      <workItem from="1574869494641" duration="5260000" />
+      <workItem from="1574869494641" duration="10224000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1572800308104</created>
@@ -180,7 +197,35 @@
       <option name="project" value="LOCAL" />
       <updated>1572800308104</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add check answers component">
+      <created>1574875082732</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1574875082732</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add offline-mode, handle the app with no internet connection(cannot navigate or make any changes)">
+      <created>1574875898900</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1574875898900</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add route reuse strategy to the app(only for test component)">
+      <created>1574877275651</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1574877275651</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add not found page">
+      <created>1574878226744</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1574878226744</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,9 +252,14 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Add check answers component" />
+    <MESSAGE value="Add offline-mode, handle the app with no internet connection(cannot navigate or make any changes)" />
+    <MESSAGE value="Add route reuse strategy to the app(only for test component)" />
+    <MESSAGE value="Add not found page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add not found page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
