@@ -1,14 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { Title } from '@angular/platform-browser';
+import { HeaderTitleService } from './_services/header-title.service';
+import { filter, mergeMap, take } from 'rxjs/operators';
 
 @Component({
 	selector: 'app-root',
 	template: '<router-outlet></router-outlet>'
 })
 export class AppComponent implements OnInit {
-	constructor(public translate: TranslateService, private router: Router, private titleService: Title) {
+	constructor(
+		public translate: TranslateService,
+		private router: Router,
+		private headerTitleService: HeaderTitleService,
+		private activatedRoute: ActivatedRoute
+	) {
 		translate.addLangs(['en', 'fr']);
 		translate.setDefaultLang('en');
 
@@ -17,6 +23,22 @@ export class AppComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.titleService.setTitle('Quiz');
+		this.headerTitleService
+			.getTitle(this.activatedRoute)
+			.pipe(take(1))
+			.subscribe((title: string) => {
+				this.headerTitleService.setTitle(title);
+			});
+
+		this.router.events
+			.pipe(
+				filter((event: RouterEvent) => {
+					return event instanceof NavigationEnd;
+				}),
+				mergeMap(() => this.headerTitleService.getTitle(this.activatedRoute))
+			)
+			.subscribe((title: string) => {
+				this.headerTitleService.setTitle(title);
+			});
 	}
 }

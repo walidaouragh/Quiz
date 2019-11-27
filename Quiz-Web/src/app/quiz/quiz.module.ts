@@ -17,6 +17,7 @@ import { CheckComponent } from './check/check.component';
 import { AuthModule } from '../auth/auth.module';
 import { OfflineComponent } from './offline/offline.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HeaderTitleService } from '../_services/header-title.service';
 
 @NgModule({
 	imports: [
@@ -41,7 +42,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 		OfflineComponent,
 		PageNotFoundComponent
 	],
-	providers: [QuizService, CanDeactivateGuard],
+	providers: [QuizService, CanDeactivateGuard, HeaderTitleService],
 	entryComponents: [ConfirmDialogComponent]
 })
 export class QuizModule {}

@@ -15,24 +15,36 @@ const quizRoutes: Routes = [
 		children: [
 			{
 				path: 'home/:userId',
-				component: HomeComponent
+				component: HomeComponent,
+				data: {
+					title: 'Home'
+				}
 			},
 			{
 				path: 'test/:id/:userId',
 				component: TestComponent,
-				data: { reuse: true }
+				data: { reuse: true, title: 'Test' }
 			},
 			{
 				path: ':quizId/result',
-				component: ResultComponent
+				component: ResultComponent,
+				data: {
+					title: 'Result'
+				}
 			},
 			{
 				path: ':quizId/check',
-				component: CheckComponent
+				component: CheckComponent,
+				data: {
+					title: 'Check'
+				}
 			},
 			{
 				path: 'offline',
 				component: OfflineComponent,
+				data: {
+					title: 'Offline'
+				},
 				pathMatch: 'full'
 			},
 			{
