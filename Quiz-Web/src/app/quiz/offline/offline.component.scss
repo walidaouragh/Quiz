@@ -1,0 +1,27 @@
+.error-alert {
+  font-size: 20px;
+  margin-bottom: 20px;
+
+  span {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
+.error-message {
+  font-family: 'Trebuchet MS';
+  font-size: 32px;
+
+  span {
+    font-variant: small-caps;
+  }
+}
+
+.offline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 40px;
+  font-family: 'Trebuchet MS';
+}

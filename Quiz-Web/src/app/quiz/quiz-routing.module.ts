@@ -5,6 +5,7 @@ import { HomeComponent } from "./home/home.component";
 import { TestComponent } from "./test/test.component";
 import { ResultComponent } from "./result/result.component";
 import { CheckComponent } from "./check/check.component";
+import { OfflineComponent } from "./offline/offline.component";
 
 const quizRoutes: Routes = [
     {
@@ -26,7 +27,12 @@ const quizRoutes: Routes = [
             {
                 path: ':quizId/check',
                 component: CheckComponent
-            }
+            },
+            {
+                path: 'offline',
+                component: OfflineComponent,
+                pathMatch: 'full'
+            },
         ]
     }
 ];
