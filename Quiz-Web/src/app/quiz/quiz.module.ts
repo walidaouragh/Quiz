@@ -16,6 +16,7 @@ import { CanDeactivateGuard } from "../_services/candeactivateguard.service";
 import { CheckComponent } from './check/check.component';
 import { AuthModule } from "../auth/auth.module";
 import { OfflineComponent } from './offline/offline.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
     imports: [
@@ -29,7 +30,7 @@ import { OfflineComponent } from './offline/offline.component';
         FormsModule,
         AuthModule
     ],
-    declarations: [QuizComponent, HomeComponent, NavbarComponent, TestComponent, ConfirmDialogComponent, ResultComponent, CheckComponent, OfflineComponent],
+    declarations: [QuizComponent, HomeComponent, NavbarComponent, TestComponent, ConfirmDialogComponent, ResultComponent, CheckComponent, OfflineComponent, PageNotFoundComponent],
     providers: [QuizService, CanDeactivateGuard],
     entryComponents: [ConfirmDialogComponent]
 })

@@ -6,6 +6,7 @@ import { TestComponent } from "./test/test.component";
 import { ResultComponent } from "./result/result.component";
 import { CheckComponent } from "./check/check.component";
 import { OfflineComponent } from "./offline/offline.component";
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 const quizRoutes: Routes = [
     {
@@ -34,6 +35,10 @@ const quizRoutes: Routes = [
                 component: OfflineComponent,
                 pathMatch: 'full'
             },
+            {
+                path: '**',
+                component: PageNotFoundComponent,
+            }
         ]
     }
 ];
