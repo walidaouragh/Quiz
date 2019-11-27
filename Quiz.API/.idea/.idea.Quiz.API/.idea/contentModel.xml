@@ -8,6 +8,7 @@
     <e p="C:\Users\waouragh\Projects\Quiz\Quiz.API" t="IncludeFlat">
       <e p="packages" t="ExcludeRecursive" />
       <e p="Quiz.API" t="IncludeRecursive">
+        <e p=".gitignore" t="Include" />
         <e p="app.config" t="Include" />
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />

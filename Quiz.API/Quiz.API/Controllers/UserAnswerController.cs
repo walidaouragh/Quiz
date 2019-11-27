@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -40,9 +39,9 @@ namespace Quiz.API.Controllers
         [HttpGet("{userId}/{questionId}")]
         public async Task<IActionResult> GetUserAnswersByQuestionId(int questionId, int userId)
         {
-            var result = await _userAnswerRepository.GetUserAnswersByQuestionId(questionId, userId).ToListAsync();
+            var result = await _userAnswerRepository.GetUserAnswersByQuestionId(questionId, userId).FirstOrDefaultAsync();
 
-            if (result != null && result.Count > 0)
+            if (result != null)
             {
                 return Ok(result);
             }

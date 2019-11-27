@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="199bab02-150c-49b8-bf71-a7407be3d439" name="Default Changelist" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Quiz.API/.idea/.idea.Quiz.API/.idea/workspace.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.OpenApiFiles.cache" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Quiz-Web.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Quiz-Web.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quiz.API/.idea/.idea.Quiz.API/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/.idea/.idea.Quiz.API/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Controllers/AnswerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Controllers/AnswerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Controllers/UserAnswerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Controllers/UserAnswerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Repositories/AnswerRepository/AnswerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Repositories/AnswerRepository/AnswerRepository.cs" afterDir="false" />
@@ -196,7 +195,7 @@
       <workItem from="1574014645575" duration="17802000" />
       <workItem from="1574614692811" duration="17742000" />
       <workItem from="1574785176290" duration="1186000" />
-      <workItem from="1574869494641" duration="11383000" />
+      <workItem from="1574869494641" duration="12301000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1572800308104</created>
