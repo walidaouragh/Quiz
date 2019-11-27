@@ -1,17 +1,15 @@
 <app-navbar></app-navbar>
 <div class="result-container">
-    <mat-card class="result-card">
-        <mat-card-title class="readonly-label">
-            <h1>Well done for completing the test!</h1>
-        </mat-card-title>
-        <mat-card-content>
-            <h2>Your score is {{ correctAnswers || 0 }} correct answers out of {{ totalQuestions }} questions</h2>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-raised-button color="accent" routerLink="/">Done!</button>
-            <button mat-raised-button color="primary" (click)="onNavigateToResult()">Check Answers</button>
-        </mat-card-actions>
-    </mat-card>
+	<mat-card class="result-card">
+		<mat-card-title class="readonly-label">
+			<h1>Well done for completing the test!</h1>
+		</mat-card-title>
+		<mat-card-content>
+			<h2>Your score is {{ correctAnswers || 0 }} correct answers out of {{ totalQuestions }} questions</h2>
+		</mat-card-content>
+		<mat-card-actions>
+			<button mat-raised-button color="accent" routerLink="/">Done!</button>
+			<button mat-raised-button color="primary" (click)="onNavigateToResult()">Check Answers</button>
+		</mat-card-actions>
+	</mat-card>
 </div>
-
-

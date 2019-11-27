@@ -1,55 +1,63 @@
 <div class="relative">
-    <div class="form-bg">
-        <div fxLayout="row" fxLayoutAlign="center start" class="pt-2">
-            <div fxLayout="column" fxFlex.xl="30" fxFlex.lg="30" fxFlex.md="50" fxFlex.sm="80" fxFlex.xs="90"
-                 class="register-card">
-                <mat-card class="login-session">
-                    <div>
-                        <nav mat-tab-nav-bar mat-stretch-tabs>
-                            <a
-                                    mat-tab-link
-                                    [routerLink]="['/register']">
-                                Register
-                            </a>
-                            <a
-                                    mat-tab-link
-                                    [routerLink]="['/login']"
-                                    routerLinkActive
-                                    #RouterLinkActive="routerLinkActive"
-                                    [active]="RouterLinkActive.isActive">
-                                Login
-                            </a>
-                        </nav>
-                        <h2 class="base-border">Login</h2>
-                        <p>Enter Your Login Details</p>
-                        <form>
-                            <div fxLayout="column" fxLayoutAlign="start stretch">
-                                <mat-form-field style="width: 100%">
-                                    <input matInput placeholder="E-Mail" type="text" name="email">
-                                </mat-form-field>
-                                <mat-form-field style="width: 100%" class="mb-1">
-                                    <input matInput placeholder="Password" type="password" name="password">
-                                </mat-form-field>
-                                <button class="mat-green" mat-raised-button>SIGN IN</button>
-                                <p class="mat-text-warn mb-0">Forgot password?</p>
-                                <p class="mb-0">Don't have an account? <a class="mat-text-primary"
-                                                                          routerLink="/register">Register Here</a></p>
-                            </div>
-                            <div>
-                                <p>Sign in using</p>
-                                <a class="shared-icon mr-1 mat-blue">
-                                    <i class="fa fa-facebook fa-lg mr-1"></i>
-                                    Facebook
-                                </a>
-                                <a class="shared-icon mat-red">
-                                    <i class="fa fa-google fa-lg mr-1"></i>
-                                    Google
-                                </a>
-                            </div>
-                        </form>
-                    </div>
-                </mat-card>
-            </div>
-        </div>
-    </div>
+	<div class="form-bg">
+		<div fxLayout="row" fxLayoutAlign="center start" class="pt-2">
+			<div
+				fxLayout="column"
+				fxFlex.xl="30"
+				fxFlex.lg="30"
+				fxFlex.md="50"
+				fxFlex.sm="80"
+				fxFlex.xs="90"
+				class="register-card"
+			>
+				<mat-card class="login-session">
+					<div>
+						<nav mat-tab-nav-bar mat-stretch-tabs>
+							<a mat-tab-link [routerLink]="['/register']">
+								Register
+							</a>
+							<a
+								mat-tab-link
+								[routerLink]="['/login']"
+								routerLinkActive
+								#RouterLinkActive="routerLinkActive"
+								[active]="RouterLinkActive.isActive"
+							>
+								Login
+							</a>
+						</nav>
+						<h2 class="base-border">Login</h2>
+						<p>Enter Your Login Details</p>
+						<form>
+							<div fxLayout="column" fxLayoutAlign="start stretch">
+								<mat-form-field style="width: 100%">
+									<input matInput placeholder="E-Mail" type="text" name="email" />
+								</mat-form-field>
+								<mat-form-field style="width: 100%" class="mb-1">
+									<input matInput placeholder="Password" type="password" name="password" />
+								</mat-form-field>
+								<button class="mat-green" mat-raised-button>SIGN IN</button>
+								<p class="mat-text-warn mb-0">Forgot password?</p>
+								<p class="mb-0">
+									Don't have an account?
+									<a class="mat-text-primary" routerLink="/register">Register Here</a>
+								</p>
+							</div>
+							<div>
+								<p>Sign in using</p>
+								<a class="shared-icon mr-1 mat-blue">
+									<i class="fa fa-facebook fa-lg mr-1"></i>
+									Facebook
+								</a>
+								<a class="shared-icon mat-red">
+									<i class="fa fa-google fa-lg mr-1"></i>
+									Google
+								</a>
+							</div>
+						</form>
+					</div>
+				</mat-card>
+			</div>
+		</div>
+	</div>
 </div>
