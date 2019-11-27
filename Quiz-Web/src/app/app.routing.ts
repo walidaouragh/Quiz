@@ -9,6 +9,7 @@ export const appRoutes: Routes = [
     },
     {
         path: 'quiz',
+        data: { reuse: true },
         loadChildren: './quiz/quiz.module#QuizModule'
     }
 ];

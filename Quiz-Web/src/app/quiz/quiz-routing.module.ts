@@ -19,6 +19,7 @@ const quizRoutes: Routes = [
             {
                 path: 'test/:id/:userId',
                 component: TestComponent,
+                data: { reuse: true }
             },
             {
                 path: ':quizId/result',

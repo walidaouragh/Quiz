@@ -16,6 +16,8 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from "./app.material.module";
 import { CommonModule } from "@angular/common";
 import { AuthModule } from './auth/auth.module';
+import { RouteReuseStrategy } from "@angular/router";
+import { CustomRouteReuseStrategy } from "./quiz/reuse-strategy";
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -43,7 +45,7 @@ export function createTranslateLoader(http: HttpClient) {
     PerfectScrollbarModule,
     AuthModule
   ],
-  providers: [TranslateService],
+  providers: [TranslateService, { provide: RouteReuseStrategy, useClass: CustomRouteReuseStrategy }],
   entryComponents: [],
   bootstrap: [AppComponent]
 })
