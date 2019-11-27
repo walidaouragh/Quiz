@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 using Quiz.API.DbContext;
 using Quiz.API.Repositories;
 using Quiz.API.Repositories.AnswerRepository;
@@ -35,6 +36,15 @@ namespace Quiz.API
             services.AddScoped<IAnswerRepository, AnswerRepository>();
             services.AddScoped<IUserAnswerRepository, UserAnswerRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Quiz API",
+                    Description = "A simple example ASP.NET Core Web API"
+                });
+            });
 
 
             RegisterServicesInOtherAssemblies(services);
@@ -57,6 +67,12 @@ namespace Quiz.API
             app.UseCors(x => x.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:4200"));
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My Quiz API V1");
+                c.RoutePrefix = "swagger/ui";
+            });
         }
 
         //Using Scrutor to automatically register your services with the ASP.NET Core, so no need to add like services.Addscope.........
