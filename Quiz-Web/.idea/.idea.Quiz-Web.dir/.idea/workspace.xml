@@ -1,31 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="199bab02-150c-49b8-bf71-a7407be3d439" name="Default Changelist" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/../Quiz.API/.idea/.idea.Quiz.API/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.OpenApiFiles.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Quiz-Web.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Quiz-Web.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/.idea/.idea.Quiz.API/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/.idea/.idea.Quiz.API/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Controllers/AnswerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Controllers/AnswerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Controllers/UserAnswerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Controllers/UserAnswerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Repositories/AnswerRepository/AnswerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Repositories/AnswerRepository/AnswerRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Repositories/AnswerRepository/IAnswerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Repositories/AnswerRepository/IAnswerRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/bin/Debug/netcoreapp2.2/Quiz.API.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/bin/Debug/netcoreapp2.2/Quiz.API.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/bin/Debug/netcoreapp2.2/Quiz.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/bin/Debug/netcoreapp2.2/Quiz.API.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/bin/Debug/netcoreapp2.2/Quiz.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/bin/Debug/netcoreapp2.2/Quiz.API.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.csproj.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/project.packagespec.json" afterDir="false" />
-    </list>
+    <list default="true" id="199bab02-150c-49b8-bf71-a7407be3d439" name="Default Changelist" comment="Initial commit" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +25,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../Quiz.API/Quiz.API/Controllers/AnswerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/.editorconfig" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Quiz.API/Quiz.API/Repositories/AnswerRepository/AnswerRepository.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Quiz.API/Quiz.API/Repositories/AnswerRepository/IAnswerRepository.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -195,7 +173,7 @@
       <workItem from="1574014645575" duration="17802000" />
       <workItem from="1574614692811" duration="17742000" />
       <workItem from="1574785176290" duration="1186000" />
-      <workItem from="1574869494641" duration="12301000" />
+      <workItem from="1574869494641" duration="12668000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1572800308104</created>
