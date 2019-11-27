@@ -2,37 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="199bab02-150c-49b8-bf71-a7407be3d439" name="Default Changelist" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/prettier/bin-prettier.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/prettier/doc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/prettier/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/prettier/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-angular.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-babylon.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-flow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-glimmer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-graphql.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-html.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-markdown.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-postcss.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-typescript.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/prettier/parser-yaml.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/prettier/standalone.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/prettier/third-party.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Quiz.API/.idea/.idea.Quiz.API/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Quiz-Web.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Quiz-Web.dir/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.OpenApiFiles.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Quiz-Web.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Quiz-Web.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Controllers/AnswerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Controllers/AnswerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Controllers/UserAnswerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Controllers/UserAnswerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Repositories/AnswerRepository/AnswerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Repositories/AnswerRepository/AnswerRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Repositories/AnswerRepository/IAnswerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/Repositories/AnswerRepository/IAnswerRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/bin/Debug/netcoreapp2.2/Quiz.API.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/bin/Debug/netcoreapp2.2/Quiz.API.deps.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/bin/Debug/netcoreapp2.2/Quiz.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/bin/Debug/netcoreapp2.2/Quiz.API.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/bin/Debug/netcoreapp2.2/Quiz.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/bin/Debug/netcoreapp2.2/Quiz.API.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Debug/netcoreapp2.2/Quiz.API.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.csproj.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/Quiz.API.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/Quiz.API/obj/project.packagespec.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,8 +54,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/quiz/navbar/navbar.component.html" />
-        <option value="$PROJECT_DIR$/src/app/quiz/dialogs/confirm-dialog/confirm-dialog.component.html" />
         <option value="$PROJECT_DIR$/src/app/auth/register/register.component.ts" />
         <option value="$PROJECT_DIR$/src/assets/styles/scss/core/_scaffolding.scss" />
         <option value="$PROJECT_DIR$/src/app/quiz/test/test.component.html" />
@@ -112,6 +103,8 @@
         <option value="$PROJECT_DIR$/.prettierrc.xml" />
         <option value="$PROJECT_DIR$/.prettierrc" />
         <option value="$PROJECT_DIR$/.editorconfig" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/.gitattributes" />
       </list>
     </option>
   </component>
@@ -203,7 +196,7 @@
       <workItem from="1574014645575" duration="17802000" />
       <workItem from="1574614692811" duration="17742000" />
       <workItem from="1574785176290" duration="1186000" />
-      <workItem from="1574869494641" duration="10224000" />
+      <workItem from="1574869494641" duration="11383000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1572800308104</created>
@@ -240,7 +233,21 @@
       <option name="project" value="LOCAL" />
       <updated>1574878226744</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add prettier">
+      <created>1574879937281</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1574879937281</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Run prettier">
+      <created>1574880065291</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1574880065291</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,7 +281,9 @@
     <MESSAGE value="Add offline-mode, handle the app with no internet connection(cannot navigate or make any changes)" />
     <MESSAGE value="Add route reuse strategy to the app(only for test component)" />
     <MESSAGE value="Add not found page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add not found page" />
+    <MESSAGE value="Add prettier" />
+    <MESSAGE value="Run prettier" />
+    <option name="LAST_COMMIT_MESSAGE" value="Run prettier" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
