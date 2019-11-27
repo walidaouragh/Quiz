@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="199bab02-150c-49b8-bf71-a7407be3d439" name="Default Changelist" comment="Initial commit" />
+    <list default="true" id="199bab02-150c-49b8-bf71-a7407be3d439" name="Default Changelist" comment="Initial commit">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Quiz-Web.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Quiz-Web.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Quiz.API/.idea/.idea.Quiz.API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz.API/.idea/.idea.Quiz.API/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +65,6 @@
         <option value="$PROJECT_DIR$/src/app/auth/auth.module.ts" />
         <option value="$PROJECT_DIR$/src/app/quiz/check/check.component.ts" />
         <option value="$PROJECT_DIR$/src/app/quiz/check/check.component.scss" />
-        <option value="$PROJECT_DIR$/src/app/quiz/check/check.component.html" />
         <option value="$PROJECT_DIR$/src/app/quiz/offline/offline.component.scss" />
         <option value="$PROJECT_DIR$/src/app/quiz/offline/offline.component.html" />
         <option value="$PROJECT_DIR$/src/app/quiz/quiz.component.ts" />
@@ -82,6 +84,7 @@
         <option value="$PROJECT_DIR$/.editorconfig" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.gitattributes" />
+        <option value="$PROJECT_DIR$/src/app/quiz/check/check.component.html" />
       </list>
     </option>
   </component>
@@ -99,6 +102,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -106,6 +110,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="ts.external.directory.path" value="C:\Users\waouragh\Projects\Quiz\Quiz-Web\node_modules\typescript\lib" />
   </component>
   <component name="RunDashboard">
@@ -173,7 +178,7 @@
       <workItem from="1574014645575" duration="17802000" />
       <workItem from="1574614692811" duration="17742000" />
       <workItem from="1574785176290" duration="1186000" />
-      <workItem from="1574869494641" duration="12668000" />
+      <workItem from="1574869494641" duration="14488000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1572800308104</created>
