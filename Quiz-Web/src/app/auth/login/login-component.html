@@ -11,6 +11,9 @@
 				class="register-card"
 			>
 				<mat-card class="login-session">
+					<div *ngIf="errorMessage" class="alert">
+						{{ errorMessage }}
+					</div>
 					<div>
 						<nav mat-tab-nav-bar mat-stretch-tabs>
 							<a mat-tab-link [routerLink]="['/register']">
@@ -28,15 +31,20 @@
 						</nav>
 						<h2 class="base-border">Login</h2>
 						<p>Enter Your Login Details</p>
-						<form>
+						<form [formGroup]="adminLoginForm" (ngSubmit)="onSubmit()">
 							<div fxLayout="column" fxLayoutAlign="start stretch">
 								<mat-form-field style="width: 100%">
-									<input matInput placeholder="E-Mail" type="text" name="email" />
+									<input matInput placeholder="E-Mail" type="text" formControlName="adminEmail" />
 								</mat-form-field>
 								<mat-form-field style="width: 100%" class="mb-1">
-									<input matInput placeholder="Password" type="password" name="password" />
+									<input
+										matInput
+										placeholder="Password"
+										type="password"
+										formControlName="adminPassword"
+									/>
 								</mat-form-field>
-								<button class="mat-green" mat-raised-button>SIGN IN</button>
+								<button class="mat-green" mat-raised-button type="submit">SIGN IN</button>
 								<p class="mat-text-warn mb-0">Forgot password?</p>
 								<p class="mb-0">
 									Don't have an account?

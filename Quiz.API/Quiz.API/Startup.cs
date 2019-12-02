@@ -1,13 +1,18 @@
 ﻿using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Quiz.API.DbContext;
+using Quiz.API.Models;
 using Quiz.API.Repositories;
 using Quiz.API.Repositories.AnswerRepository;
 using Quiz.API.Repositories.User;
@@ -45,6 +50,11 @@ namespace Quiz.API
                     Description = "A simple example ASP.NET Core Web API"
                 });
             });
+            SetUpJwtTokens(services);
+
+            //we have to add this when we use IdentityUser and IdentityDbContext
+            services.AddDefaultIdentity<Admin>()
+                .AddEntityFrameworkStores<QuizDbContext>();
 
 
             RegisterServicesInOtherAssemblies(services);
@@ -86,6 +96,34 @@ namespace Quiz.API
                 .AsImplementedInterfaces()
                 .WithScopedLifetime()
             );
+        }
+
+        private void SetUpJwtTokens(IServiceCollection services)
+        {
+            // ===== Add Jwt Authentication ========
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); // => remove default claims
+            services
+                .AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(cfg =>
+                {
+                    cfg.RequireHttpsMetadata = false;
+                    cfg.SaveToken = true;
+                    cfg.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidIssuer = _configuration.GetValue<string>("AuthConfig:development:JwtIssuer"),
+                        ValidAudience = _configuration.GetValue<string>("AuthConfig:development:JwtIssuer"),
+                        IssuerSigningKey =
+                            new SymmetricSecurityKey(
+                                Encoding.UTF8.GetBytes(
+                                    _configuration.GetValue<string>("AuthConfig:development:secret"))),
+                        ClockSkew = TimeSpan.Zero, // remove delay of token when expire
+                        RequireExpirationTime = false,
+                    };
+                });
         }
     }
 }

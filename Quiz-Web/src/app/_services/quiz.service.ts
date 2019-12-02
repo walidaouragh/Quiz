@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import User = namespace.User;
 import IOption = namespace.IOption;
+import { IAdminAuthRequest } from '../_types/IQuizAuthResponse';
 
 @Injectable({
 	providedIn: 'root'
@@ -28,5 +29,9 @@ export class QuizService {
 
 	public submitAnswers(options: IOption): Observable<any> {
 		return this.http.post('https://localhost:5001/api/userAnswer', options);
+	}
+
+	public LoginAdmin(admin: IAdminAuthRequest): Observable<any> {
+		return this.http.post('https://localhost:5001/api/user/admin/login', admin);
 	}
 }

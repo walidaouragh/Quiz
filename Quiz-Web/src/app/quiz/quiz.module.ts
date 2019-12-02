@@ -18,6 +18,7 @@ import { AuthModule } from '../auth/auth.module';
 import { OfflineComponent } from './offline/offline.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HeaderTitleService } from '../_services/header-title.service';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 @NgModule({
 	imports: [
@@ -40,7 +41,8 @@ import { HeaderTitleService } from '../_services/header-title.service';
 		ResultComponent,
 		CheckComponent,
 		OfflineComponent,
-		PageNotFoundComponent
+		PageNotFoundComponent,
+		AdminDashboardComponent
 	],
 	providers: [QuizService, CanDeactivateGuard, HeaderTitleService],
 	entryComponents: [ConfirmDialogComponent]

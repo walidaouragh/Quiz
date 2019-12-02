@@ -1,9 +1,10 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Quiz.API.Models;
 
 namespace Quiz.API.DbContext
 {
-    public class QuizDbContext : Microsoft.EntityFrameworkCore.DbContext
+    public class QuizDbContext : IdentityDbContext<Admin>
     {
         public QuizDbContext(DbContextOptions<QuizDbContext> options): base(options) { }
         public QuizDbContext() { }
@@ -13,5 +14,6 @@ namespace Quiz.API.DbContext
         public DbSet<UserAnswer> UserAnswers { get; set; }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Admin> Admins { get; set; }
     }
 }

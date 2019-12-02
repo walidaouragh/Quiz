@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -52,16 +53,51 @@ namespace Quiz.API.Controllers
             return Ok(user);
         }
 
-        /*[HttpGet("{email}")]
-        public async Task<IActionResult> GetUserByEmail(string email)
+        [HttpPost("admin/login")]
+        public async Task<IActionResult> LoginAdmin([FromBody]AdminToLogin adminToLogin)
         {
-            var user = await _userRepository.GetUserByEmail(email);
-            if (user == null)
+            var response = await _userRepository.AuthenticateAdmin(adminToLogin.AdminEmail, adminToLogin.AdminPassword);
+
+            if (response == null || !response.Succeeded)
             {
-                return NotFound($"Could not find user with email: {email}");
+                return Unauthorized("Admin not found or password is invalid");
             }
 
-            return Ok(user);
-        }*/
+            var authResult = await MapToAuthorizationResult(adminToLogin.AdminEmail);
+            return Ok(authResult);
+        }
+
+        [HttpPost("ensure-admin")]
+        public async Task<IActionResult> EnsureAdminUserExists()
+        {
+            var adminUser = await _userRepository.EnsureAdminUserExists();
+            var result = new EnsureAdminResult()
+            {
+                Errors = adminUser.Errors.Select(e => e.Description).ToArray(),
+                Succeeded = adminUser.Succeeded,
+            };
+
+            if (result.Succeeded)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+
+        private async Task<AuthorizationResult> MapToAuthorizationResult(string email)
+        {
+            var appUser = _userRepository.GetIdentityUserByEmail(email);
+            var authResult = new AuthorizationResult()
+            {
+                Success = true,
+                IsAdmin = appUser.IsAdmin,
+                DisplayName = $"{appUser.FirstName} {appUser.LastName}",
+                AdminId = appUser.Id,
+                Token = _userRepository.GenerateJwtToken(appUser),
+            };
+            return authResult;
+        }
     }
 }
