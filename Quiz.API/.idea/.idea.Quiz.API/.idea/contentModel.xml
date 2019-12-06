@@ -32,6 +32,8 @@
           <e p="20191129220054_admin.Designer.cs" t="Include" />
           <e p="20191129231609_admin2.cs" t="Include" />
           <e p="20191129231609_admin2.Designer.cs" t="Include" />
+          <e p="20191205190607_adminName.cs" t="Include" />
+          <e p="20191205190607_adminName.Designer.cs" t="Include" />
           <e p="QuizDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">

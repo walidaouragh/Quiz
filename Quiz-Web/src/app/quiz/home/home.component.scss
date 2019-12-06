@@ -10,3 +10,24 @@
   margin-top: 64px;
 }
 
+.btn-pink {
+	color: #e91e63;
+	background-color: #fff;
+	border-color: #e91e63;
+	border-radius: 45px;
+}
+.btn-pink:hover,
+.btn-pink:focus,
+.btn-pink:active,
+.btn-pink.active,
+.open > .dropdown-toggle.btn-pink {
+	color: #fff;
+	background-color: #e91e63;
+	border-color: #e91e63;
+}
+
+.font-weight-bold {
+	font-weight: 700 !important;
+	font-size: -webkit-xxx-large;
+}
+
