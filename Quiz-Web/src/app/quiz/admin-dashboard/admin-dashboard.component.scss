@@ -1,0 +1,44 @@
+.container {
+	max-width: 70rem !important;
+}
+
+.btn-pink {
+	color: #e91e63;
+	background-color: #fff;
+	border-color: #e91e63;
+	border-radius: 45px;
+}
+.btn-pink:hover,
+.btn-pink:focus,
+.btn-pink:active,
+.btn-pink.active,
+.open > .dropdown-toggle.btn-pink {
+	color: #fff;
+	background-color: #e91e63;
+	border-color: #e91e63;
+}
+
+.font-weight-bold {
+	font-weight: 700 !important;
+	font-size: -webkit-xxx-large;
+}
+
+.mat-expansion-panel {
+	border-radius: 30px !important;
+}
+
+.mat-expansion-panel-header-title {
+	font-size: large;
+}
+
+.margin-top {
+	margin-top: 100px;
+}
+
+.fa-check:before {
+	background-color: lightgreen;
+	padding: 7px;
+	border-radius: 30px;
+	margin-left: 10px;
+	color: darkcyan;
+}

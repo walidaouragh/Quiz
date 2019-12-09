@@ -1,0 +1,18 @@
+<mat-dialog-content [formGroup]="form">
+	<h2 mat-dialog-title>Edit Question</h2>
+
+	<mat-form-field class="input-full-width">
+		<mat-label>Question</mat-label>
+		<input matInput placeholder="Question" formControlName="questionText" />
+	</mat-form-field>
+	<mat-form-field *ngFor="let o of modalData.option" class="input-full-width">
+		<mat-label>Option</mat-label>
+		<div>
+			<input matInput placeholder="Option" formControlName="option" [value]="o.optionText" />
+		</div>
+	</mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+	<button mat-raised-button (click)="onCancel()">Cancel</button>
+	<button mat-raised-button color="accent" (click)="onSubmit()">Submit</button>
+</mat-dialog-actions>

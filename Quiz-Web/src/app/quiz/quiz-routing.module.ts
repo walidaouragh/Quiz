@@ -7,7 +7,8 @@ import { ResultComponent } from './result/result.component';
 import { CheckComponent } from './check/check.component';
 import { OfflineComponent } from './offline/offline.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AdminDashboardComponent } from "./admin-dashboard/admin-dashboard.component";
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { EditComponent } from './admin-dashboard/edit/edit.component';
 
 const quizRoutes: Routes = [
 	{
@@ -43,6 +44,13 @@ const quizRoutes: Routes = [
 			{
 				path: 'admin-dashboard',
 				component: AdminDashboardComponent,
+				data: {
+					title: 'Admin'
+				}
+			},
+			{
+				path: 'admin-dashboard/:id',
+				component: EditComponent,
 				data: {
 					title: 'Admin'
 				}
