@@ -17,18 +17,12 @@ export class EditDialogComponent implements OnInit {
 	) {}
 	public form: FormGroup;
 	public quiz: IQuiz;
-	public optionText: string;
 
 	ngOnInit() {
-		this.modalData.option.forEach(o => {
-			this.optionText = o.optionText;
-		});
-
 		this.form = this.fb.group({
 			questionText: [this.modalData.question],
 			option: [this.modalData.option]
 		});
-
 	}
 
 	public onCancel(): void {
