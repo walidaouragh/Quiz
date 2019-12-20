@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Quiz.API.Migrations
 {
-    public partial class admin : Migration
+    public partial class New : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -233,7 +233,7 @@ namespace Quiz.API.Migrations
                 {
                     OptionId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    UserId = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: true),
                     QuestionId = table.Column<int>(nullable: false),
                     OptionText = table.Column<string>(nullable: true),
                     IsCorrect = table.Column<bool>(nullable: false)

@@ -1,10 +1,11 @@
 <app-navbar></app-navbar>
 <mat-progress-bar mode="determinate" [value]="testPercentage"></mat-progress-bar>
+<div class="score">{{ numberOfAnsweredQuestions || 0 }} / {{ quiz?.questions.length }} questions</div>
 <div class="container margin-top">
 	<div>
 		<h3>Test Your {{ quiz?.quizName }}</h3>
 		<p>For the questions below, please choose the best option to complete the sentence or conversation.</p>
-		<br />
+		<mat-error class="row alert" *ngIf="errorMessage">{{ errorMessage }}</mat-error>
 	</div>
 	<form [formGroup]="answersForm" *ngIf="quiz">
 		<mat-card *ngFor="let q of quiz.questions; let i = index" class="mb-3 card" formArrayName="options">
@@ -16,7 +17,10 @@
 			</mat-radio-group>
 		</mat-card>
 		<div class="text-center">
-			<button name="test" mat-raised-button color="accent" (click)="openDialog()">Submit</button>
+			<mat-error class="row alert" *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+			<button name="test" mat-raised-button class="btn-block mb-5" color="accent" (click)="openDialog()">
+				Submit
+			</button>
 		</div>
 	</form>
 </div>

@@ -1,7 +1,10 @@
 <div class="container mt-5">
+	<div class="row mb-2">
+		<button class="btn btn-pink btn-block" disabled style="cursor: not-allowed">{{ quiz?.quizName }}</button>
+	</div>
 	<div class="row">
 		<div class="col-6 mb-2">
-			<button class="btn btn-pink btn-block" disabled style="cursor: not-allowed">{{ quiz?.quizName }}</button>
+			<button class="btn btn-pink btn-block" (click)="openAddQuestionDialog()">Add New Question</button>
 		</div>
 		<div class="col-6 mb-2">
 			<button class="btn btn-pink btn-block" routerLink="/quiz/admin-dashboard">Back</button>
@@ -30,10 +33,10 @@
 						</div>
 						<div class="col-6">
 							<div class="btn-group pull-right margin-top" role="group" aria-label="Basic example">
-								<button type="button" class="btn btn-primary" (click)="openEditDialog(q)">
+								<button type="button" class="btn btn-primary" (click)="openEditQuestionDialog(q)">
 									Edit
 								</button>
-								<button type="button" class="btn btn-danger">Delete</button>
+								<button class="btn btn-danger" (click)="openDialog(q.quizId, q.questionId)">Delete</button>
 							</div>
 						</div>
 					</div>

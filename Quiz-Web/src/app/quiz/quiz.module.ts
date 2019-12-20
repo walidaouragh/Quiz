@@ -19,8 +19,9 @@ import { OfflineComponent } from './offline/offline.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HeaderTitleService } from '../_services/header-title.service';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { EditComponent } from './admin-dashboard/edit/edit.component';
-import { EditDialogComponent } from './admin-dashboard/edit-dialog/edit-dialog.component';
+import { QuestionComponent } from './admin-dashboard/edit/question.component';
+import { QuestionEditDialogComponent } from './dialogs/question-edit-dialog/question-edit-dialog.component';
+import { QuestionAddDialogComponent } from './dialogs/question-add-dialog/question-add-dialog.component';
 
 @NgModule({
 	imports: [
@@ -45,10 +46,11 @@ import { EditDialogComponent } from './admin-dashboard/edit-dialog/edit-dialog.c
 		OfflineComponent,
 		PageNotFoundComponent,
 		AdminDashboardComponent,
-		EditComponent,
-		EditDialogComponent
+		QuestionComponent,
+		QuestionEditDialogComponent,
+		QuestionAddDialogComponent
 	],
 	providers: [QuizService, CanDeactivateGuard, HeaderTitleService],
-	entryComponents: [ConfirmDialogComponent, EditDialogComponent]
+	entryComponents: [ConfirmDialogComponent, QuestionEditDialogComponent, QuestionAddDialogComponent]
 })
 export class QuizModule {}

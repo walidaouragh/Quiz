@@ -33,6 +33,8 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 	public isSubmitted: boolean = false;
 	public selectedAnswer: any = {};
 	public testPercentage: number;
+	public numberOfAnsweredQuestions: number = 0;
+	public errorMessage: string;
 
 	ngOnInit() {
 		this.answersForm = new FormGroup({
@@ -64,6 +66,7 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 		const trues = _.filter(arr, r => r === true).length;
 		const arrLength = this.quiz.questions.length;
 		this.testPercentage = (trues / arrLength) * 100;
+		this.numberOfAnsweredQuestions = (this.testPercentage * this.quiz.questions.length) / 100;
 	}
 
 	public onSubmitAnswers(): void {
@@ -73,7 +76,7 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 
 		let trueArray: any[] = [];
 		let falseArray: any[] = [];
-		this.quizService.submitAnswers(this.answersForm.value.options).subscribe(
+		this.quizService.submitAnswers(this.answersForm.value.options, this.userId).subscribe(
 			(options: IOption[]) => {
 				this.quizService.selectedAnswers$.next(this.answersForm.value.options);
 				this.quizService.totalQuestions$.next(this.quiz.questions.length);
@@ -88,29 +91,25 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 						this.incorrectAnswers = falseArray.length;
 					}
 				});
+				this.router.navigate([`/quiz/${this.quizId}/result`]);
 			},
 			(error: HttpErrorResponse) => {
 				console.log(error);
+				this.errorMessage = error.error;
+				console.log('111111111', this.errorMessage);
 			}
 		);
 	}
 
 	public openDialog(): void {
-		const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-			data: {
-				message: 'Are you sure want to submit?',
-				buttonText: {
-					ok: 'Save',
-					cancel: 'Cancel'
-				}
-			}
-		});
+		const dialogConfig: MatDialogConfig = new MatDialogConfig();
+		dialogConfig.width = '30%';
+		const dialogRef = this.dialog.open(ConfirmDialogComponent, dialogConfig);
 
 		dialogRef.afterClosed().subscribe((confirmed: boolean) => {
 			if (confirmed) {
 				this.onSubmitAnswers();
 				this.dialog.closeAll();
-				this.router.navigate([`/quiz/${this.quizId}/result`]);
 			}
 		});
 	}

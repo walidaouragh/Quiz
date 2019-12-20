@@ -14,7 +14,7 @@ namespace Quiz.API.Repositories.UserAnswerRepository
         {
             _context = dbContext;
         }
-        public async Task<List<UserAnswer>> UserPostAnswers(List<AnswerToPost> answerToPost)
+        public async Task<List<UserAnswer>> UserPostAnswers(List<AnswerToPost> answerToPost, int userId)
         {
 
             List<UserAnswer> answers = new List<UserAnswer>();
@@ -22,7 +22,7 @@ namespace Quiz.API.Repositories.UserAnswerRepository
             foreach (var ans in answerToPost)
             {
                 UserAnswer result = new UserAnswer();
-                result.UserId = ans.UserId;
+                result.UserId = userId;
                 result.QuestionId = ans.QuestionId;
                 result.OptionText = ans.OptionText;
                 result.IsCorrect = ans.IsCorrect;

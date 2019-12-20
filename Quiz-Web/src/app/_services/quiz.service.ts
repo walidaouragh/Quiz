@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import User = namespace.User;
 import IOption = namespace.IOption;
 import { IAdminAuthRequest } from '../_types/IQuizAuthResponse';
+import IQuestion = namespace.IQuestion;
 
 @Injectable({
 	providedIn: 'root'
@@ -27,11 +28,23 @@ export class QuizService {
 		return this.http.post('https://localhost:5001/api/user', user);
 	}
 
-	public submitAnswers(options: IOption): Observable<any> {
-		return this.http.post('https://localhost:5001/api/userAnswer', options);
+	public submitAnswers(options: IOption, userId: number): Observable<any> {
+		return this.http.post(`https://localhost:5001/api/userAnswer/${userId}`, options);
 	}
 
 	public LoginAdmin(admin: IAdminAuthRequest): Observable<any> {
 		return this.http.post('https://localhost:5001/api/user/admin/login', admin);
+	}
+
+	public updateQuestions(question: IQuestion, quizId: number, questionId: number): Observable<any> {
+		return this.http.put(`https://localhost:5001/api/question/edit/${quizId}/${questionId}`, question);
+	}
+
+	public creatQuestions(question: IQuestion, quizId: number): Observable<any> {
+		return this.http.post(`https://localhost:5001/api/question/add/${quizId}`, question);
+	}
+
+	public deleteQuestions(quizId: number, questionId: number): Observable<any> {
+		return this.http.delete(`https://localhost:5001/api/question/delete/${quizId}/${questionId}`);
 	}
 }

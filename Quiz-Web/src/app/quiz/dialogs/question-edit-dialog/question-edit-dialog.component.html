@@ -1,0 +1,31 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+	<mat-dialog-content>
+		<h2 mat-dialog-title>Edit Question</h2>
+		<mat-error *ngIf="errorMessage2" class="alert">{{ errorMessage2 }}</mat-error>
+		<mat-form-field class="input-full-width">
+			<mat-label>Question</mat-label>
+			<input matInput placeholder="Question" formControlName="questionText" />
+		</mat-form-field>
+		<div formArrayName="options">
+			<table *ngFor="let o of modalData.options; let i = index" class="input-full-width">
+				<tr [formGroupName]="i">
+					<td fxFlex>
+						<mat-form-field class="input-full-width">
+							<input matInput placeholder="Option" formControlName="optionText" [value]="o.optionText" />
+						</mat-form-field>
+					</td>
+					<td style="margin-top: 20px">
+						<mat-radio-group aria-label="Select an option" formControlName="isCorrect">
+							<mat-radio-button class="myGroup" [value]="false">False</mat-radio-button>
+							<mat-radio-button [value]="true">True</mat-radio-button>
+						</mat-radio-group>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</mat-dialog-content>
+	<mat-dialog-actions align="end">
+		<button mat-raised-button type="button" (click)="onCancel()">Cancel</button>
+		<button mat-raised-button color="accent" type="submit">Submit</button>
+	</mat-dialog-actions>
+</form>

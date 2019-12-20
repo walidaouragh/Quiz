@@ -10,8 +10,8 @@ using Quiz.API.DbContext;
 namespace Quiz.API.Migrations
 {
     [DbContext(typeof(QuizDbContext))]
-    [Migration("20191129220054_admin")]
-    partial class admin
+    [Migration("20191219160456_New")]
+    partial class New
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -206,7 +206,7 @@ namespace Quiz.API.Migrations
 
                     b.Property<int>("QuestionId");
 
-                    b.Property<int>("UserId");
+                    b.Property<int?>("UserId");
 
                     b.HasKey("OptionId");
 

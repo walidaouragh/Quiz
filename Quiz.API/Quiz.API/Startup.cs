@@ -5,16 +5,18 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using Quiz.API.DbContext;
 using Quiz.API.Models;
 using Quiz.API.Repositories;
 using Quiz.API.Repositories.AnswerRepository;
+using Quiz.API.Repositories.QuestionRepository;
 using Quiz.API.Repositories.User;
 using Quiz.API.Repositories.UserAnswerRepository;
 
@@ -36,11 +38,16 @@ namespace Quiz.API
             services.AddDbContext<QuizDbContext>(opt => opt.UseSqlServer(_configuration.GetSection("Quiz")["ConnStr"]));
             services.AddCors();
             services.AddAutoMapper(typeof(Startup));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            /*services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);*/
+            services.AddMvc().AddJsonOptions(options => {
+                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });
             services.AddScoped<IQuizRepository, QuizRepository>();
             services.AddScoped<IAnswerRepository, AnswerRepository>();
             services.AddScoped<IUserAnswerRepository, UserAnswerRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IQuestionRepository, QuestionRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo

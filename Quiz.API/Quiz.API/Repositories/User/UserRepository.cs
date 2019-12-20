@@ -66,9 +66,17 @@ namespace Quiz.API.Repositories.User
 
         public async Task<IdentityResult> EnsureAdminUserExists()
         {
+            /*To ensure Admin post this in postman*/
+            /*{
+                "AdminEmail": "walid@quiz.com",
+                "AdminPassword": "P@ss0wrd!"
+            }*/
+
             var user = new Admin()
             {
                 Email = AdminUserEmail,
+                UserName = AdminUserEmail,
+                IsAdmin = true
             };
 
             var response = await _userManager.CreateAsync(user, "P@ss0wrd!");

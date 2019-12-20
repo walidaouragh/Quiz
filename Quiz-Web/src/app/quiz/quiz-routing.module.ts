@@ -8,7 +8,7 @@ import { CheckComponent } from './check/check.component';
 import { OfflineComponent } from './offline/offline.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { EditComponent } from './admin-dashboard/edit/edit.component';
+import { QuestionComponent } from './admin-dashboard/edit/question.component';
 
 const quizRoutes: Routes = [
 	{
@@ -50,7 +50,7 @@ const quizRoutes: Routes = [
 			},
 			{
 				path: 'admin-dashboard/:id',
-				component: EditComponent,
+				component: QuestionComponent,
 				data: {
 					title: 'Admin'
 				}
