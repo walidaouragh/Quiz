@@ -70,6 +70,7 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 	}
 
 	public onSubmitAnswers(): void {
+		window.scrollTo(0, 0);
 		this.isSubmitted = true;
 		const dialogConfig: MatDialogConfig = new MatDialogConfig();
 		this.dialog.open(ConfirmDialogComponent, dialogConfig);
