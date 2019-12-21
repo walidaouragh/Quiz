@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { QuizService } from '../../_services/quiz.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IAdminAuthRequest, IQuizAuthResponse } from '../../_types/IQuizAuthResponse';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -12,20 +12,27 @@ import { HttpErrorResponse } from '@angular/common/http';
 	encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
-	constructor(private quizService: QuizService, private router: Router) {}
+	constructor(private quizService: QuizService, private router: Router, private fb: FormBuilder) {}
 
 	public adminLoginForm: FormGroup;
 	public errorMessage: string;
 	public admin: IAdminAuthRequest;
+	public submitted: boolean = false;
 
 	ngOnInit(): void {
-		this.adminLoginForm = new FormGroup({
-			adminEmail: new FormControl('', [Validators.email, Validators.required]),
-			adminPassword: new FormControl('', Validators.required)
+		this.adminLoginForm = this.fb.group({
+			adminEmail: ['', [Validators.required, Validators.email]],
+			adminPassword: ['', Validators.required]
 		});
 	}
 
+	// convenience getter for easy access to form fields
+	get f() {
+		return this.adminLoginForm.controls;
+	}
+
 	public onSubmit(): void {
+		this.submitted = true;
 		this.admin = Object.assign({}, this.adminLoginForm.value);
 
 		this.quizService.LoginAdmin(this.admin).subscribe(

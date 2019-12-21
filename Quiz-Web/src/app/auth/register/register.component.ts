@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import User = namespace.User;
 import { QuizService } from '../../_services/quiz.service';
@@ -12,20 +12,27 @@ import { QuizService } from '../../_services/quiz.service';
 	encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent implements OnInit {
-	constructor(private quizService: QuizService, private router: Router) {}
+	constructor(private quizService: QuizService, private router: Router, private fb: FormBuilder) {}
 
 	public registerForm: FormGroup;
 	public errorMessage: string;
+	public submitted: boolean = false;
 
 	ngOnInit(): void {
-		this.registerForm = new FormGroup({
-			firstName: new FormControl('', Validators.required),
-			lastName: new FormControl('', Validators.required),
-			email: new FormControl('', [Validators.email, Validators.required])
+		this.registerForm = this.fb.group({
+			firstName: ['', Validators.required],
+			lastName: ['', Validators.required],
+			email: ['', [Validators.required, Validators.email]]
 		});
 	}
 
+	// convenience getter for easy access to form fields
+	get f() {
+		return this.registerForm.controls;
+	}
+
 	public onSubmit(form: FormGroup): void {
+		this.submitted = true;
 		this.quizService.register(form.value).subscribe(
 			(user: User) => {
 				this.router.navigate([`./quiz/home/${user.userId}`]);

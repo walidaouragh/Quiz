@@ -25,7 +25,7 @@ namespace Quiz.API.Controllers
         {
             if (string.IsNullOrEmpty(userToRegister.Email) || string.IsNullOrEmpty(userToRegister.FirstName) || string.IsNullOrEmpty(userToRegister.LastName))
             {
-                 return UnprocessableEntity($"You cannot Register with missing email or name ");
+                 return UnprocessableEntity($"Missing name or email");
             }
 
             var emailExists = await _userRepository.GetUserByEmail(userToRegister.Email);

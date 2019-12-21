@@ -35,6 +35,12 @@
 							<div fxLayout="column" fxLayoutAlign="start stretch">
 								<mat-form-field style="width: 100%">
 									<input matInput placeholder="E-Mail" type="text" formControlName="adminEmail" />
+									<mat-error *ngIf="submitted && f.adminEmail.errors">
+										<mat-error *ngIf="f.adminEmail.errors.required">Email is required</mat-error>
+										<mat-error *ngIf="f.adminEmail.errors.email"
+											>Email must be a valid email address</mat-error
+										>
+									</mat-error>
 								</mat-form-field>
 								<mat-form-field style="width: 100%" class="mb-1">
 									<input
@@ -43,24 +49,13 @@
 										type="password"
 										formControlName="adminPassword"
 									/>
+									<mat-error *ngIf="submitted && f.adminPassword.errors">
+										<mat-error *ngIf="f.adminPassword.errors.required"
+											>Password is required</mat-error
+										>
+									</mat-error>
 								</mat-form-field>
 								<button class="mat-green" mat-raised-button type="submit">SIGN IN</button>
-								<p class="mat-text-warn mb-0">Forgot password?</p>
-								<p class="mb-0">
-									Don't have an account?
-									<a class="mat-text-primary" routerLink="/register">Register Here</a>
-								</p>
-							</div>
-							<div>
-								<p>Sign in using</p>
-								<a class="shared-icon mr-1 mat-blue">
-									<i class="fa fa-facebook fa-lg mr-1"></i>
-									Facebook
-								</a>
-								<a class="shared-icon mat-red">
-									<i class="fa fa-google fa-lg mr-1"></i>
-									Google
-								</a>
 							</div>
 						</form>
 					</div>
