@@ -88,6 +88,9 @@ export class QuestionComponent implements OnInit, AfterViewInit {
 	}
 	public onDelete(quizId, questionId): void {
 		const dialogConfig: MatDialogConfig = new MatDialogConfig();
+		dialogConfig.data = {
+			modalType: 'delete'
+		};
 		this.dialog.open(ConfirmDialogComponent, dialogConfig);
 
 		this.quizService.deleteQuestions(quizId, questionId).subscribe(res => {
@@ -98,6 +101,9 @@ export class QuestionComponent implements OnInit, AfterViewInit {
 	public openDialog(quizId, questionId): void {
 		const dialogConfig: MatDialogConfig = new MatDialogConfig();
 		dialogConfig.width = '30%';
+		dialogConfig.data = {
+			modalType: 'delete'
+		};
 		const dialogRef = this.dialog.open(ConfirmDialogComponent, dialogConfig);
 
 		dialogRef.afterClosed().subscribe((confirmed: boolean) => {

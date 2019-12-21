@@ -1,6 +1,16 @@
-<h1 mat-dialog-title>Are you sure?</h1>
+<h2 mat-dialog-title [ngSwitch]="modalType">
+	<ng-container *ngSwitchCase="'submit'">Submit?</ng-container>
+	<ng-container *ngSwitchCase="'delete'">Delete?</ng-container>
+	<ng-container *ngSwitchCase="'logout'">Log out?</ng-container>
+</h2>
 
-<mat-dialog-actions align="end">
+<mat-dialog-content>
+	<p *ngIf="modalType === 'submit'">Are you sure you want to submit?</p>
+	<p *ngIf="modalType === 'logout'">Are you sure you want to log out?</p>
+	<p *ngIf="modalType === 'delete'">Are you sure you want to delete?</p>
+</mat-dialog-content>
+
+<mat-dialog-actions fxLayoutAlign="end end">
 	<button mat-raised-button (click)="onCancel()">Cancel</button>
 	<button mat-raised-button color="accent" (click)="onSubmit()">Submit</button>
 </mat-dialog-actions>

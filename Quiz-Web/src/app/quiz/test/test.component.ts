@@ -73,6 +73,9 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 		window.scrollTo(0, 0);
 		this.isSubmitted = true;
 		const dialogConfig: MatDialogConfig = new MatDialogConfig();
+		dialogConfig.data = {
+			modalType: 'submit'
+		};
 		this.dialog.open(ConfirmDialogComponent, dialogConfig);
 
 		let trueArray: any[] = [];
@@ -97,7 +100,6 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 			(error: HttpErrorResponse) => {
 				console.log(error);
 				this.errorMessage = error.error;
-				console.log('111111111', this.errorMessage);
 			}
 		);
 	}
@@ -105,6 +107,9 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 	public openDialog(): void {
 		const dialogConfig: MatDialogConfig = new MatDialogConfig();
 		dialogConfig.width = '30%';
+		dialogConfig.data = {
+			modalType: 'submit'
+		};
 		const dialogRef = this.dialog.open(ConfirmDialogComponent, dialogConfig);
 
 		dialogRef.afterClosed().subscribe((confirmed: boolean) => {
