@@ -1,11 +1,9 @@
 <mat-progress-bar mode="determinate" [value]="testPercentage"></mat-progress-bar>
-<div class="score">{{ numberOfAnsweredQuestions || 0 }} / {{ quiz?.questions.length }} questions</div>
-<div class="container mt-5">
-	<div>
-		<h3>Test Your {{ quiz?.quizName }}</h3>
-		<p>For the questions below, please choose the best option to complete the sentence or conversation.</p>
-		<mat-error class="row mb-2 alert" *ngIf="errorMessage">{{ errorMessage }}</mat-error>
-	</div>
+<div class="score mb-5">{{ numberOfAnsweredQuestions || 0 }} / {{ quiz?.questions.length }} questions</div>
+<div class="container margin-top">
+	<h3>Test Your {{ quiz?.quizName }}</h3>
+	<p>For the questions below, please choose the best option to complete the sentence or conversation.</p>
+	<mat-error class="row mb-2 alert" *ngIf="errorMessage">{{ errorMessage }}</mat-error>
 	<form [formGroup]="answersForm" *ngIf="quiz">
 		<mat-card *ngFor="let q of quiz.questions; let i = index" class="mb-3 card" formArrayName="options">
 			<mat-radio-group aria-label="Select an option" [formControlName]="i">

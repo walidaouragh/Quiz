@@ -42,14 +42,22 @@ mat-radio-group {
 	z-index: 1000;
 }
 .score {
-	padding: 25px 100px 25px 100px;
+	padding: 25px 0 25px 0;
+	font-size: 35px;
+	background-color: rgb(255, 255, 255);
+	text-align: center;
 	position: fixed;
-	font-size: 25px;
-	background-color: #607d8b21;
-	border-radius: 30px;
+	top: 15px;
+	width: 100%;
+	z-index: 100;
+	color: #28a745;
 }
 .alert {
 	color: #721c24;
 	background-color: #f8d7da;
 	margin: 0 10px 0 10px;
+}
+
+.margin-top {
+	margin-top: 10rem;
 }
