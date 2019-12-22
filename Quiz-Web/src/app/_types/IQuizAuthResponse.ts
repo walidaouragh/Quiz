@@ -8,6 +8,6 @@ export interface IQuizAuthResponse {
 	success: boolean;
 	token: string;
 	isAdmin: boolean;
-	DisplayName: string;
-	Errors: string;
+	displayName: string;
+	errors: string;
 }

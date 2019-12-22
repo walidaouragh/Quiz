@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
 		this.quizService.LoginAdmin(this.admin).subscribe(
 			(DATA: IQuizAuthResponse) => {
 				localStorage.setItem('admin', JSON.stringify(this.admin));
+				localStorage.setItem('DATA', JSON.stringify(DATA));
 				this.router.navigate(['./quiz/admin-dashboard']);
 			},
 			(error: HttpErrorResponse) => {

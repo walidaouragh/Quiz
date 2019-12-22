@@ -19,6 +19,8 @@ namespace Quiz.API.Repositories.User
     public class UserRepository : IUserRepository
     {
         private const string AdminUserEmail = "walid@quiz.com";
+        private const string AdminUserFirstName = "Walid";
+        private const string AdminUserLastName = "Aouragh";
         private readonly QuizDbContext _context;
         private readonly UserManager<Admin> _userManager;
         private readonly IConfiguration _configuration;
@@ -76,6 +78,8 @@ namespace Quiz.API.Repositories.User
             {
                 Email = AdminUserEmail,
                 UserName = AdminUserEmail,
+                FirstName = AdminUserFirstName,
+                LastName = AdminUserLastName,
                 IsAdmin = true
             };
 
