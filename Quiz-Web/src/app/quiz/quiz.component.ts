@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -7,10 +7,15 @@ import { Location } from '@angular/common';
 	templateUrl: './quiz.component.html',
 	styleUrls: ['./quiz.component.scss']
 })
-export class QuizComponent implements OnInit {
-	constructor(private router: Router, private loc: Location) {}
+export class QuizComponent implements OnInit, AfterViewInit {
+	constructor(private router: Router, private loc: Location, private elementRef: ElementRef) {}
 
 	public isConnected: boolean;
+
+	//change a body color for only a specific component.
+	ngAfterViewInit() {
+		this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#eaeaea';
+	}
 
 	ngOnInit() {
 		this.isConnected = navigator.onLine;

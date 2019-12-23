@@ -8,16 +8,12 @@ import { Router } from '@angular/router';
 	templateUrl: './admin-dashboard.component.html',
 	styleUrls: ['./admin-dashboard.component.scss']
 })
-export class AdminDashboardComponent implements OnInit, AfterViewInit {
-	constructor(private quizService: QuizService, private router: Router, private elementRef: ElementRef) {}
+export class AdminDashboardComponent implements OnInit {
+	constructor(private quizService: QuizService, private router: Router) {}
 
 	public quizzes: IQuiz[];
 	public quiz: IQuiz;
 
-	//change a body color for only a specific component.
-	ngAfterViewInit() {
-		this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#eaeaea';
-	}
 	ngOnInit() {
 		this.quizService.getQuizzes().subscribe((q: IQuiz[]) => {
 			this.quizzes = q;

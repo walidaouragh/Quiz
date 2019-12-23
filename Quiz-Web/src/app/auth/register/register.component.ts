@@ -35,7 +35,9 @@ export class RegisterComponent implements OnInit {
 		this.submitted = true;
 		this.quizService.register(form.value).subscribe(
 			(user: User) => {
-				this.router.navigate([`./quiz/home/${user.userId}`]);
+				if (form.valid) {
+					this.router.navigate([`./quiz/home/${user.userId}`]);
+				}
 			},
 			(error: HttpErrorResponse) => {
 				this.errorMessage = error.error;
