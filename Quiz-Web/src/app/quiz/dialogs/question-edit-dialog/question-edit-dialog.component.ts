@@ -25,6 +25,7 @@ export class QuestionEditDialogComponent implements OnInit {
 	public errorMessage: string;
 	public errorMessage2: string;
 	public optionsCtrl: FormArray;
+	public submitted: boolean = false;
 
 	ngOnInit() {
 		this.optionsCtrl = this.fb.array([]);
@@ -51,6 +52,7 @@ export class QuestionEditDialogComponent implements OnInit {
 	}
 
 	public onSubmit(): void {
+		this.submitted = true;
 		this.quizService.updateQuestions(this.form.value, this.modalData.quizId, this.modalData.questionId).subscribe(
 			(q: IQuestion) => {
 				this.dialogRef.close(true);

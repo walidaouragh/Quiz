@@ -5,6 +5,9 @@
 		<mat-form-field class="input-full-width">
 			<mat-label>Question</mat-label>
 			<input matInput placeholder="Question" formControlName="questionText" />
+			<mat-error *ngIf="submitted && form.get('questionText').errors">
+				<mat-error *ngIf="form.get('questionText').errors.required">Question is required</mat-error>
+			</mat-error>
 		</mat-form-field>
 		<div formArrayName="options">
 			<div *ngFor="let option of options.controls; let i = index" [formGroupName]="i">
@@ -13,6 +16,12 @@
 						<td fxFlex>
 							<mat-form-field class="input-full-width">
 								<input matInput placeholder="Option" formControlName="optionText" />
+								<mat-error *ngIf="submitted && options.controls[i].get('optionText')?.errors">
+									<mat-error
+										*ngIf="submitted && options.controls[i].get('optionText')?.errors.required"
+										>Option {{ i + 1 }} is required</mat-error
+									>
+								</mat-error>
 							</mat-form-field>
 						</td>
 						<td style="margin-top: 20px">

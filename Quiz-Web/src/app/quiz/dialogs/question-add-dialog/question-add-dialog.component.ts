@@ -22,6 +22,7 @@ export class QuestionAddDialogComponent implements OnInit {
 	public form: FormGroup;
 	public errorMessage: string;
 	public errorMessage2: string;
+	public submitted: boolean = false;
 
 	ngOnInit() {
 		this.form = this.fb.group({
@@ -53,6 +54,7 @@ export class QuestionAddDialogComponent implements OnInit {
 	}
 
 	public onSubmit(form: FormGroup): void {
+		this.submitted = true;
 		this.quizService.creatQuestions(this.form.value, this.modalData.quizId).subscribe(
 			(res: IQuestion) => {
 				this.dialogRef.close(true);
