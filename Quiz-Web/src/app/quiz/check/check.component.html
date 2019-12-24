@@ -1,8 +1,9 @@
 <div class="container mt-5">
 	<br />
 	<div>
-		<mat-card *ngFor="let q of quiz?.questions" class="mb-3 card">
-			<mat-radio-group aria-label="Select an option">
+		<mat-card *ngFor="let q of quiz?.questions; let b = index" class="mb-3 card">
+			<!--answers with radio button view-->
+			<!--<mat-radio-group aria-label="Select an option">
 				<h3 class="mb-3">{{ q.questionText }}</h3>
 				<div *ngFor="let s of q.options; let i = index">
 					<mat-radio-button [value]="s" disabled>{{ s.optionText }}</mat-radio-button>
@@ -21,6 +22,53 @@
 							>Correct</span
 						>
 					</span>
+				</div>
+			</mat-radio-group>-->
+
+			<mat-radio-group aria-label="Select an option">
+				<h3 class="readonly-label mb-1">{{ q.questionText }}</h3>
+				<div *ngFor="let s of q.options; let i = index">
+					<div *ngFor="let o of selectedOptions">
+						<ng-container *ngIf="o.optionId === s.optionId && o.isCorrect">
+							<label class="label-correct"><span class="font-bold">Correct</span>(your answer)</label>
+							<div class="d-flex align-items-center small mb-2">
+								<i class="fa fa-check fa-2x position-absolute pl-1 label-correct"></i>
+								<input
+									type="text"
+									class="form-control right-answer py-4 font-bold"
+									style="padding-left: 45px;"
+									[value]="s.optionText"
+									disabled
+								/>
+							</div>
+						</ng-container>
+						<ng-container *ngIf="s.optionId !== o.optionId && s.questionId === o.questionId && s.isCorrect">
+							<label class="label-correct"><span class="font-bold">Correct</span></label>
+							<div class="d-flex align-items-center small mb-2">
+								<i class="fa fa-check fa-2x position-absolute pl-1 label-correct"></i>
+								<input
+									type="text"
+									class="form-control py-4 right-answer font-bold"
+									style="padding-left: 45px;"
+									[value]="s.optionText"
+									disabled
+								/>
+							</div>
+						</ng-container>
+						<ng-container *ngIf="o.optionId === s.optionId && !o.isCorrect">
+							<label class="label-wrong"><span class="font-bold">Incorrect</span>(your answer)</label>
+							<div class="d-flex align-items-center small mb-2">
+								<i class="fa fa-times fa-2x position-absolute pl-1 label-wrong"></i>
+								<input
+									type="text"
+									class="form-control py-4 wrong-answer font-bold"
+									style="padding-left: 45px;"
+									[value]="s.optionText"
+									disabled
+								/>
+							</div>
+						</ng-container>
+					</div>
 				</div>
 			</mat-radio-group>
 		</mat-card>

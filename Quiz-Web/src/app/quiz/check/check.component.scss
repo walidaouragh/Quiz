@@ -54,3 +54,29 @@ mat-radio-group {
 	padding: 5px;
 	margin-left: 45px;
 }
+.right-answer {
+	border-color: green;
+	color: green;
+}
+.wrong-answer {
+	border-color: red;
+	color: red;
+}
+
+.label-correct {
+	color: green;
+}
+.label-wrong {
+	color: red;
+}
+
+.font-bold {
+	font-size: 17px;
+	font-weight: 700 !important;
+}
+
+.readonly-label {
+	color: #999999;
+	font-weight: 500;
+	white-space: nowrap;
+}
