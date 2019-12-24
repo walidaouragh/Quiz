@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div *ngIf="selectedOptions?.length > 0; else noSelectedOptions" class="container mt-5">
 	<br />
 	<div>
 		<mat-card *ngFor="let q of quiz?.questions; let b = index" class="mb-3 card">
@@ -73,7 +73,19 @@
 			</mat-radio-group>
 		</mat-card>
 	</div>
-	<button mat-raised-button class="btn-block mb-5" color="accent" routerLink="/register">
+	<button mat-raised-button class="btn-block mb-5" color="accent" (click)="openConfirmationDialog()">
 		Done
 	</button>
 </div>
+<ng-template #noSelectedOptions>
+	<div class="container mt-5">
+		<mat-card class="check-card">
+			<mat-card-title class="readonly-label">
+				<h1>No selected answers!</h1>
+			</mat-card-title>
+			<mat-card-actions>
+				<button mat-raised-button color="accent" (click)="backToTest(quizId)">Back to test!</button>
+			</mat-card-actions>
+		</mat-card>
+	</div>
+</ng-template>

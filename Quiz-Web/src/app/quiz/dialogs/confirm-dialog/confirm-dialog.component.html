@@ -2,12 +2,14 @@
 	<ng-container *ngSwitchCase="'submit'">Submit?</ng-container>
 	<ng-container *ngSwitchCase="'delete'">Delete?</ng-container>
 	<ng-container *ngSwitchCase="'logout'">Log out?</ng-container>
+	<ng-container *ngSwitchCase="'exit'">Done?</ng-container>
 </h2>
 
 <mat-dialog-content>
 	<p *ngIf="modalType === 'submit'">Are you sure you want to submit?</p>
 	<p *ngIf="modalType === 'logout'">Are you sure you want to log out?</p>
 	<p *ngIf="modalType === 'delete'">Are you sure you want to delete?</p>
+	<p *ngIf="modalType === 'exit'">Are you sure you want to leave this page? You will be logged out.</p>
 </mat-dialog-content>
 
 <mat-dialog-actions fxLayoutAlign="end end">

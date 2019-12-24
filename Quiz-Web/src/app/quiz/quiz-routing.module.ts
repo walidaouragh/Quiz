@@ -28,14 +28,14 @@ const quizRoutes: Routes = [
 				data: { reuse: true, title: 'Test' }
 			},
 			{
-				path: ':quizId/result',
+				path: ':quizId/result/:userId',
 				component: ResultComponent,
 				data: {
 					title: 'Result'
 				}
 			},
 			{
-				path: ':quizId/check',
+				path: ':quizId/check/:userId',
 				component: CheckComponent,
 				data: {
 					title: 'Check'

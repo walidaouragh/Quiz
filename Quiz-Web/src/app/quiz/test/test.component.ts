@@ -95,7 +95,7 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 						this.incorrectAnswers = falseArray.length;
 					}
 				});
-				this.router.navigate([`/quiz/${this.quizId}/result`]);
+				this.router.navigate([`/quiz/${this.quizId}/result/${this.userId}`]);
 			},
 			(error: HttpErrorResponse) => {
 				console.log(error);
