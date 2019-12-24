@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import User = namespace.User;
 import IOption = namespace.IOption;
 import { IAdminAuthRequest } from '../_types/IQuizAuthResponse';
@@ -12,8 +12,8 @@ import IQuestion = namespace.IQuestion;
 export class QuizService {
 	constructor(private http: HttpClient) {}
 
-	public correctAnswers$: Subject<number> = new Subject<number>();
-	public totalQuestions$: Subject<number> = new Subject<number>();
+	public correctAnswers$: BehaviorSubject<number> = new BehaviorSubject<number>(null);
+	public totalQuestions$: BehaviorSubject<number> = new BehaviorSubject<number>(null);
 	public selectedAnswers$: BehaviorSubject<IOption[]> = new BehaviorSubject<IOption[]>([]);
 
 	public getQuizzes(): Observable<any> {

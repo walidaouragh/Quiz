@@ -4,7 +4,7 @@
 			<h1>Well done for completing the test!</h1>
 		</mat-card-title>
 		<mat-card-content>
-			<h2>Your score is {{ correctAnswers || 0 }} correct answers out of {{ totalQuestions }} questions</h2>
+			<h2>Your score is {{ correctAnswers || 0 }} correct answers out of {{ totalQuestions || 0 }} questions</h2>
 		</mat-card-content>
 		<mat-card-actions>
 			<button mat-raised-button color="accent" (click)="openConfirmationDialog()">Done!</button>
