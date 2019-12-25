@@ -52,9 +52,18 @@ namespace Quiz.API.Repositories.User
         public async Task<Models.User> GetUserById(int userId)
         {
             var user = await _context.Users
+                .Include(x => x.UserAnswers)
                 .Where(u => u.UserId == userId)
                 .FirstOrDefaultAsync();
             return user;
+        }
+
+        public async Task<List<Models.User>> GetAllUsers()
+        {
+            var users = await _context.Users
+                .Include(x => x.UserAnswers)
+                .ToListAsync();
+            return users;
         }
 
         public async Task<Models.User> GetUserByEmail(string userEmail)

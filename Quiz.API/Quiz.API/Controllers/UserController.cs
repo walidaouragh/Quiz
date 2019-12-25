@@ -53,6 +53,18 @@ namespace Quiz.API.Controllers
             return Ok(user);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var users = await _userRepository.GetAllUsers();
+            if (users == null)
+            {
+                return NotFound($"Could not find users");
+            }
+
+            return Ok(users);
+        }
+
         [HttpPost("admin/login")]
         public async Task<IActionResult> LoginAdmin([FromBody]AdminToLogin adminToLogin)
         {
