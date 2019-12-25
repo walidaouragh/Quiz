@@ -1,15 +1,7 @@
 <div class="relative">
 	<div class="form-bg">
 		<div fxLayout="row" fxLayoutAlign="center start" class="pt-2">
-			<div
-				fxLayout="column"
-				fxFlex.xl="30"
-				fxFlex.lg="30"
-				fxFlex.md="50"
-				fxFlex.sm="80"
-				fxFlex.xs="90"
-				class="register-card"
-			>
+			<div class="register-card" style="max-width: 100%">
 				<mat-card class="login-session">
 					<div *ngIf="errorMessage" class="alert">
 						{{ errorMessage }}

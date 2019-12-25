@@ -1,11 +1,23 @@
 .register-card {
-  top: 20%;
-  position: absolute;
-  width: 30%;
+	top: 20%;
+	position: absolute;
+	width: 30%;
 }
 
 .alert {
-   color: #721c24;
-   background-color: #f8d7da;
-   padding: 10px;
- }
+	color: #721c24;
+	background-color: #f8d7da;
+	padding: 10px;
+}
+
+@media screen and (max-width: 1280px) {
+	.register-card {
+		width: 40%;
+	}
+}
+
+@media screen and (max-width: 980px) {
+	.register-card {
+		width: 70%;
+	}
+}
