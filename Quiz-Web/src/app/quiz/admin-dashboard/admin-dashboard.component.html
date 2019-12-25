@@ -1,10 +1,35 @@
 <app-navbar></app-navbar>
 <div class="container margin-top">
-	<div class="row">
-		<div class="col-6 mb-2" *ngFor="let q of quizzes">
-			<button class="btn btn-pink btn-block" (click)="onQuizPick(q.quizId)">
-				<span class="font-weight-bold">{{ q.quizName }}</span>
-			</button>
-		</div>
+	<div class="row mb-2">
+		<button class="btn btn-pink btn-block" routerLink="/quiz/admin-dashboard/manage">
+			<span class="font-weight-bold">Manage Quizzes</span>
+		</button>
+	</div>
+	<div *ngIf="users && users.length > 0">
+		<mat-card class="trip-table table-card total-table-border">
+			<div #usersTable>
+				<mat-card-title>
+					<h5 class="mt-0">Testers</h5>
+				</mat-card-title>
+				<table mat-table [dataSource]="users" class="trip-table" matSort matSortDirection="asc">
+					<ng-container matColumnDef="userName">
+						<th mat-header-cell *matHeaderCellDef mat-sort-header><strong>Tester</strong></th>
+						<td mat-cell *matCellDef="let element">
+							<a class="user-link" [routerLink]="['/quiz/admin-dashboard/user-detail', element.userId]"
+								>{{ element.firstName }} {{ element.lastName }}</a
+							>
+						</td>
+					</ng-container>
+					<ng-container matColumnDef="email">
+						<th mat-header-cell *matHeaderCellDef mat-sort-header><strong>Email</strong></th>
+						<td mat-cell *matCellDef="let element">
+							{{ element.email }}
+						</td>
+					</ng-container>
+					<tr class="pilots-table-header" mat-header-row *matHeaderRowDef="displayedPilotsColumns"></tr>
+					<tr mat-row *matRowDef="let row; columns: displayedPilotsColumns"></tr>
+				</table>
+			</div>
+		</mat-card>
 	</div>
 </div>

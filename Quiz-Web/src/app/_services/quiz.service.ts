@@ -47,4 +47,12 @@ export class QuizService {
 	public deleteQuestions(quizId: number, questionId: number): Observable<any> {
 		return this.http.delete(`https://localhost:5001/api/question/delete/${quizId}/${questionId}`);
 	}
+
+	public getUsers(): Observable<any> {
+		return this.http.get('https://localhost:5001/api/user');
+	}
+
+	public getUserById(userId: number): Observable<any> {
+		return this.http.get(`https://localhost:5001/api/user/${userId}`);
+	}
 }

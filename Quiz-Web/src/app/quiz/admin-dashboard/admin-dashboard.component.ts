@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../../_services/quiz.service';
-import IQuiz = namespace.IQuiz;
-import { Router } from '@angular/router';
+
+import User = namespace.User;
 
 @Component({
 	selector: 'app-admin-dashboard',
@@ -9,18 +9,14 @@ import { Router } from '@angular/router';
 	styleUrls: ['./admin-dashboard.component.scss']
 })
 export class AdminDashboardComponent implements OnInit {
-	constructor(private quizService: QuizService, private router: Router) {}
+	constructor(private quizService: QuizService) {}
 
-	public quizzes: IQuiz[];
-	public quiz: IQuiz;
+	public users: User[];
+	public displayedPilotsColumns: string[] = ['userName', 'email'];
 
 	ngOnInit() {
-		this.quizService.getQuizzes().subscribe((q: IQuiz[]) => {
-			this.quizzes = q;
+		this.quizService.getUsers().subscribe((users: User[]) => {
+			this.users = users;
 		});
-	}
-
-	public onQuizPick(id: number): void {
-		this.router.navigate([`quiz/admin-dashboard/${id}`]);
 	}
 }

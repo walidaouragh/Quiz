@@ -22,6 +22,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { QuestionComponent } from './admin-dashboard/edit/question.component';
 import { QuestionEditDialogComponent } from './dialogs/question-edit-dialog/question-edit-dialog.component';
 import { QuestionAddDialogComponent } from './dialogs/question-add-dialog/question-add-dialog.component';
+import { ManageQuizzesComponent } from './manage-quizzes/manage-quizzes.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 @NgModule({
 	imports: [
@@ -48,7 +50,9 @@ import { QuestionAddDialogComponent } from './dialogs/question-add-dialog/questi
 		AdminDashboardComponent,
 		QuestionComponent,
 		QuestionEditDialogComponent,
-		QuestionAddDialogComponent
+		QuestionAddDialogComponent,
+		ManageQuizzesComponent,
+		UserDetailComponent
 	],
 	providers: [QuizService, CanDeactivateGuard, HeaderTitleService],
 	entryComponents: [ConfirmDialogComponent, QuestionEditDialogComponent, QuestionAddDialogComponent]
