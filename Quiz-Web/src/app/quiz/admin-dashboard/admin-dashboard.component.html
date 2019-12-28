@@ -1,18 +1,46 @@
 <app-navbar></app-navbar>
 <div class="container margin-top">
-	<div class="row mb-2">
+	<div class="row mb-2 margin-left-right">
 		<button class="btn btn-pink btn-block" routerLink="/quiz/admin-dashboard/manage">
 			<span class="font-weight-bold">Manage Quizzes</span>
 		</button>
 	</div>
-	<div *ngIf="users && users.length > 0">
-		<mat-card class="trip-table table-card total-table-border">
+	<div *ngIf="users">
+		<mat-card>
 			<div #usersTable>
+				<div fxLayout fxLayoutAlign="start center" class="mb-2 ml-2 mt-xs">
+					<mat-form-field fxFlex="100%" class="mr-1 mt-1">
+						<input
+							matInput
+							type="text"
+							placeholder="Search for tester"
+							[(ngModel)]="filterText"
+							(keyup)="applyFilter($event.target.value)"
+						/>
+						<button
+							mat-icon-button
+							matSuffix
+							*ngIf="filterText"
+							[attr.aria-label]="'Clear'"
+							(click)="filterText = ''; applyFilter('')"
+						>
+							<mat-icon>close</mat-icon>
+						</button>
+					</mat-form-field>
+				</div>
+				<div *ngIf="isLoadingResults" class="loading-container"></div>
 				<mat-card-title>
-					<h5 class="mt-0">Testers</h5>
+					<h5 class="user-name">Testers</h5>
 				</mat-card-title>
-				<table mat-table [dataSource]="users" class="trip-table" matSort matSortDirection="asc">
-					<ng-container matColumnDef="userName">
+				<table
+					mat-table
+					[dataSource]="users"
+					matSort
+					matSortActive="lastName"
+					matSortDisableClear
+					matSortDirection="asc"
+				>
+					<ng-container matColumnDef="lastName">
 						<th mat-header-cell *matHeaderCellDef mat-sort-header><strong>Tester</strong></th>
 						<td mat-cell *matCellDef="let element">
 							<a class="user-link" [routerLink]="['/quiz/admin-dashboard/user-detail', element.userId]"
@@ -26,10 +54,23 @@
 							{{ element.email }}
 						</td>
 					</ng-container>
-					<tr class="pilots-table-header" mat-header-row *matHeaderRowDef="displayedPilotsColumns"></tr>
-					<tr mat-row *matRowDef="let row; columns: displayedPilotsColumns"></tr>
+					<ng-container matColumnDef="removeTester">
+						<th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+						<td mat-cell *matCellDef="let element">
+							<span mat-icon-button style="cursor: pointer">
+								<i
+									class="fa fa-trash-o pl-1"
+									style="font-size:20px;color:red"
+									(click)="openDeleteTesterDialog(element.userId)"
+								></i>
+							</span>
+						</td>
+					</ng-container>
+					<tr mat-header-row *matHeaderRowDef="displayedUsersColumns"></tr>
+					<tr mat-row *matRowDef="let row; columns: displayedUsersColumns"></tr>
 				</table>
 			</div>
+			<mat-paginator [length]="resultsLength" [pageSize]="30"></mat-paginator>
 		</mat-card>
 	</div>
 </div>

@@ -1,0 +1,63 @@
+.container {
+	max-width: 70rem !important;
+}
+
+.margin-top {
+	margin-top: 100px;
+}
+
+table {
+	width: 100%;
+}
+
+.mat-card-title {
+	display: block;
+	background-color: #e3f2fd;
+	padding-bottom: 15px;
+}
+
+tr.mat-header-row {
+	height: 40px;
+}
+
+.user-name {
+	font-size: 25px;
+	font-weight: 700;
+	color: #202021;
+}
+
+.readonly-label {
+	color: #999999;
+	font-weight: 700;
+	white-space: nowrap;
+	padding-left: 10px;
+}
+
+.label-correct {
+	color: green;
+}
+.label-wrong {
+	color: red;
+}
+
+.user-total {
+	background: #e3f2fd;
+}
+
+.readonly-label2 {
+	color: #999999;
+	font-weight: 500;
+	white-space: nowrap;
+}
+.font-bold {
+	color: #202021 !important;
+	font-size: larger !important;
+	font-weight: bolder !important;
+}
+.m-right {
+	margin-right: 3px !important;
+}
+
+.user-padding {
+	padding: 10px;
+}

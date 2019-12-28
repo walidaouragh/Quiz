@@ -20,7 +20,7 @@
 
 .font-weight-bold {
 	font-weight: 700 !important;
-	font-size: -webkit-xxx-large;
+	font-size: 20px;
 }
 
 .mat-expansion-panel {
@@ -49,4 +49,34 @@
 
 table {
 	width: 100%;
+}
+
+.user-name {
+	font-size: 25px;
+	font-weight: 500;
+	color: #202021;
+}
+
+.mat-card-title {
+	display: block;
+	background-color: #e3f2fd;
+	padding-bottom: 15px;
+}
+
+tr.mat-header-row {
+	height: 40px !important;
+}
+
+.loading-container {
+	border: 5px solid #f3f3f3;
+	border-top: 5px solid #232c60;
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	animation: spin 1.5s linear infinite;
+	margin: 0 auto;
+}
+
+.margin-left-right {
+	margin: 0 5px 0 5px;
 }

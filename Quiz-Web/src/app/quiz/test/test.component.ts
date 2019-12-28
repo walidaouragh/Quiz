@@ -35,6 +35,7 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 	public testPercentage: number;
 	public numberOfAnsweredQuestions: number = 0;
 	public errorMessage: string;
+	public questionText: string;
 
 	ngOnInit() {
 		this.answersForm = new FormGroup({
@@ -57,8 +58,9 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 		});
 	}
 
-	public onChange(event: IOption): void {
+	public onChange(event: IOption, questionText: string): void {
 		event.userId = this.userId;
+		event.questionText = questionText;
 		//progress bar increment for each click
 		if (!!!event.questionId) return;
 		this.selectedAnswer[event.questionId] = true;

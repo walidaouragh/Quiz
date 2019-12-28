@@ -9,7 +9,7 @@
 			<mat-radio-group aria-label="Select an option" [formControlName]="i">
 				<h3 class="mb-2 readonly-label">{{ q.questionText }}</h3>
 				<div *ngFor="let s of q.options">
-					<mat-radio-button [value]="s" (change)="onChange(s)">{{ s.optionText }}</mat-radio-button>
+					<mat-radio-button [value]="s" (change)="onChange(s, q.questionText)">{{ s.optionText }}</mat-radio-button>
 				</div>
 			</mat-radio-group>
 		</mat-card>
