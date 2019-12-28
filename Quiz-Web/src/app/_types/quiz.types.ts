@@ -5,6 +5,7 @@ declare module namespace {
 		optionText: string;
 		isCorrect: boolean;
 		userId?: number;
+		questionText?: string;
 	}
 
 	export interface IQuestion {

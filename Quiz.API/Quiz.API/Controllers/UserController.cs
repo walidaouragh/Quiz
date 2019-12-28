@@ -97,6 +97,14 @@ namespace Quiz.API.Controllers
             return BadRequest(result);
         }
 
+        [HttpDelete("{userId}")]
+        public IActionResult DeleteTester(int userId)
+        {
+            _userRepository.DeleteTester(userId);
+            return NoContent();
+
+        }
+
 
         private async Task<AuthorizationResult> MapToAuthorizationResult(string email)
         {

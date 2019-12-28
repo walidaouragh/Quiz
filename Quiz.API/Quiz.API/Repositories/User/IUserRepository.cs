@@ -19,5 +19,7 @@ namespace Quiz.API.Repositories.User
 
         Admin GetIdentityUserByEmail(string email);
         string GenerateJwtToken(Admin admin);
+
+        Task  DeleteTester(int userId);
     }
 }

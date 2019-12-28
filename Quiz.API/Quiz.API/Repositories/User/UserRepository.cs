@@ -75,6 +75,13 @@ namespace Quiz.API.Repositories.User
             return user;
         }
 
+        public async Task DeleteTester(int userId)
+        {
+            var user = _context.Users.Where(u => u.UserId == userId).Single();
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<IdentityResult> EnsureAdminUserExists()
         {
             /*To ensure Admin post this in postman*/

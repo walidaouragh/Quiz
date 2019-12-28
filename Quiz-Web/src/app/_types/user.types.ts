@@ -14,5 +14,6 @@ declare module namespace {
 		questionId: number;
 		optionText: string;
 		isCorrect: boolean;
+		questionText: string;
 	}
 }

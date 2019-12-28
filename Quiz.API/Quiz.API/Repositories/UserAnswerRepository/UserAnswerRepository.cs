@@ -24,6 +24,7 @@ namespace Quiz.API.Repositories.UserAnswerRepository
                 UserAnswer result = new UserAnswer();
                 result.UserId = userId;
                 result.QuestionId = ans.QuestionId;
+                result.QuestionText = ans.QuestionText;
                 result.OptionText = ans.OptionText;
                 result.IsCorrect = ans.IsCorrect;
 

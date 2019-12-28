@@ -55,4 +55,8 @@ export class QuizService {
 	public getUserById(userId: number): Observable<any> {
 		return this.http.get(`https://localhost:5001/api/user/${userId}`);
 	}
+
+	public deleteTester(userId: number): Observable<any> {
+		return this.http.delete(`https://localhost:5001/api/user/${userId}`);
+	}
 }
