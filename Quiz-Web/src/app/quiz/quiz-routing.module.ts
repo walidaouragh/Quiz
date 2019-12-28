@@ -47,6 +47,7 @@ const quizRoutes: Routes = [
 				path: 'admin-dashboard',
 				component: AdminDashboardComponent,
 				data: {
+					reuse: true,
 					title: 'Admin'
 				}
 			},

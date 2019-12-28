@@ -204,6 +204,8 @@ namespace Quiz.API.Migrations
 
                     b.Property<int>("QuestionId");
 
+                    b.Property<string>("QuestionText");
+
                     b.Property<int?>("UserId");
 
                     b.HasKey("OptionId");
@@ -274,6 +276,8 @@ namespace Quiz.API.Migrations
                     b.Property<string>("OptionText");
 
                     b.Property<int>("QuestionId");
+
+                    b.Property<string>("QuestionText");
 
                     b.Property<int>("UserId");
 

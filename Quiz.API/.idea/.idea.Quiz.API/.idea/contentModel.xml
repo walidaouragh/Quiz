@@ -29,8 +29,8 @@
           <e p="MappingProfile.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="20191219160456_New.cs" t="Include" />
-          <e p="20191219160456_New.Designer.cs" t="Include" />
+          <e p="20191226214940_questionText.cs" t="Include" />
+          <e p="20191226214940_questionText.Designer.cs" t="Include" />
           <e p="QuizDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
