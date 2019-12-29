@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { QuizService } from '../../_services/quiz.service';
 import User = namespace.User;
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../dialogs/confirm-dialog/confirm-dialog.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
 	selector: 'app-admin-dashboard',
@@ -21,6 +22,7 @@ export class AdminDashboardComponent implements OnInit {
 	public isLoadingResults: boolean;
 
 	@ViewChild(MatSort, { static: false }) sort: MatSort;
+	@ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
 	ngOnInit() {
 		this.getUsers();
@@ -35,6 +37,7 @@ export class AdminDashboardComponent implements OnInit {
 				this.users = new MatTableDataSource(users);
 				this.resultsLength = this.users.data.length;
 				this.users.sort = this.sort;
+				this.users.paginator = this.paginator;
 				this.isLoadingResults = false;
 			},
 			(error: HttpErrorResponse) => {
