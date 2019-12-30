@@ -29,8 +29,8 @@ export class QuizService {
 		return this.http.post('https://localhost:5001/api/user', user);
 	}
 
-	public submitAnswers(options: IOption, userId: number): Observable<any> {
-		return this.http.post(`https://localhost:5001/api/userAnswer/${userId}`, options);
+	public submitAnswers(options: IOption, userId: number, quizName: string): Observable<any> {
+		return this.http.post(`https://localhost:5001/api/userAnswer/${userId}/${quizName}`, options);
 	}
 
 	public LoginAdmin(admin: IAdminAuthRequest): Observable<any> {

@@ -1,7 +1,7 @@
 <div class="container mt-5">
 	<div fxLayout="row" fxLayoutAlign="center center">
 		<div class="col-6 mb-2" *ngFor="let q of quizzes">
-			<button class="btn btn-pink btn-block" (click)="onNavigateToQuiz(q.quizId)">
+			<button class="btn btn-pink btn-block" (click)="onNavigateToQuiz(q.quizId, q.quizName)">
 				<span class="font-weight-bold">{{ q.quizName }}</span>
 			</button>
 		</div>

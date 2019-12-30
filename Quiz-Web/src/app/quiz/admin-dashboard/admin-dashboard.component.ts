@@ -15,7 +15,7 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class AdminDashboardComponent implements OnInit {
 	constructor(private quizService: QuizService, public dialog: MatDialog) {}
-	public displayedUsersColumns: string[] = ['lastName', 'email', 'removeTester'];
+	public displayedUsersColumns: string[] = ['lastName', 'email', 'quizName', 'removeTester'];
 	public users: MatTableDataSource<User>;
 	public filterText: string = '';
 	public resultsLength: number = 0;

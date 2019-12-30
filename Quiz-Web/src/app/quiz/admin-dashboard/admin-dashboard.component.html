@@ -54,6 +54,12 @@
 							{{ element.email }}
 						</td>
 					</ng-container>
+					<ng-container matColumnDef="quizName">
+						<th mat-header-cell *matHeaderCellDef mat-sort-header><strong>Quiz</strong></th>
+						<td mat-cell *matCellDef="let element">
+							{{ element.userAnswers[0]?.quizName }}
+						</td>
+					</ng-container>
 					<ng-container matColumnDef="removeTester">
 						<th mat-header-cell *matHeaderCellDef mat-sort-header></th>
 						<td mat-cell *matCellDef="let element">

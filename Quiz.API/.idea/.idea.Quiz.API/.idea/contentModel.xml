@@ -31,6 +31,8 @@
         <e p="Migrations" t="Include">
           <e p="20191226214940_questionText.cs" t="Include" />
           <e p="20191226214940_questionText.Designer.cs" t="Include" />
+          <e p="20191230170501_quizNameToUsers.cs" t="Include" />
+          <e p="20191230170501_quizNameToUsers.Designer.cs" t="Include" />
           <e p="QuizDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">

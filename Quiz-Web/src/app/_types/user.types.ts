@@ -9,6 +9,7 @@ declare module namespace {
 	}
 
 	export interface UserAnswer {
+		quizName: string;
 		userId: number;
 		userAnswerId: number;
 		questionId: number;

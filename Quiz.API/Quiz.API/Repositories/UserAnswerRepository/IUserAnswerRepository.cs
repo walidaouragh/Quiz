@@ -7,7 +7,7 @@ namespace Quiz.API.Repositories.UserAnswerRepository
 {
     public interface IUserAnswerRepository
     {
-        Task<List<UserAnswer>> UserPostAnswers(List<AnswerToPost> answerToPost, int userId);
+        Task<List<UserAnswer>> UserPostAnswers(List<AnswerToPost> answerToPost, int userId, string quizName);
 
         IQueryable<UserAnswer> GetUserAnswersByQuestionId(int questionId, int userId);
     }

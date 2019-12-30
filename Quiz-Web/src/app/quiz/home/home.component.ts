@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
 		});
 	}
 
-	public onNavigateToQuiz(id): void {
-		this.router.navigate([`quiz/test/${id}/${this.userId}`]);
+	public onNavigateToQuiz(id, quizName): void {
+		this.router.navigate([`quiz/test/${id}/${this.userId}/${quizName}`]);
 	}
 }

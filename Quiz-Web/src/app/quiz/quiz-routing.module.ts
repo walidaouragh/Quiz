@@ -10,7 +10,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ManageQuizzesComponent } from './manage-quizzes/manage-quizzes.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
-import { QuestionComponent } from "./admin-dashboard/edit-question/question.component";
+import { QuestionComponent } from './admin-dashboard/edit-question/question.component';
 
 const quizRoutes: Routes = [
 	{
@@ -25,7 +25,7 @@ const quizRoutes: Routes = [
 				}
 			},
 			{
-				path: 'test/:id/:userId',
+				path: 'test/:id/:userId/:quizName',
 				component: TestComponent,
 				data: { reuse: true, title: 'Test' }
 			},

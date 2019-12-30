@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -23,15 +22,15 @@ namespace Quiz.API.Controllers
             _mapper = mapper;
         }
 
-        [HttpPost("{userId}")]
-        public async Task<IActionResult> PostAnswers([FromBody]List<Option> answer, int userId)
+        [HttpPost("{userId}/{quizName}")]
+        public async Task<IActionResult> PostAnswers([FromBody]List<Option> answer, int userId, string quizName)
         {
             var mapper = _mapper.Map<List<Option>, List<AnswerToPost>>(answer);
             if (mapper.Contains(null))
             {
                 return UnprocessableEntity($"All answers are required");
             }
-            var result = await _userAnswerRepository.UserPostAnswers(mapper, userId);
+            var result = await _userAnswerRepository.UserPostAnswers(mapper, userId, quizName);
 
             return Ok(result);
         }

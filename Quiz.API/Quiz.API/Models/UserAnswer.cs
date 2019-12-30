@@ -4,6 +4,7 @@ namespace Quiz.API.Models
     {
         public int UserId { get; set; }
         public int UserAnswerId { get; set; }
+        public string QuizName { get; set; }
         public string QuestionText { get; set; }
         public int QuestionId { get; set; }
         public string OptionText { get; set; }

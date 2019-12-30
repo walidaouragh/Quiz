@@ -36,6 +36,7 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 	public numberOfAnsweredQuestions: number = 0;
 	public errorMessage: string;
 	public questionText: string;
+	public quizName: string;
 
 	ngOnInit() {
 		this.answersForm = new FormGroup({
@@ -44,6 +45,7 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 
 		this.quizId = +this.route.snapshot.paramMap.get('id');
 		this.userId = +this.route.snapshot.paramMap.get('userId');
+		this.quizName = this.route.snapshot.paramMap.get('quizName');
 
 		this.getQuiz(this.quizId);
 	}
@@ -82,7 +84,7 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 
 		let trueArray: any[] = [];
 		let falseArray: any[] = [];
-		this.quizService.submitAnswers(this.answersForm.value.options, this.userId).subscribe(
+		this.quizService.submitAnswers(this.answersForm.value.options, this.userId, this.quizName).subscribe(
 			(options: IOption[]) => {
 				this.quizService.selectedAnswers$.next(this.answersForm.value.options);
 				this.quizService.totalQuestions$.next(this.quiz.questions.length);
