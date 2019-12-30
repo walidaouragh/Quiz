@@ -5,6 +5,7 @@ import User = namespace.User;
 import IOption = namespace.IOption;
 import { IAdminAuthRequest } from '../_types/IQuizAuthResponse';
 import IQuestion = namespace.IQuestion;
+import IQuiz = namespace.IQuiz;
 
 @Injectable({
 	providedIn: 'root'
@@ -58,5 +59,9 @@ export class QuizService {
 
 	public deleteTester(userId: number): Observable<any> {
 		return this.http.delete(`https://localhost:5001/api/user/${userId}`);
+	}
+
+	public creatQuiz(quiz: IQuiz): Observable<any> {
+		return this.http.post('https://localhost:5001/api/quiz', quiz);
 	}
 }

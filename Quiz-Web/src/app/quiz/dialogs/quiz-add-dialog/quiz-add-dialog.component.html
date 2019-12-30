@@ -1,0 +1,17 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+	<mat-dialog-content>
+		<h2 mat-dialog-title>Add Quiz</h2>
+		<mat-error class="alert" *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+		<mat-form-field class="input-full-width">
+			<mat-label>Quiz</mat-label>
+			<input matInput placeholder="Quiz Name" formControlName="quizName" />
+			<mat-error *ngIf="submitted && form.get('quizName').errors">
+				<mat-error *ngIf="form.get('quizName').errors.required">Quiz name is required</mat-error>
+			</mat-error>
+		</mat-form-field>
+	</mat-dialog-content>
+	<mat-dialog-actions align="end">
+		<button mat-raised-button type="button" (click)="onCancel()">Cancel</button>
+		<button mat-raised-button color="accent" type="submit">Submit</button>
+	</mat-dialog-actions>
+</form>

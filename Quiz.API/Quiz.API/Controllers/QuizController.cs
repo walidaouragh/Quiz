@@ -42,7 +42,29 @@ namespace Quiz.API.Controllers
             return Ok(result);
         }
 
-        //For Admin only if he wants to add, update or delete quiz
-        //For Admin only if he wants to add, update or delete questions and its options
+        [HttpPost]
+        public async Task<IActionResult> AddQuiz([FromBody] Models.Quiz quiz)
+        {
+            var quizExist = await  _quizRepository.GetQuizzes();
+
+            if (quizExist != null && quizExist.Count > 0)
+            {
+                foreach (var name in quizExist)
+                {
+                    if (name != null && name.QuizName.ToLower() == quiz.QuizName.ToLower())
+                    {
+                        return Conflict($"A quiz with the name {quiz.QuizName} already exists");
+                    }
+                }
+            }
+
+            if (string.IsNullOrEmpty(quiz.QuizName))
+            {
+                return NotFound($"Quiz name is required");
+            }
+
+            var result = _quizRepository.AddQuiz(quiz);
+            return Ok(result);
+        }
     }
 }

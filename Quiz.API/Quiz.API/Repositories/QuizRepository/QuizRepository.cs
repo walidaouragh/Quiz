@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Quiz.API.DbContext;
-using Quiz.API.Models;
 
 namespace Quiz.API.Repositories
 {
@@ -31,20 +30,14 @@ namespace Quiz.API.Repositories
                 .Where(x => x.QuizId == id).FirstOrDefaultAsync();
         }
 
-        /*public async Task<Options> PostAnswers(AnswerToPost answerToPost)
+        public async Task AddQuiz(Models.Quiz quiz)
         {
-            var answer = new Options
+            var quizToAdd = new Models.Quiz()
             {
-                QuestionId = answerToPost.QuestionId,
-               Options = answerToPost.Options,
-               IsCorrect = answerToPost.IsCorrect
+               QuizName = quiz.QuizName
             };
-
-            _context.Options.Add(answer);
-
+            _context.Quiz.Add(quizToAdd);
             await _context.SaveChangesAsync();
-
-            return answer;
-        }*/
+        }
     }
 }

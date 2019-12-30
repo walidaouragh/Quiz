@@ -1,9 +1,12 @@
 <app-navbar></app-navbar>
 <div class="container margin-top">
+	<div class="row mb-2">
+		<button class="btn btn-pink btn-block" (click)="openAddQuizDialog()">Add New Quiz</button>
+	</div>
 	<div class="row">
 		<div class="col-6 mb-2" *ngFor="let q of quizzes">
 			<button class="btn btn-pink btn-block" (click)="onQuizPick(q.quizId)">
-				<span class="font-weight-bold">{{ q.quizName }}</span>
+				<span class="font-weight-bold">{{ q.quizName | titlecase }}</span>
 			</button>
 		</div>
 	</div>

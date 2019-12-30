@@ -10,6 +10,6 @@ namespace Quiz.API.Repositories
 
         Task<Models.Quiz> GetQuiz(int id);
 
-        /*Task<Options> PostAnswers(AnswerToPost answerToPost);*/
+        Task AddQuiz(Models.Quiz quiz);
     }
 }

@@ -19,11 +19,12 @@ import { OfflineComponent } from './offline/offline.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HeaderTitleService } from '../_services/header-title.service';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { QuestionComponent } from './admin-dashboard/edit/question.component';
 import { QuestionEditDialogComponent } from './dialogs/question-edit-dialog/question-edit-dialog.component';
 import { QuestionAddDialogComponent } from './dialogs/question-add-dialog/question-add-dialog.component';
 import { ManageQuizzesComponent } from './manage-quizzes/manage-quizzes.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { QuizAddDialogComponent } from './dialogs/quiz-add-dialog/quiz-add-dialog.component';
+import { QuestionComponent } from './admin-dashboard/edit-question/question.component';
 
 @NgModule({
 	imports: [
@@ -52,9 +53,15 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 		QuestionEditDialogComponent,
 		QuestionAddDialogComponent,
 		ManageQuizzesComponent,
-		UserDetailComponent
+		UserDetailComponent,
+		QuizAddDialogComponent
 	],
 	providers: [QuizService, CanDeactivateGuard, HeaderTitleService],
-	entryComponents: [ConfirmDialogComponent, QuestionEditDialogComponent, QuestionAddDialogComponent]
+	entryComponents: [
+		ConfirmDialogComponent,
+		QuestionEditDialogComponent,
+		QuestionAddDialogComponent,
+		QuizAddDialogComponent
+	]
 })
 export class QuizModule {}
