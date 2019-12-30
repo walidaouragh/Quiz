@@ -42,6 +42,13 @@ namespace Quiz.API.Controllers
         [HttpPost("add/{quizId}")]
         public async Task<IActionResult> AddQuestion([FromBody] QuestionDto questionDto, int quizId)
         {
+
+            var questionExist = await  _questionRepository.GetQuestionByQuestionText(quizId, questionDto.QuestionText);
+            if (questionExist != null)
+            {
+                return Conflict($"This question '{questionDto.QuestionText}' already exists");
+            }
+
             if (string.IsNullOrEmpty(questionDto.QuestionText))
             {
                 return NotFound($"Question is required");
@@ -72,6 +79,13 @@ namespace Quiz.API.Controllers
         [HttpPut("edit/{quizId}/{questionId}")]
         public async Task<IActionResult> UpdateQuestion([FromBody] QuestionDto questionDto, int quizId, int questionId)
         {
+
+            var questionExist = await  _questionRepository.GetQuestionByQuestionText(quizId, questionDto.QuestionText);
+            if (questionExist != null)
+            {
+                return Conflict($"This question '{questionDto.QuestionText}' already exists");
+            }
+
             if (string.IsNullOrEmpty(questionDto.QuestionText))
             {
                 return NotFound($"Question is required");

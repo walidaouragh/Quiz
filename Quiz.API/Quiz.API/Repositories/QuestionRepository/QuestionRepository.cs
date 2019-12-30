@@ -64,5 +64,10 @@ namespace Quiz.API.Repositories.QuestionRepository
             await _dbContext.SaveChangesAsync();
         }
 
+        public async Task<Question> GetQuestionByQuestionText(int quizId, string questionText)
+        {
+            return await _dbContext.Questions
+                .Where(q => q.QuizId == quizId && q.QuestionText == questionText).FirstOrDefaultAsync();
+        }
     }
 }

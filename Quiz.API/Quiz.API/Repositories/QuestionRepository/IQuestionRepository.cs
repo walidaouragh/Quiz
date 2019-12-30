@@ -11,5 +11,7 @@ namespace Quiz.API.Repositories.QuestionRepository
         Task UpdateQuestion(QuestionDto questionDto, int quizId, int questionId);
         Task AddQuestion(QuestionDto questionDto, int quizId);
         Task  DeleteQuestion(int quizId, int questionId);
+
+        Task<Question> GetQuestionByQuestionText(int quizId, string questionText);
     }
 }
