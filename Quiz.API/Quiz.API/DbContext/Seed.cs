@@ -18,111 +18,111 @@ namespace Quiz.API.DbContext
                         Questions = new List<Question> {
                             new Question
                             {
-                                QuestionText = "What is the Capital of Algeria",
+                                QuestionText = "What was the name of the Ethiopian Wolf before they knew it was related to wolves?",
                                 Options = new List<Option>
                                 {
                                     new Option
                                     {
-                                        OptionText = "Batna",
+                                        OptionText = "Ethiopian Coyote",
                                         IsCorrect = false
                                     },
                                     new Option
                                     {
-                                        OptionText = "Annaba",
+                                        OptionText = "Amharic Fox",
                                         IsCorrect = false
                                     },
                                     new Option
                                     {
-                                        OptionText = "Algiers",
+                                        OptionText = "Canis Simiensis",
+                                        IsCorrect = false
+                                    },
+                                    new Option
+                                    {
+                                        OptionText = "Simien Jackel",
                                         IsCorrect = true
-                                    },
-                                    new Option
-                                    {
-                                        OptionText = "Biskra",
-                                        IsCorrect = false
                                     }
                                 }
 
                             },
                             new Question
                             {
-                                QuestionText = "What is Your Name",
+                                QuestionText = "How many countries are inside the United Kingdom?",
                                 Options = new List<Option>
                                 {
                                     new Option
                                     {
-                                        OptionText = "Walid",
+                                        OptionText = "Two",
+                                        IsCorrect = false
+                                    },
+                                    new Option
+                                    {
+                                        OptionText = "Three",
+                                        IsCorrect = false
+                                    },
+                                    new Option
+                                    {
+                                        OptionText = "One",
+                                        IsCorrect = false
+                                    },
+                                    new Option
+                                    {
+                                        OptionText = "Four",
                                         IsCorrect = true
-                                    },
-                                    new Option
-                                    {
-                                        OptionText = "Nadhir",
-                                        IsCorrect = false
-                                    },
-                                    new Option
-                                    {
-                                        OptionText = "Ali",
-                                        IsCorrect = false
-                                    },
-                                    new Option
-                                    {
-                                        OptionText = "Abdullah",
-                                        IsCorrect = false
                                     }
                                 }
 
                             },
                             new Question
                             {
-                                QuestionText = "What is Your Last Name",
+                                QuestionText = "The idea of Socialism was articulated and advanced by whom?",
                                 Options = new List<Option>
                                 {
                                     new Option
                                     {
-                                        OptionText = "Chalabala",
+                                        OptionText = "Vladimir Lenin",
                                         IsCorrect = false
                                     },
                                     new Option
                                     {
-                                        OptionText = "khanaban",
+                                        OptionText = "Joseph Stalin",
                                         IsCorrect = false
                                     },
                                     new Option
                                     {
-                                        OptionText = "Aouragh",
+                                        OptionText = "Vladimir Putin",
+                                        IsCorrect = false
+                                    },
+                                    new Option
+                                    {
+                                        OptionText = "Karl Marx",
                                         IsCorrect = true
-                                    },
-                                    new Option
-                                    {
-                                        OptionText = "jalabala",
-                                        IsCorrect = false
                                     }
                                 }
 
                             },
                             new Question
                             {
-                                QuestionText = "What is Your Favorite Drink",
+                                QuestionText = "HTML is what type of language?",
                                 Options = new List<Option>
                                 {
                                     new Option
                                     {
-                                        OptionText = "halib",
-                                        IsCorrect = false
-                                    },
-                                    new Option
-                                    {
-                                        OptionText = "Cofee",
+                                        OptionText = "Markup Language",
                                         IsCorrect = true
                                     },
                                     new Option
                                     {
-                                        OptionText = "monada",
+                                        OptionText = "Scripting Language",
                                         IsCorrect = false
                                     },
                                     new Option
                                     {
-                                        OptionText = "zalabia",
+                                        OptionText = "Programming Language",
+                                        IsCorrect = false
+                                    },
+                                    new Option
+                                    {
+                                        OptionText = "Macro Language",
                                         IsCorrect = false
                                     }
                                 }
@@ -163,7 +163,7 @@ namespace Quiz.API.DbContext
                             },
                             new Question
                             {
-                                QuestionText = "ما هو اسمك",
+                                QuestionText = "من الأديب العربي الذي نال جائزة نوبل للآداب عام 1988م",
                                 Options = new List<Option>
                                 {
                                     new Option
