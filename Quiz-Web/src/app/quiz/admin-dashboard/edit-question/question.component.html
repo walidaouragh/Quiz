@@ -17,14 +17,14 @@
 				<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
 					<mat-expansion-panel-header>
 						<mat-panel-title>
-							{{ q?.questionText | titlecase }}
+							{{ q?.questionText | capitalizeFirst }}
 						</mat-panel-title>
 					</mat-expansion-panel-header>
 					<div class="row">
 						<div class="col-6">
 							<ul *ngFor="let o of q.options">
 								<li>
-									{{ o.optionText }}
+									{{ o.optionText | capitalizeFirst }}
 									<span><i *ngIf="o.isCorrect" class="fa fa-check"></i></span>
 								</li>
 							</ul>

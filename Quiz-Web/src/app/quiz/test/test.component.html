@@ -7,10 +7,10 @@
 	<form [formGroup]="answersForm" *ngIf="quiz && quiz.questions.length > 0">
 		<mat-card *ngFor="let q of quiz.questions; let i = index" class="mb-3 card" formArrayName="options">
 			<mat-radio-group aria-label="Select an option" [formControlName]="i">
-				<h3 class="mb-2 readonly-label">{{ q.questionText }}</h3>
+				<h3 class="mb-2 readonly-label">{{ q.questionText | capitalizeFirst }}</h3>
 				<div *ngFor="let s of q.options">
 					<mat-radio-button [value]="s" (change)="onChange(s, q.questionText)">{{
-						s.optionText
+						s.optionText | capitalizeFirst
 					}}</mat-radio-button>
 				</div>
 			</mat-radio-group>

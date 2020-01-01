@@ -51,8 +51,8 @@ export class CheckComponent implements OnInit {
 		});
 	}
 
-	public backToTest(id): void {
-		this.router.navigate([`quiz/test/${id}/${this.userId}`]);
+	public backToTest(id, quizName): void {
+		this.router.navigate([`quiz/test/${id}/${this.userId}/${quizName}`]);
 	}
 
 	public openConfirmationDialog(): void {

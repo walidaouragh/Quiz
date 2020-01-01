@@ -26,7 +26,7 @@
 			</mat-radio-group>-->
 
 			<mat-radio-group aria-label="Select an option">
-				<h3 class="readonly-label mb-1">{{ q.questionText }}</h3>
+				<h3 class="readonly-label mb-1">{{ q.questionText | capitalizeFirst }}</h3>
 				<div *ngFor="let s of q.options; let i = index">
 					<div *ngFor="let o of selectedOptions">
 						<ng-container *ngIf="o.optionId === s.optionId && o.isCorrect">
@@ -37,7 +37,7 @@
 									type="text"
 									class="form-control right-answer py-4 font-bold"
 									style="padding-left: 45px;"
-									[value]="s.optionText"
+									[value]="s.optionText | capitalizeFirst"
 									disabled
 								/>
 							</div>
@@ -50,7 +50,7 @@
 									type="text"
 									class="form-control py-4 right-answer font-bold"
 									style="padding-left: 45px;"
-									[value]="s.optionText"
+									[value]="s.optionText | capitalizeFirst"
 									disabled
 								/>
 							</div>
@@ -63,7 +63,7 @@
 									type="text"
 									class="form-control py-4 wrong-answer font-bold"
 									style="padding-left: 45px;"
-									[value]="s.optionText"
+									[value]="s.optionText | capitalizeFirst"
 									disabled
 								/>
 							</div>
@@ -84,7 +84,9 @@
 				<h1>No selected answers!</h1>
 			</mat-card-title>
 			<mat-card-actions>
-				<button mat-raised-button color="accent" (click)="backToTest(quizId)">Back to test!</button>
+				<button mat-raised-button color="accent" (click)="backToTest(quizId, quiz.quizName)">
+					Back to test!
+				</button>
 			</mat-card-actions>
 		</mat-card>
 	</div>

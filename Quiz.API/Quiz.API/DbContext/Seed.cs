@@ -18,27 +18,27 @@ namespace Quiz.API.DbContext
                         Questions = new List<Question> {
                             new Question
                             {
-                                QuestionText = "What was the name of the Ethiopian Wolf before they knew it was related to wolves?",
+                                QuestionText = "What is the capital of algeria?",
                                 Options = new List<Option>
                                 {
                                     new Option
                                     {
-                                        OptionText = "Ethiopian Coyote",
+                                        OptionText = "Batna",
                                         IsCorrect = false
                                     },
                                     new Option
                                     {
-                                        OptionText = "Amharic Fox",
+                                        OptionText = "Annaba",
                                         IsCorrect = false
                                     },
                                     new Option
                                     {
-                                        OptionText = "Canis Simiensis",
+                                        OptionText = "Biskra",
                                         IsCorrect = false
                                     },
                                     new Option
                                     {
-                                        OptionText = "Simien Jackel",
+                                        OptionText = "Algiers",
                                         IsCorrect = true
                                     }
                                 }
