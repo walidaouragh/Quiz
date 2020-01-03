@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { QuizService } from '../../_services/quiz.service';
 import User = namespace.User;
 import { MatTableDataSource } from '@angular/material/table';
@@ -7,6 +7,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../dialogs/confirm-dialog/confirm-dialog.component';
 import { MatPaginator } from '@angular/material/paginator';
+import * as XLSX from 'xlsx';
 
 @Component({
 	selector: 'app-admin-dashboard',
@@ -23,6 +24,7 @@ export class AdminDashboardComponent implements OnInit {
 
 	@ViewChild(MatSort, { static: false }) sort: MatSort;
 	@ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+	@ViewChild('testersTable', { static: false }) table: ElementRef;
 
 	ngOnInit() {
 		this.getUsers();
@@ -77,5 +79,15 @@ export class AdminDashboardComponent implements OnInit {
 		this.quizService.deleteTester(userId).subscribe(res => {
 			this.getUsers();
 		});
+	}
+
+	//npm install xlsx file-saver --save
+	public exportToExcel(): void {
+		const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(this.table.nativeElement);
+		const wb: XLSX.WorkBook = XLSX.utils.book_new();
+		XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+		/* save to file */
+		XLSX.writeFile(wb, 'testers.xlsx');
 	}
 }

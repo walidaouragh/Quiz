@@ -7,7 +7,7 @@
 	</div>
 	<div *ngIf="users">
 		<mat-card>
-			<div #usersTable>
+			<div #testersTable>
 				<div fxLayout fxLayoutAlign="start center" class="mb-2 ml-2 mt-xs">
 					<mat-form-field fxFlex="100%" class="mr-1 mt-1">
 						<input
@@ -31,6 +31,13 @@
 				<div *ngIf="isLoadingResults" class="loading-container"></div>
 				<mat-card-title>
 					<h5 class="user-name">Testers</h5>
+					<span fxFlex></span>
+					<a mat-icon-button title="export to excel" (click)="exportToExcel()">
+						<span><i class="fa fa-file-excel-o" style="font-size: 25px"></i></span>
+					</a>
+					<a mat-icon-button title="create PDF">
+						<span><i class="fa fa-file-pdf-o" style="font-size: 25px"></i></span>
+					</a>
 				</mat-card-title>
 				<table
 					mat-table
