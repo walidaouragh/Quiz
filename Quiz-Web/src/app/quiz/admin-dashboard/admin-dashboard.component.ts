@@ -90,4 +90,67 @@ export class AdminDashboardComponent implements OnInit {
 		/* save to file */
 		XLSX.writeFile(wb, 'testers.xlsx');
 	}
+
+	public print(): void {
+		let tableCols: string = '';
+		let tableRow: string = '';
+
+		tableCols += `
+            <th>Tester</th>
+            <th>Email</th>
+            <th>Quiz</th>
+        `;
+
+		this.users.filteredData.forEach(val => {
+			tableRow += `
+                <tr>
+                    <td>${val.firstName} ${val.lastName}</td>
+                    <td>${val.email}</td>
+                    <td>${val.userAnswers[0].quizName}</td>
+                </tr>
+            `;
+		});
+
+		this.windowPrint(tableCols, tableRow);
+	}
+
+	public windowPrint(tableCols: string, tableRow: string): void {
+		const popupWin: any = window.open();
+		popupWin.document.open();
+		popupWin.document.write(
+			`<html>
+                <head>
+                <title>Testers</title>
+                    <style>
+                        @media screen, print {
+                            table {
+                                border-spacing: 0;
+                                border-collapse: collapse;
+                                width: 100%;
+                            }
+                            td, th {
+                                padding: 8px;
+                                border-bottom: 1px solid #ddd;
+                            }
+
+                            thead > tr > th {
+                                text-align: left;
+                                vertical-align: bottom;
+                                border-bottom: 2px solid #ddd;
+                                color: #333;
+                            }
+                        }
+                    </style>
+                </head>
+                <body onload="window.print()">
+                    <h1>Testers</h1>
+                    <table>
+                        <thead>${tableCols}</thead>
+                        <tbody>${tableRow}</tbody>
+                    </table>
+                </body>
+            </html>`
+		);
+		popupWin.document.close();
+	}
 }
