@@ -37,6 +37,7 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 	public errorMessage: string;
 	public questionText: string;
 	public quizName: string;
+	public correctAnswersPercentage: number;
 
 	ngOnInit() {
 		this.answersForm = new FormGroup({
@@ -93,6 +94,8 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 						trueArray.push(o);
 						this.correctAnswers = trueArray.length;
 						this.quizService.correctAnswers$.next(this.correctAnswers);
+						this.correctAnswersPercentage = (this.correctAnswers * 100) / this.quiz.questions.length;
+						this.quizService.correctAnswersPercentage$.next(this.correctAnswersPercentage);
 					} else {
 						falseArray.push(o);
 						this.correctAnswers = falseArray.length;

@@ -13,6 +13,7 @@ import IQuiz = namespace.IQuiz;
 export class QuizService {
 	constructor(private http: HttpClient) {}
 
+	public correctAnswersPercentage$: BehaviorSubject<number> = new BehaviorSubject<number>(null);
 	public correctAnswers$: BehaviorSubject<number> = new BehaviorSubject<number>(null);
 	public totalQuestions$: BehaviorSubject<number> = new BehaviorSubject<number>(null);
 	public selectedAnswers$: BehaviorSubject<IOption[]> = new BehaviorSubject<IOption[]>([]);

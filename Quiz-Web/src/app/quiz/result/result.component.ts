@@ -17,6 +17,7 @@ export class ResultComponent implements OnInit {
 		public dialog: MatDialog
 	) {}
 
+	public correctAnswersPercentage: number;
 	public correctAnswers: number;
 	public totalQuestions: number;
 	public quizId: number;
@@ -30,6 +31,9 @@ export class ResultComponent implements OnInit {
 		});
 		this.quizService.correctAnswers$.subscribe(correct => {
 			this.correctAnswers = correct;
+		});
+		this.quizService.correctAnswersPercentage$.subscribe(percentage => {
+			this.correctAnswersPercentage = percentage;
 		});
 	}
 
