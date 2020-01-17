@@ -15,6 +15,7 @@
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
+          <e p="AdminController.cs" t="Include" />
           <e p="AnswerController.cs" t="Include" />
           <e p="QuestionController.cs" t="Include" />
           <e p="QuizController.cs" t="Include" />
@@ -63,6 +64,10 @@
         </e>
         <e p="Quiz.API.csproj" t="IncludeRecursive" />
         <e p="Repositories" t="Include">
+          <e p="AdminRepository" t="Include">
+            <e p="AdminRepository.cs" t="Include" />
+            <e p="IAdminRepository.cs" t="Include" />
+          </e>
           <e p="AnswerRepository" t="Include">
             <e p="AnswerRepository.cs" t="Include" />
             <e p="IAnswerRepository.cs" t="Include" />

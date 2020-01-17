@@ -65,6 +65,6 @@ import { CapitalizeFirstPipe } from '../Directives/capitalizeFirstLetter.directi
 		QuestionAddDialogComponent,
 		QuizAddDialogComponent
 	],
-	exports:[CapitalizeFirstPipe]
+	exports: [CapitalizeFirstPipe]
 })
 export class QuizModule {}

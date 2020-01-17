@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
 using Quiz.API.Models;
 
 namespace Quiz.API.Repositories.User
@@ -13,12 +12,6 @@ namespace Quiz.API.Repositories.User
         Task<List<Models.User>> GetAllUsers();
 
         Task<Models.User> GetUserByEmail(string userEmail);
-
-        Task<IdentityResult> EnsureAdminUserExists();
-        Task<SignInResult> AuthenticateAdmin(string username, string password);
-
-        Admin GetIdentityUserByEmail(string email);
-        string GenerateJwtToken(Admin admin);
 
         Task  DeleteTester(int userId);
     }

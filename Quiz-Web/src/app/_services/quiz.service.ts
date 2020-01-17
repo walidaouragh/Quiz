@@ -35,7 +35,7 @@ export class QuizService {
 	}
 
 	public LoginAdmin(admin: IAdminAuthRequest): Observable<any> {
-		return this.http.post('https://localhost:5001/api/user/admin/login', admin);
+		return this.http.post('https://localhost:5001/api/admin/login', admin);
 	}
 
 	public updateQuestions(question: IQuestion, quizId: number, questionId: number): Observable<any> {

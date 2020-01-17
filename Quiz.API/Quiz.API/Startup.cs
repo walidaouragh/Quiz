@@ -15,6 +15,7 @@ using Newtonsoft.Json.Serialization;
 using Quiz.API.DbContext;
 using Quiz.API.Models;
 using Quiz.API.Repositories;
+using Quiz.API.Repositories.AdminRepository;
 using Quiz.API.Repositories.AnswerRepository;
 using Quiz.API.Repositories.QuestionRepository;
 using Quiz.API.Repositories.User;
@@ -48,6 +49,7 @@ namespace Quiz.API
             services.AddScoped<IUserAnswerRepository, UserAnswerRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IQuestionRepository, QuestionRepository>();
+            services.AddScoped<IAdminRepository, AdminRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
