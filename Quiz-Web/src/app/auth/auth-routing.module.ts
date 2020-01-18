@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RegisterComponent } from './register/register.component';
+import { TesterRegisterComponent } from './tester-register/tester-register.component';
 import { LoginComponent } from './login/login.component';
 
 export const authRoutes: Routes = [
-	{ path: 'register', component: RegisterComponent, data: { title: 'Register' } },
+	{ path: 'tester-register', component: TesterRegisterComponent, data: { title: 'Tester-Register' } },
 	{ path: 'login', component: LoginComponent, data: { title: 'Login' } }
 ];
 

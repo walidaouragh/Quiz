@@ -51,7 +51,7 @@ export class ResultComponent implements OnInit {
 
 		dialogRef.afterClosed().subscribe((confirmed: boolean) => {
 			if (confirmed) {
-				this.router.navigate(['register']);
+				this.router.navigate(['tester-register']);
 				this.dialog.closeAll();
 			}
 		});

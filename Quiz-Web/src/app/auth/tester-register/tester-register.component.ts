@@ -7,11 +7,11 @@ import { QuizService } from '../../_services/quiz.service';
 
 @Component({
 	selector: 'ms-register-session',
-	templateUrl: './register-component.html',
-	styleUrls: ['./register-component.scss'],
+	templateUrl: './tester-register-component.html',
+	styleUrls: ['./tester-register-component.scss'],
 	encapsulation: ViewEncapsulation.None
 })
-export class RegisterComponent implements OnInit {
+export class TesterRegisterComponent implements OnInit {
 	constructor(private quizService: QuizService, private router: Router, private fb: FormBuilder) {}
 
 	public registerForm: FormGroup;

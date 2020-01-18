@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 export const appRoutes: Routes = [
 	{
 		path: '',
-		redirectTo: 'register',
+		redirectTo: 'tester-register',
 		pathMatch: 'full'
 	},
 	{
