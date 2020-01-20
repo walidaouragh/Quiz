@@ -15,8 +15,8 @@ using Newtonsoft.Json.Serialization;
 using Quiz.API.DbContext;
 using Quiz.API.Models;
 using Quiz.API.Repositories;
-using Quiz.API.Repositories.AdminRepository;
 using Quiz.API.Repositories.AnswerRepository;
+using Quiz.API.Repositories.EmployeeRepository;
 using Quiz.API.Repositories.QuestionRepository;
 using Quiz.API.Repositories.User;
 using Quiz.API.Repositories.UserAnswerRepository;
@@ -49,7 +49,7 @@ namespace Quiz.API
             services.AddScoped<IUserAnswerRepository, UserAnswerRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IQuestionRepository, QuestionRepository>();
-            services.AddScoped<IAdminRepository, AdminRepository>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -61,9 +61,24 @@ namespace Quiz.API
             });
             SetUpJwtTokens(services);
 
-            //we have to add this when we use IdentityUser and IdentityDbContext
-            services.AddDefaultIdentity<Admin>()
-                .AddEntityFrameworkStores<QuizDbContext>();
+            //we have to add this when we use multiple IdentityUser and IdentityDbContext
+            /*services.AddIdentityCore<Admin>()
+                .AddRoles<IdentityRole>()
+                .AddClaimsPrincipalFactory<UserClaimsPrincipalFactory<Admin, IdentityRole>>()
+                .AddEntityFrameworkStores<QuizDbContext>()
+                .AddDefaultTokenProviders()
+                .AddDefaultUI();
+
+            services.AddIdentityCore<Employee>()
+                .AddRoles<IdentityRole>()
+                .AddClaimsPrincipalFactory<UserClaimsPrincipalFactory<Employee, IdentityRole>>()
+                .AddEntityFrameworkStores<QuizDbContext>()
+                .AddDefaultTokenProviders()
+                .AddDefaultUI();*/
+
+            //we have to add this when we use only one IdentityUser and IdentityDbContext
+            services.AddDefaultIdentity<Employee>()
+               .AddEntityFrameworkStores<QuizDbContext>();
 
 
             RegisterServicesInOtherAssemblies(services);

@@ -2,9 +2,9 @@ using System.Collections.Generic;
 
 namespace Quiz.API.Models
 {
-    public class AuthorizationResult
+    public class EmployeeAuthorizationResult
     {
-        public string AdminId { get; set; }
+        public int EmployeeId { get; set; }
         public bool Success { get; set; }
         public bool IsAdmin { get; set; }
         public string DisplayName { get; set; }

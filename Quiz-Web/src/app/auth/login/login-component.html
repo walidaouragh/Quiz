@@ -9,7 +9,10 @@
 					<div>
 						<nav mat-tab-nav-bar mat-stretch-tabs>
 							<a mat-tab-link [routerLink]="['/tester-register']">
-								Register
+								Tester Register
+							</a>
+							<a mat-tab-link [routerLink]="['/employee-register']">
+								Employee Register
 							</a>
 							<a
 								mat-tab-link
@@ -26,10 +29,10 @@
 						<form [formGroup]="adminLoginForm" (ngSubmit)="onSubmit()">
 							<div fxLayout="column" fxLayoutAlign="start stretch">
 								<mat-form-field style="width: 100%">
-									<input matInput placeholder="E-Mail" type="text" formControlName="adminEmail" />
-									<mat-error *ngIf="submitted && f.adminEmail.errors">
-										<mat-error *ngIf="f.adminEmail.errors.required">Email is required</mat-error>
-										<mat-error *ngIf="f.adminEmail.errors.email"
+									<input matInput placeholder="E-Mail" type="text" formControlName="employeeEmail" />
+									<mat-error *ngIf="submitted && f.employeeEmail.errors">
+										<mat-error *ngIf="f.employeeEmail.errors.required">Email is required</mat-error>
+										<mat-error *ngIf="f.employeeEmail.errors.email"
 											>Email must be a valid email address</mat-error
 										>
 									</mat-error>
@@ -39,10 +42,10 @@
 										matInput
 										placeholder="Password"
 										type="password"
-										formControlName="adminPassword"
+										formControlName="employeePassword"
 									/>
-									<mat-error *ngIf="submitted && f.adminPassword.errors">
-										<mat-error *ngIf="f.adminPassword.errors.required"
+									<mat-error *ngIf="submitted && f.employeePassword.errors">
+										<mat-error *ngIf="f.employeePassword.errors.required"
 											>Password is required</mat-error
 										>
 									</mat-error>
