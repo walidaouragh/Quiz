@@ -27,6 +27,8 @@ import { QuizAddDialogComponent } from './dialogs/quiz-add-dialog/quiz-add-dialo
 import { QuestionComponent } from './admin-dashboard/edit-question/question.component';
 import { CapitalizeFirstPipe } from '../Directives/capitalizeFirstLetter.directive';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
+import { TestersTableComponent } from './admin-dashboard/testers-table/testers-table.component';
+import { EmployeesTableComponent } from './admin-dashboard/employees-table/employees-table.component';
 
 @NgModule({
 	imports: [
@@ -58,7 +60,9 @@ import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashbo
 		UserDetailComponent,
 		QuizAddDialogComponent,
 		CapitalizeFirstPipe,
-		EmployeeDashboardComponent
+		EmployeeDashboardComponent,
+		TestersTableComponent,
+		EmployeesTableComponent
 	],
 	providers: [QuizService, CanDeactivateGuard, HeaderTitleService],
 	entryComponents: [

@@ -6,7 +6,7 @@
 		<span fxFlex></span>
 		<div style="position: absolute; right: 0">
 			<a *ngIf="employeeName" mat-button style="cursor: default">
-				{{ employeeName }}
+				{{ employeeName | titlecase }}
 			</a>
 			<a (click)="logout()" mat-icon-button class="ml-xs" title="Sign Out">
 				<mat-icon>exit_to_app</mat-icon>

@@ -70,4 +70,8 @@ export class QuizService {
 	public registerEmployee(user: IEmployee): Observable<any> {
 		return this.http.post('https://localhost:5001/api/employee/register', user);
 	}
+
+	public getEmployees(): Observable<any> {
+		return this.http.get('https://localhost:5001/api/employee');
+	}
 }

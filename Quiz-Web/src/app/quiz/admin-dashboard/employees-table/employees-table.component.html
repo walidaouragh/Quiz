@@ -1,0 +1,55 @@
+<mat-card>
+	<div #employeesTable>
+		<div fxLayout fxLayoutAlign="start center" class="mb-2 ml-2 mt-xs">
+			<mat-form-field fxFlex="100%" class="mr-1 mt-1">
+				<input
+					matInput
+					type="text"
+					placeholder="Search for employees"
+					[(ngModel)]="employeeFilterText"
+					(keyup)="applyEmployeeFilter($event.target.value)"
+				/>
+				<button
+					mat-icon-button
+					matSuffix
+					*ngIf="employeeFilterText"
+					[attr.aria-label]="'Clear'"
+					(click)="employeeFilterText = ''; applyEmployeeFilter('')"
+				>
+					<mat-icon>close</mat-icon>
+				</button>
+			</mat-form-field>
+		</div>
+		<mat-card-title>
+			<h5 class="user-name">Employees</h5>
+		</mat-card-title>
+		<table
+			mat-table
+			[dataSource]="employees"
+			matSort
+			matSortActive="lastName"
+			matSortDisableClear
+			matSortDirection="asc"
+		>
+			<ng-container matColumnDef="lastName">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header><strong>Employee</strong></th>
+				<td mat-cell *matCellDef="let element">{{ element.firstName }} {{ element.lastName }}</td>
+			</ng-container>
+			<ng-container matColumnDef="email">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header><strong>Email</strong></th>
+				<td mat-cell *matCellDef="let element">
+					{{ element.email }}
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="setAsAdmin">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header><strong>Set As Admin</strong></th>
+				<td mat-cell *matCellDef="let element">
+					<mat-slide-toggle color="primary"></mat-slide-toggle>
+				</td>
+			</ng-container>
+			<tr mat-header-row *matHeaderRowDef="displayedEmployeesColumns"></tr>
+			<tr mat-row *matRowDef="let row; columns: displayedEmployeesColumns"></tr>
+		</table>
+	</div>
+	<mat-paginator [length]="employeeResultsLength" [pageSize]="30"></mat-paginator>
+</mat-card>
