@@ -26,7 +26,7 @@
 						</nav>
 						<h2 class="base-border">Login</h2>
 						<p>Enter Your Login Details</p>
-						<form [formGroup]="adminLoginForm" (ngSubmit)="onSubmit()">
+						<form [formGroup]="employeeLoginForm" (ngSubmit)="login()">
 							<div fxLayout="column" fxLayoutAlign="start stretch">
 								<mat-form-field style="width: 100%">
 									<input matInput placeholder="E-Mail" type="text" formControlName="employeeEmail" />

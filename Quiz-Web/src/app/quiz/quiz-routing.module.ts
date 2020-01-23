@@ -11,6 +11,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { ManageQuizzesComponent } from './manage-quizzes/manage-quizzes.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { QuestionComponent } from './admin-dashboard/edit-question/question.component';
+import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
 
 const quizRoutes: Routes = [
 	{
@@ -70,6 +71,13 @@ const quizRoutes: Routes = [
 				component: UserDetailComponent,
 				data: {
 					title: 'Manage'
+				}
+			},
+			{
+				path: 'employee-dashboard/:employeeId',
+				component: EmployeeDashboardComponent,
+				data: {
+					title: 'employee-dashboard'
 				}
 			},
 			{

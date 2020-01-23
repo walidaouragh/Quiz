@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { QuizService } from '../../_services/quiz.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IAdminAuthRequest, IQuizAuthResponse } from '../../_types/IQuizAuthResponse';
+import { IEmployeeAuthRequest, IQuizAuthResponse } from '../../_types/IQuizAuthResponse';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
@@ -14,13 +14,13 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class LoginComponent implements OnInit {
 	constructor(private quizService: QuizService, private router: Router, private fb: FormBuilder) {}
 
-	public adminLoginForm: FormGroup;
+	public employeeLoginForm: FormGroup;
 	public errorMessage: string;
-	public admin: IAdminAuthRequest;
+	public employee: IEmployeeAuthRequest;
 	public submitted: boolean = false;
 
 	ngOnInit(): void {
-		this.adminLoginForm = this.fb.group({
+		this.employeeLoginForm = this.fb.group({
 			employeeEmail: ['', [Validators.required, Validators.email]],
 			employeePassword: ['', Validators.required]
 		});
@@ -28,18 +28,26 @@ export class LoginComponent implements OnInit {
 
 	// convenience getter for easy access to form fields
 	get f() {
-		return this.adminLoginForm.controls;
+		return this.employeeLoginForm.controls;
 	}
 
-	public onSubmit(): void {
+	public login(): void {
 		this.submitted = true;
-		this.admin = Object.assign({}, this.adminLoginForm.value);
+		this.employee = Object.assign({}, this.employeeLoginForm.value);
+		localStorage.removeItem('DATA');
+		localStorage.removeItem('user');
 
-		this.quizService.LoginAdmin(this.admin).subscribe(
+		this.quizService.LoginEmployee(this.employee).subscribe(
 			(DATA: IQuizAuthResponse) => {
-				localStorage.setItem('admin', JSON.stringify(this.admin));
-				localStorage.setItem('DATA', JSON.stringify(DATA));
-				this.router.navigate(['./quiz/admin-dashboard']);
+				if (DATA && DATA.success) {
+					localStorage.setItem('user', JSON.stringify(this.employee));
+					localStorage.setItem('DATA', JSON.stringify(DATA));
+					if (DATA.isAdmin) {
+						this.router.navigate(['./quiz/admin-dashboard']);
+					} else {
+						this.router.navigate([`./quiz/employee-dashboard/${DATA.employeeId}`]);
+					}
+				}
 			},
 			(error: HttpErrorResponse) => {
 				this.errorMessage = error.error;

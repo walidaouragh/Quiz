@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit {
 
 	public dialogConfig: MatDialogConfig = new MatDialogConfig();
 	public alertDialogRef: MatDialogRef<ConfirmDialogComponent>;
-	public adminName: string = '';
+	public employeeName: string = '';
 
 	ngOnInit() {
 		this.getUserDetails();
@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
 		const data: string = localStorage.getItem('DATA');
 		if (data) {
 			const details: IQuizAuthResponse = JSON.parse(data);
-			this.adminName = details.displayName;
+			this.employeeName = details.displayName;
 		}
 	}
 

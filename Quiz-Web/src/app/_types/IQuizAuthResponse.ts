@@ -1,10 +1,10 @@
-export interface IAdminAuthRequest {
+export interface IEmployeeAuthRequest {
 	email: string;
 	password: string;
 }
 
 export interface IQuizAuthResponse {
-	adminId: string;
+	employeeId: string;
 	success: boolean;
 	token: string;
 	isAdmin: boolean;

@@ -6,10 +6,12 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TesterRegisterComponent } from './tester-register/tester-register.component';
 import { LoginComponent } from './login/login.component';
+import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
 	imports: [CommonModule, ReactiveFormsModule, MaterialModule, AuthRoutingModule, FlexLayoutModule, FormsModule],
-	declarations: [TesterRegisterComponent, LoginComponent],
+	declarations: [TesterRegisterComponent, LoginComponent, EmployeeRegisterComponent, LogoutComponent],
 	providers: []
 })
 export class AuthModule {}

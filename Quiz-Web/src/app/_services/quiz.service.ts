@@ -3,9 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import User = namespace.User;
 import IOption = namespace.IOption;
-import { IAdminAuthRequest } from '../_types/IQuizAuthResponse';
+import { IEmployeeAuthRequest } from '../_types/IQuizAuthResponse';
 import IQuestion = namespace.IQuestion;
 import IQuiz = namespace.IQuiz;
+import { IEmployee } from '../_types/IEmployee';
 
 @Injectable({
 	providedIn: 'root'
@@ -34,8 +35,8 @@ export class QuizService {
 		return this.http.post(`https://localhost:5001/api/userAnswer/${userId}/${quizName}`, options);
 	}
 
-	public LoginAdmin(admin: IAdminAuthRequest): Observable<any> {
-		return this.http.post('https://localhost:5001/api/employee/login', admin);
+	public LoginEmployee(employee: IEmployeeAuthRequest): Observable<any> {
+		return this.http.post('https://localhost:5001/api/employee/login', employee);
 	}
 
 	public updateQuestions(question: IQuestion, quizId: number, questionId: number): Observable<any> {
@@ -64,5 +65,9 @@ export class QuizService {
 
 	public creatQuiz(quiz: IQuiz): Observable<any> {
 		return this.http.post('https://localhost:5001/api/quiz', quiz);
+	}
+
+	public registerEmployee(user: IEmployee): Observable<any> {
+		return this.http.post('https://localhost:5001/api/employee/register', user);
 	}
 }

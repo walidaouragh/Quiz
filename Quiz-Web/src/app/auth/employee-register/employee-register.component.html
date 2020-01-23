@@ -7,25 +7,25 @@
 						{{ errorMessage }}
 					</div>
 					<nav mat-tab-nav-bar mat-stretch-tabs>
+						<a mat-tab-link [routerLink]="['/tester-register']">
+							Tester Register
+						</a>
 						<a
 							mat-tab-link
-							[routerLink]="['/tester-register']"
+							[routerLink]="['/employee-register']"
 							routerLinkActive
 							#RouterLinkActive="routerLinkActive"
 							[active]="RouterLinkActive.isActive"
 						>
-							Tester Register
-						</a>
-						<a mat-tab-link [routerLink]="['/employee-register']">
 							Employee Register
 						</a>
 						<a mat-tab-link [routerLink]="['/login']">
 							Login
 						</a>
 					</nav>
-					<h2 class="base-border">Tester Register</h2>
+					<h2 class="base-border">Employee Register</h2>
 					<p>Enter Your Details</p>
-					<form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
+					<form [formGroup]="employeeRegisterForm" (ngSubmit)="onSubmit(employeeRegisterForm)">
 						<div fxLayout="column" fxLayoutAlign="start stretch">
 							<mat-form-field style="width: 100%">
 								<input matInput placeholder="First Name" type="text" formControlName="firstName" />
@@ -39,13 +39,19 @@
 									<mat-error *ngIf="f.lastName.errors.required">Last Name is required</mat-error>
 								</mat-error>
 							</mat-form-field>
-							<mat-form-field style="width: 100%" class="mb-1">
+							<mat-form-field style="width: 100%">
 								<input matInput placeholder="E Mail" type="email" formControlName="email" />
 								<mat-error *ngIf="submitted && f.email.errors">
 									<mat-error *ngIf="f.email.errors.required">Email is required</mat-error>
 									<mat-error *ngIf="f.email.errors.email"
 										>Email must be a valid email address</mat-error
 									>
+								</mat-error>
+							</mat-form-field>
+							<mat-form-field style="width: 100%" class="mb-2">
+								<input matInput placeholder="Password" type="password" formControlName="password" />
+								<mat-error *ngIf="submitted && f.password.errors">
+									<mat-error *ngIf="f.password.errors.required">Password is required</mat-error>
 								</mat-error>
 							</mat-form-field>
 							<button class="mat-green" mat-raised-button type="submit">Submit</button>
