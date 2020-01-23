@@ -75,8 +75,26 @@ namespace Quiz.API.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> RegisterEmployee([FromBody] EmployeeToRegister employeeToRegister)
         {
+            if (string.IsNullOrEmpty(employeeToRegister.Email) ||
+                string.IsNullOrEmpty(employeeToRegister.FirstName) ||
+                string.IsNullOrEmpty(employeeToRegister.LastName) ||
+                string.IsNullOrEmpty(employeeToRegister.Password))
+            {
+                return UnprocessableEntity($"Missing name,email or password");
+            }
+
+            var emailExists = await _employeeRepository.GetEmployeeByEmail(employeeToRegister.Email);
+            if (emailExists != null)
+            {
+                return Conflict($"This email: {employeeToRegister.Email} already exists");
+            }
             var result =await _employeeRepository.RegisterEmployee(employeeToRegister);
-            return Ok(result);
+            if (!result.Succeeded)
+            {
+                return Unauthorized("Something went wrong");
+            }
+            var authResult = await MapToAuthorizationResult(employeeToRegister.Email);
+            return Ok(authResult);
         }
 
         [HttpPost("login")]
