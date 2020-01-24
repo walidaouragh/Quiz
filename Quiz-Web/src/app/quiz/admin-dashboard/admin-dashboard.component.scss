@@ -80,3 +80,17 @@ tr.mat-header-row {
 .margin-left-right {
 	margin: 0 5px 0 5px;
 }
+
+.mat-tab-label {
+	color: #e91e63 !important;
+	font-weight: 700;
+}
+
+/* Styles for the active tab label */
+.mat-tab-label.mat-tab-label-active {
+	background-color: #e91e63 !important;
+	color: #fff !important;
+	opacity: 1 !important;
+	font-weight: 700 !important;
+	font-size: 20px !important;
+}

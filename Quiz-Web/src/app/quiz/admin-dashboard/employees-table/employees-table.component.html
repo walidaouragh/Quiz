@@ -2,10 +2,13 @@
 	<div #employeesTable>
 		<div fxLayout fxLayoutAlign="start center" class="mb-2 ml-2 mt-xs">
 			<mat-form-field fxFlex="100%" class="mr-1 mt-1">
+				<button mat-button matPrefix mat-icon-button>
+					<mat-icon>search</mat-icon>
+				</button>
 				<input
 					matInput
 					type="text"
-					placeholder="Search for employees"
+					placeholder="Search for employee"
 					[(ngModel)]="employeeFilterText"
 					(keyup)="applyEmployeeFilter($event.target.value)"
 				/>
@@ -44,7 +47,7 @@
 			<ng-container matColumnDef="setAsAdmin">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header><strong>Set As Admin</strong></th>
 				<td mat-cell *matCellDef="let element">
-					<mat-slide-toggle color="primary"></mat-slide-toggle>
+					<mat-slide-toggle color="accent"></mat-slide-toggle>
 				</td>
 			</ng-container>
 			<tr mat-header-row *matHeaderRowDef="displayedEmployeesColumns"></tr>

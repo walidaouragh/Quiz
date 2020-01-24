@@ -27,7 +27,6 @@ export class TestersTableComponent implements OnChanges {
 	public testerResultsLength: number = 0;
 
 	ngOnChanges(changes: SimpleChanges) {
-		console.log('teste', changes);
 		if (changes.testers && changes.testers.currentValue) {
 			this.testers = new MatTableDataSource<User>(changes.testers.currentValue);
 			this.testerResultsLength = this.testers.data.length;

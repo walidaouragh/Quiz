@@ -23,7 +23,6 @@ export class EmployeesTableComponent implements OnChanges {
 	public employeeResultsLength: number = 0;
 
 	ngOnChanges(changes: SimpleChanges) {
-		console.log('employee', changes);
 		if (changes.employees && changes.employees.currentValue) {
 			this.employees = new MatTableDataSource<IEmployee>(changes.employees.currentValue);
 			this.employeeResultsLength = this.employees.data.length;
