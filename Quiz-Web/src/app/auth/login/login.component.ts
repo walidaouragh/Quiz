@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
 					if (DATA.isAdmin) {
 						this.router.navigate(['./quiz/admin-dashboard']);
 					} else {
-						this.router.navigate([`./quiz/employee-dashboard/${DATA.employeeId}`]);
+						this.router.navigate([`./quiz/employee-dashboard`]);
 					}
 				}
 			},

@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
 	public dialogConfig: MatDialogConfig = new MatDialogConfig();
 	public alertDialogRef: MatDialogRef<ConfirmDialogComponent>;
 	public employeeName: string = '';
+	public isAdmin: boolean;
 
 	ngOnInit() {
 		this.getUserDetails();
@@ -25,6 +26,7 @@ export class NavbarComponent implements OnInit {
 		if (data) {
 			const details: IQuizAuthResponse = JSON.parse(data);
 			this.employeeName = details.displayName;
+			this.isAdmin = details.isAdmin;
 		}
 	}
 

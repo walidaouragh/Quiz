@@ -74,7 +74,7 @@ const quizRoutes: Routes = [
 				}
 			},
 			{
-				path: 'employee-dashboard/:employeeId',
+				path: 'employee-dashboard',
 				component: EmployeeDashboardComponent,
 				data: {
 					title: 'employee-dashboard'

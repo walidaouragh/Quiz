@@ -1,7 +1,10 @@
 <mat-toolbar color="accent">
 	<div>
-		<a mat-icon-button routerLink="/quiz/admin-dashboard">
+		<a *ngIf="isAdmin" mat-icon-button routerLink="/quiz/admin-dashboard">
 			Quiz
+		</a>
+		<a *ngIf="!isAdmin" mat-icon-button routerLink="/quiz/employee-dashboard">
+			Dashboard
 		</a>
 		<span fxFlex></span>
 		<div style="position: absolute; right: 0">
