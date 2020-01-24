@@ -20,5 +20,7 @@ namespace Quiz.API.Repositories.EmployeeRepository
         IQueryable<Employee> GetAllEmployees();
 
         Task<IdentityResult> EnsureAdminUserExists();
+
+        Task SetEmployeeAdminStatus(int employeeId, bool isAdmin);
     }
 }

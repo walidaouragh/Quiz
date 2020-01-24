@@ -111,6 +111,13 @@ namespace Quiz.API.Controllers
             return Ok(authResult);
         }
 
+        [HttpPut("set-admin/{employeeId}/{status}")]
+        public async Task<IActionResult> SetUserAsAdmin(int employeeId, bool status)
+        {
+            await _employeeRepository.SetEmployeeAdminStatus(employeeId, status);
+            return Ok();
+        }
+
         private async Task<EmployeeAuthorizationResult> MapToAuthorizationResult(string email)
         {
             var employee = await _employeeRepository.GetEmployeeByEmail(email);

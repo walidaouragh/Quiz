@@ -91,6 +91,17 @@ namespace Quiz.API.Repositories.EmployeeRepository
             return response;;
         }
 
+        public async Task SetEmployeeAdminStatus(int employeeId, bool isAdmin)
+        {
+            var employeeRecords = _dbContext.Employees.Where(p => p.Id == employeeId);
+            foreach (var employee in employeeRecords)
+            {
+                employee.IsAdmin = isAdmin;
+            }
+
+            await _dbContext.SaveChangesAsync();
+        }
+
         public string GenerateJwtToken(Employee employee)
         {
             if (employee == null)
