@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -20,6 +20,7 @@ export class TestersTableComponent implements OnChanges {
 	@ViewChild(MatSort, { static: false }) testerSort: MatSort;
 	@ViewChild(MatPaginator, { static: false }) testerPaginator: MatPaginator;
 	@ViewChild('testersTable', { static: false }) testerTable: ElementRef;
+	@Output() getTesters: EventEmitter<ITester[]> = new EventEmitter();
 
 	@Input() testers: MatTableDataSource<ITester>;
 
@@ -63,7 +64,7 @@ export class TestersTableComponent implements OnChanges {
 		this.dialog.open(ConfirmDialogComponent, dialogConfig);
 
 		this.quizService.deleteTester(testerId).subscribe(res => {
-			/*this.getTesters();*/
+			this.getTesters.emit(res);
 		});
 	}
 

@@ -9,7 +9,7 @@
 		<mat-tab-group mat-stretch-tabs>
 			<mat-tab label="Testers">
 				<div *ngIf="testers">
-					<app-testers-table [testers]="testers"></app-testers-table>
+					<app-testers-table [testers]="testers" (getTesters)="getTesters()"></app-testers-table>
 				</div>
 			</mat-tab>
 			<mat-tab label="Employees">

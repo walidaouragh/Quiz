@@ -203,7 +203,7 @@ namespace Quiz.API.Migrations
 
                     b.Property<string>("QuestionText");
 
-                    b.Property<int?>("UserId");
+                    b.Property<int?>("TesterId");
 
                     b.HasKey("OptionId");
 
@@ -242,9 +242,9 @@ namespace Quiz.API.Migrations
                     b.ToTable("Quiz");
                 });
 
-            modelBuilder.Entity("Quiz.API.Models.User", b =>
+            modelBuilder.Entity("Quiz.API.Models.Tester", b =>
                 {
-                    b.Property<int?>("UserId")
+                    b.Property<int?>("TesterId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -257,14 +257,14 @@ namespace Quiz.API.Migrations
                     b.Property<string>("LastName")
                         .ValueGeneratedOnAdd();
 
-                    b.HasKey("UserId");
+                    b.HasKey("TesterId");
 
-                    b.ToTable("Users");
+                    b.ToTable("Testers");
                 });
 
-            modelBuilder.Entity("Quiz.API.Models.UserAnswer", b =>
+            modelBuilder.Entity("Quiz.API.Models.TesterAnswer", b =>
                 {
-                    b.Property<int>("UserAnswerId")
+                    b.Property<int>("TesterAnswerId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -278,13 +278,13 @@ namespace Quiz.API.Migrations
 
                     b.Property<string>("QuizName");
 
-                    b.Property<int>("UserId");
+                    b.Property<int>("TesterId");
 
-                    b.HasKey("UserAnswerId");
+                    b.HasKey("TesterAnswerId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("TesterId");
 
-                    b.ToTable("UserAnswers");
+                    b.ToTable("TesterAnswers");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -348,11 +348,11 @@ namespace Quiz.API.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Quiz.API.Models.UserAnswer", b =>
+            modelBuilder.Entity("Quiz.API.Models.TesterAnswer", b =>
                 {
-                    b.HasOne("Quiz.API.Models.User")
-                        .WithMany("UserAnswers")
-                        .HasForeignKey("UserId")
+                    b.HasOne("Quiz.API.Models.Tester")
+                        .WithMany("TesterAnswers")
+                        .HasForeignKey("TesterId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

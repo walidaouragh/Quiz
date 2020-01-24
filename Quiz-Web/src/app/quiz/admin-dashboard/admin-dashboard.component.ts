@@ -19,11 +19,11 @@ export class AdminDashboardComponent implements OnInit {
 	public isLoadingResults: boolean;
 
 	ngOnInit() {
-		this.getUsers();
+		this.getTesters();
 		this.getEmployees();
 	}
 
-	public getUsers(): void {
+	public getTesters(): void {
 		this.isLoadingResults = true;
 
 		this.quizService.getTesters().subscribe(
