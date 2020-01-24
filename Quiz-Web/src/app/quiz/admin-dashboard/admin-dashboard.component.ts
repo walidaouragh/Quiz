@@ -3,7 +3,7 @@ import { QuizService } from '../../_services/quiz.service';
 import User = namespace.User;
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
-import { IEmployee } from '../../_types/IEmployee';
+import { IEmployeeAdmin } from '../../_types/IEmployee';
 
 @Component({
 	selector: 'app-admin-dashboard',
@@ -15,7 +15,7 @@ export class AdminDashboardComponent implements OnInit {
 	constructor(private quizService: QuizService, public dialog: MatDialog) {}
 
 	public testers: User[];
-	public employees: IEmployee[];
+	public employees: IEmployeeAdmin[];
 	public isLoadingResults: boolean;
 
 	ngOnInit() {
@@ -42,8 +42,8 @@ export class AdminDashboardComponent implements OnInit {
 		this.isLoadingResults = true;
 
 		this.quizService.getEmployees().subscribe(
-			(employees: IEmployee[]) => {
-				this.employees = employees;
+			(employees: IEmployeeAdmin[]) => {
+				this.employees = this.sortAndFilter(employees);
 				this.isLoadingResults = false;
 			},
 			(error: HttpErrorResponse) => {
@@ -51,5 +51,24 @@ export class AdminDashboardComponent implements OnInit {
 				console.log(error);
 			}
 		);
+	}
+
+	// don't allow the master Admin to be managed on this screen
+	private sortAndFilter(data: IEmployeeAdmin[]): IEmployeeAdmin[] {
+		let results: IEmployeeAdmin[] = data.filter(employee => employee.email !== 'walid@quiz.com');
+
+		results = results.sort((a: IEmployeeAdmin, b: IEmployeeAdmin) => {
+			const aName: string = `${a.lastName} ${a.firstName}`.toUpperCase();
+			const bName: string = `${b.lastName} ${b.firstName}`.toUpperCase();
+			if (aName < bName) {
+				return -1;
+			}
+			if (aName > bName) {
+				return 1;
+			}
+			return 0;
+		});
+
+		return results;
 	}
 }

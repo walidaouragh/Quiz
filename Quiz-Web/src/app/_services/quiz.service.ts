@@ -74,4 +74,8 @@ export class QuizService {
 	public getEmployees(): Observable<any> {
 		return this.http.get('https://localhost:5001/api/employee');
 	}
+
+	public setEmployeeAsAdmin(employeeId: number, isAdmin: boolean): Observable<any> {
+		return this.http.put(`https://localhost:5001/api/employee/set-admin/${employeeId}/${isAdmin}`, null);
+	}
 }
