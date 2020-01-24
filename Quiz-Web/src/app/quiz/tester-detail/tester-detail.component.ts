@@ -1,26 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../../_services/quiz.service';
-import User = namespace.User;
 import { ActivatedRoute } from '@angular/router';
+import ITester = namespace.ITester;
 
 @Component({
-	selector: 'app-user-detail',
-	templateUrl: './user-detail.component.html',
-	styleUrls: ['./user-detail.component.scss']
+	selector: 'app-tester-detail',
+	templateUrl: './tester-detail.component.html',
+	styleUrls: ['./tester-detail.component.scss']
 })
-export class UserDetailComponent implements OnInit {
+export class TesterDetailComponent implements OnInit {
 	constructor(private quizService: QuizService, private route: ActivatedRoute) {}
-	public user: User;
-	public userId: number;
+	public tester: ITester;
+	public testerId: number;
 	public correctAnswers: number;
 	public wrongAnswers: number;
 	public displayedUserColumns: string[] = ['question', 'choice', 'correct'];
 	ngOnInit() {
-		this.userId = +this.route.snapshot.paramMap.get('userId');
-		this.quizService.getUserById(this.userId).subscribe((user: User) => {
-			this.user = user;
-			this.correctAnswers = this.user.userAnswers.filter(c => c.isCorrect).length;
-			this.wrongAnswers = this.user.userAnswers.filter(c => !c.isCorrect).length;
+		this.testerId = +this.route.snapshot.paramMap.get('testerId');
+		this.quizService.getTesterById(this.testerId).subscribe((tester: ITester) => {
+			this.tester = tester;
+			this.correctAnswers = this.tester.testerAnswers.filter(c => c.isCorrect).length;
+			this.wrongAnswers = this.tester.testerAnswers.filter(c => !c.isCorrect).length;
 		});
 	}
 
@@ -34,7 +34,7 @@ export class UserDetailComponent implements OnInit {
             <th>Correct?</th>
         `;
 
-		this.user.userAnswers.forEach(val => {
+		this.tester.testerAnswers.forEach(val => {
 			tableRow += `
                 <tr>
                     <td>${val.questionText}</td>
@@ -53,7 +53,7 @@ export class UserDetailComponent implements OnInit {
 		popupWin.document.write(
 			`<html>
                 <head>
-                <title>${this.user.firstName} ' Score</title>
+                <title>${this.tester.firstName} ' Score</title>
                     <style>
                         @media screen, print {
                             table {
@@ -76,7 +76,7 @@ export class UserDetailComponent implements OnInit {
                     </style>
                 </head>
                 <body onload="window.print()">
-                    <h1>Result for Tester: ${this.user.firstName} ${this.user.lastName} (${this.user.email})</h1>
+                    <h1>Result for Tester: ${this.tester.firstName} ${this.tester.lastName} (${this.tester.email})</h1>
                     <table>
                         <thead>${tableCols}</thead>
                         <tbody>${tableRow}</tbody>

@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { QuizService } from '../../_services/quiz.service';
-import User = namespace.User;
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { IEmployeeAdmin } from '../../_types/IEmployee';
+import ITester = namespace.ITester;
 
 @Component({
 	selector: 'app-admin-dashboard',
@@ -14,7 +14,7 @@ import { IEmployeeAdmin } from '../../_types/IEmployee';
 export class AdminDashboardComponent implements OnInit {
 	constructor(private quizService: QuizService, public dialog: MatDialog) {}
 
-	public testers: User[];
+	public testers: ITester[];
 	public employees: IEmployeeAdmin[];
 	public isLoadingResults: boolean;
 
@@ -26,8 +26,8 @@ export class AdminDashboardComponent implements OnInit {
 	public getUsers(): void {
 		this.isLoadingResults = true;
 
-		this.quizService.getUsers().subscribe(
-			(users: User[]) => {
+		this.quizService.getTesters().subscribe(
+			(users: ITester[]) => {
 				this.testers = users;
 				this.isLoadingResults = false;
 			},

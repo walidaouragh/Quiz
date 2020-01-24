@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Quiz.API.Migrations
 {
-    public partial class employee : Migration
+    public partial class replacedUserToTester : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -66,10 +66,10 @@ namespace Quiz.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "Testers",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(nullable: false)
+                    TesterId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Email = table.Column<string>(nullable: true),
                     FirstName = table.Column<string>(nullable: true),
@@ -77,7 +77,7 @@ namespace Quiz.API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.PrimaryKey("PK_Testers", x => x.TesterId);
                 });
 
             migrationBuilder.CreateTable(
@@ -207,12 +207,12 @@ namespace Quiz.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserAnswers",
+                name: "TesterAnswers",
                 columns: table => new
                 {
-                    UserAnswerId = table.Column<int>(nullable: false)
+                    TesterAnswerId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    UserId = table.Column<int>(nullable: false),
+                    TesterId = table.Column<int>(nullable: false),
                     QuizName = table.Column<string>(nullable: true),
                     QuestionText = table.Column<string>(nullable: true),
                     QuestionId = table.Column<int>(nullable: false),
@@ -221,12 +221,12 @@ namespace Quiz.API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserAnswers", x => x.UserAnswerId);
+                    table.PrimaryKey("PK_TesterAnswers", x => x.TesterAnswerId);
                     table.ForeignKey(
-                        name: "FK_UserAnswers_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "UserId",
+                        name: "FK_TesterAnswers_Testers_TesterId",
+                        column: x => x.TesterId,
+                        principalTable: "Testers",
+                        principalColumn: "TesterId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -236,7 +236,7 @@ namespace Quiz.API.Migrations
                 {
                     OptionId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    UserId = table.Column<int>(nullable: true),
+                    TesterId = table.Column<int>(nullable: true),
                     QuestionId = table.Column<int>(nullable: false),
                     QuestionText = table.Column<string>(nullable: true),
                     OptionText = table.Column<string>(nullable: true),
@@ -303,9 +303,9 @@ namespace Quiz.API.Migrations
                 column: "QuizId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserAnswers_UserId",
-                table: "UserAnswers",
-                column: "UserId");
+                name: "IX_TesterAnswers_TesterId",
+                table: "TesterAnswers",
+                column: "TesterId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -329,7 +329,7 @@ namespace Quiz.API.Migrations
                 name: "Options");
 
             migrationBuilder.DropTable(
-                name: "UserAnswers");
+                name: "TesterAnswers");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -341,7 +341,7 @@ namespace Quiz.API.Migrations
                 name: "Questions");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Testers");
 
             migrationBuilder.DropTable(
                 name: "Quiz");

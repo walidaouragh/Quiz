@@ -2,11 +2,11 @@ import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } fro
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import User = namespace.User;
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../dialogs/confirm-dialog/confirm-dialog.component';
 import * as XLSX from 'xlsx';
 import { QuizService } from '../../../_services/quiz.service';
+import ITester = namespace.ITester;
 
 @Component({
 	selector: 'app-testers-table',
@@ -21,14 +21,14 @@ export class TestersTableComponent implements OnChanges {
 	@ViewChild(MatPaginator, { static: false }) testerPaginator: MatPaginator;
 	@ViewChild('testersTable', { static: false }) testerTable: ElementRef;
 
-	@Input() testers: MatTableDataSource<User>;
+	@Input() testers: MatTableDataSource<ITester>;
 
 	public testerFilterText: string = '';
 	public testerResultsLength: number = 0;
 
 	ngOnChanges(changes: SimpleChanges) {
 		if (changes.testers && changes.testers.currentValue) {
-			this.testers = new MatTableDataSource<User>(changes.testers.currentValue);
+			this.testers = new MatTableDataSource<ITester>(changes.testers.currentValue);
 			this.testerResultsLength = this.testers.data.length;
 			this.testers.sort = this.testerSort;
 			this.testers.paginator = this.testerPaginator;
@@ -39,7 +39,7 @@ export class TestersTableComponent implements OnChanges {
 		this.testers.filter = filterValue.trim().toLowerCase();
 	}
 
-	public openDeleteTesterDialog(userId: any): void {
+	public openDeleteTesterDialog(testerId: any): void {
 		const dialogConfig: MatDialogConfig = new MatDialogConfig();
 		dialogConfig.width = '30%';
 		dialogConfig.data = {
@@ -49,21 +49,21 @@ export class TestersTableComponent implements OnChanges {
 
 		dialogRef.afterClosed().subscribe((confirmed: boolean) => {
 			if (confirmed) {
-				this.onDeleteTester(userId);
+				this.onDeleteTester(testerId);
 				this.dialog.closeAll();
 			}
 		});
 	}
 
-	public onDeleteTester(userId): void {
+	public onDeleteTester(testerId): void {
 		const dialogConfig: MatDialogConfig = new MatDialogConfig();
 		dialogConfig.data = {
 			modalType: 'delete'
 		};
 		this.dialog.open(ConfirmDialogComponent, dialogConfig);
 
-		this.quizService.deleteTester(userId).subscribe(res => {
-			/*this.getUsers();*/
+		this.quizService.deleteTester(testerId).subscribe(res => {
+			/*this.getTesters();*/
 		});
 	}
 
@@ -92,7 +92,7 @@ export class TestersTableComponent implements OnChanges {
                 <tr>
                     <td>${val.firstName} ${val.lastName}</td>
                     <td>${val.email}</td>
-                    <td>${val.userAnswers[0].quizName}</td>
+                    <td>${val.testerAnswers[0].quizName}</td>
                 </tr>
             `;
 		});

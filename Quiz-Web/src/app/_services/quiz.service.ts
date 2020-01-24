@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import User = namespace.User;
 import IOption = namespace.IOption;
 import { IEmployeeAuthRequest } from '../_types/IQuizAuthResponse';
 import IQuestion = namespace.IQuestion;
 import IQuiz = namespace.IQuiz;
 import { IEmployee } from '../_types/IEmployee';
+import ITester = namespace.ITester;
 
 @Injectable({
 	providedIn: 'root'
@@ -27,12 +27,12 @@ export class QuizService {
 		return this.http.get(`https://localhost:5001/api/quiz/${id}`);
 	}
 
-	public register(user: User): Observable<any> {
-		return this.http.post('https://localhost:5001/api/user', user);
+	public register(tester: ITester): Observable<any> {
+		return this.http.post('https://localhost:5001/api/tester', tester);
 	}
 
-	public submitAnswers(options: IOption, userId: number, quizName: string): Observable<any> {
-		return this.http.post(`https://localhost:5001/api/userAnswer/${userId}/${quizName}`, options);
+	public submitAnswers(options: IOption, testerId: number, quizName: string): Observable<any> {
+		return this.http.post(`https://localhost:5001/api/testerAnswer/${testerId}/${quizName}`, options);
 	}
 
 	public LoginEmployee(employee: IEmployeeAuthRequest): Observable<any> {
@@ -51,24 +51,24 @@ export class QuizService {
 		return this.http.delete(`https://localhost:5001/api/question/delete/${quizId}/${questionId}`);
 	}
 
-	public getUsers(): Observable<any> {
-		return this.http.get('https://localhost:5001/api/user');
+	public getTesters(): Observable<any> {
+		return this.http.get('https://localhost:5001/api/tester');
 	}
 
-	public getUserById(userId: number): Observable<any> {
-		return this.http.get(`https://localhost:5001/api/user/${userId}`);
+	public getTesterById(testerId: number): Observable<any> {
+		return this.http.get(`https://localhost:5001/api/tester/${testerId}`);
 	}
 
-	public deleteTester(userId: number): Observable<any> {
-		return this.http.delete(`https://localhost:5001/api/user/${userId}`);
+	public deleteTester(testerId: number): Observable<any> {
+		return this.http.delete(`https://localhost:5001/api/tester/${testerId}`);
 	}
 
 	public creatQuiz(quiz: IQuiz): Observable<any> {
 		return this.http.post('https://localhost:5001/api/quiz', quiz);
 	}
 
-	public registerEmployee(user: IEmployee): Observable<any> {
-		return this.http.post('https://localhost:5001/api/employee/register', user);
+	public registerEmployee(employee: IEmployee): Observable<any> {
+		return this.http.post('https://localhost:5001/api/employee/register', employee);
 	}
 
 	public getEmployees(): Observable<any> {

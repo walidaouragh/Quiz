@@ -9,9 +9,9 @@ import { OfflineComponent } from './offline/offline.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ManageQuizzesComponent } from './manage-quizzes/manage-quizzes.component';
-import { UserDetailComponent } from './user-detail/user-detail.component';
 import { QuestionComponent } from './admin-dashboard/edit-question/question.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
+import { TesterDetailComponent } from "./tester-detail/tester-detail.component";
 
 const quizRoutes: Routes = [
 	{
@@ -19,26 +19,26 @@ const quizRoutes: Routes = [
 		component: QuizComponent,
 		children: [
 			{
-				path: 'home/:userId',
+				path: 'home/:testerId',
 				component: HomeComponent,
 				data: {
 					title: 'Home'
 				}
 			},
 			{
-				path: 'test/:id/:userId/:quizName',
+				path: 'test/:id/:testerId/:quizName',
 				component: TestComponent,
 				data: { reuse: true, title: 'Test' }
 			},
 			{
-				path: ':quizId/result/:userId',
+				path: ':quizId/result/:testerId',
 				component: ResultComponent,
 				data: {
 					title: 'Result'
 				}
 			},
 			{
-				path: ':quizId/check/:userId',
+				path: ':quizId/check/:testerId',
 				component: CheckComponent,
 				data: {
 					title: 'Check'
@@ -67,8 +67,8 @@ const quizRoutes: Routes = [
 				}
 			},
 			{
-				path: 'admin-dashboard/user-detail/:userId',
-				component: UserDetailComponent,
+				path: 'admin-dashboard/tester-detail/:testerId',
+				component: TesterDetailComponent,
 				data: {
 					title: 'Manage'
 				}

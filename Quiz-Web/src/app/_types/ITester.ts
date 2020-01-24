@@ -1,16 +1,16 @@
 declare module namespace {
-	export interface User {
-		userId?: number;
+	export interface ITester {
+		testerId?: number;
 		email: string;
 		firstName: string;
 		lastName: string;
 		OptionText?: any;
-		userAnswers?: Array<UserAnswer>;
+		testerAnswers?: Array<ITesterAnswer>;
 	}
 
-	export interface UserAnswer {
+	export interface ITesterAnswer {
 		quizName: string;
-		userId: number;
+		testerId: number;
 		userAnswerId: number;
 		questionId: number;
 		optionText: string;

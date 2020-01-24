@@ -25,7 +25,7 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 		super();
 	}
 	public quizId: number;
-	public userId: any;
+	public testerId: any;
 	public quiz: IQuiz;
 	public answersForm: FormGroup;
 	public correctAnswers: number;
@@ -45,7 +45,7 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 		});
 
 		this.quizId = +this.route.snapshot.paramMap.get('id');
-		this.userId = +this.route.snapshot.paramMap.get('userId');
+		this.testerId = +this.route.snapshot.paramMap.get('testerId');
 		this.quizName = this.route.snapshot.paramMap.get('quizName');
 
 		this.getQuiz(this.quizId);
@@ -62,7 +62,7 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 	}
 
 	public onChange(event: IOption, questionText: string): void {
-		event.userId = this.userId;
+		event.testerId = this.testerId;
 		event.questionText = questionText;
 		//progress bar increment for each click
 		if (!!!event.questionId) return;
@@ -85,7 +85,7 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 
 		let trueArray: any[] = [];
 		let falseArray: any[] = [];
-		this.quizService.submitAnswers(this.answersForm.value.options, this.userId, this.quizName).subscribe(
+		this.quizService.submitAnswers(this.answersForm.value.options, this.testerId, this.quizName).subscribe(
 			(options: IOption[]) => {
 				this.quizService.selectedAnswers$.next(this.answersForm.value.options);
 				this.quizService.totalQuestions$.next(this.quiz.questions.length);
@@ -102,7 +102,7 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 						this.incorrectAnswers = falseArray.length;
 					}
 				});
-				this.router.navigate([`/quiz/${this.quizId}/result/${this.userId}`]);
+				this.router.navigate([`/quiz/${this.quizId}/result/${this.testerId}`]);
 			},
 			(error: HttpErrorResponse) => {
 				console.log(error);

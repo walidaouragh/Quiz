@@ -21,11 +21,11 @@ export class ResultComponent implements OnInit {
 	public correctAnswers: number;
 	public totalQuestions: number;
 	public quizId: number;
-	public userId: number;
+	public testerId: number;
 
 	ngOnInit() {
 		this.quizId = +this.route.snapshot.paramMap.get('quizId');
-		this.userId = +this.route.snapshot.paramMap.get('userId');
+		this.testerId = +this.route.snapshot.paramMap.get('testerId');
 		this.quizService.totalQuestions$.subscribe(total => {
 			this.totalQuestions = total;
 		});
@@ -38,7 +38,7 @@ export class ResultComponent implements OnInit {
 	}
 
 	public onNavigateToResult(): void {
-		this.router.navigate([`/quiz/${this.quizId}/check/${this.userId}`]);
+		this.router.navigate([`/quiz/${this.quizId}/check/${this.testerId}`]);
 	}
 
 	public openConfirmationDialog(): void {

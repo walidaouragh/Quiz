@@ -2,7 +2,7 @@ namespace Quiz.API.Models
 {
     public class AnswerToPost
     {
-        public int UserId { get; set; }
+        public int TesterId { get; set; }
         public int QuizId { get; set; }
         public int QuestionId { get; set; }
         public string QuestionText { get; set; }

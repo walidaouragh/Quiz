@@ -13,9 +13,9 @@ namespace Quiz.API.DbContext
         public DbSet<Models.Quiz> Quiz { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<Option> Options { get; set; }
-        public DbSet<UserAnswer> UserAnswers { get; set; }
+        public DbSet<TesterAnswer> TesterAnswers { get; set; }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Tester> Testers { get; set; }
         public DbSet<Employee> Employees { get; set; }
 
           protected override void OnModelCreating(ModelBuilder builder)

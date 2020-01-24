@@ -4,7 +4,7 @@ declare module namespace {
 		questionId: number;
 		optionText: string;
 		isCorrect: boolean;
-		userId?: number;
+		testerId?: number;
 		questionText?: string;
 	}
 

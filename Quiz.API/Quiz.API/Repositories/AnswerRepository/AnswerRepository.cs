@@ -1,5 +1,4 @@
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 using Quiz.API.DbContext;
 using Quiz.API.Models;
 

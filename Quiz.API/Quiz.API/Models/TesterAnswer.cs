@@ -1,9 +1,9 @@
 namespace Quiz.API.Models
 {
-    public class UserAnswer
+    public class TesterAnswer
     {
-        public int UserId { get; set; }
-        public int UserAnswerId { get; set; }
+        public int TesterId { get; set; }
+        public int TesterAnswerId { get; set; }
         public string QuizName { get; set; }
         public string QuestionText { get; set; }
         public int QuestionId { get; set; }

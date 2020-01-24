@@ -22,13 +22,13 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { QuestionEditDialogComponent } from './dialogs/question-edit-dialog/question-edit-dialog.component';
 import { QuestionAddDialogComponent } from './dialogs/question-add-dialog/question-add-dialog.component';
 import { ManageQuizzesComponent } from './manage-quizzes/manage-quizzes.component';
-import { UserDetailComponent } from './user-detail/user-detail.component';
 import { QuizAddDialogComponent } from './dialogs/quiz-add-dialog/quiz-add-dialog.component';
 import { QuestionComponent } from './admin-dashboard/edit-question/question.component';
 import { CapitalizeFirstPipe } from '../Directives/capitalizeFirstLetter.directive';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
 import { TestersTableComponent } from './admin-dashboard/testers-table/testers-table.component';
 import { EmployeesTableComponent } from './admin-dashboard/employees-table/employees-table.component';
+import { TesterDetailComponent } from "./tester-detail/tester-detail.component";
 
 @NgModule({
 	imports: [
@@ -57,7 +57,7 @@ import { EmployeesTableComponent } from './admin-dashboard/employees-table/emplo
 		QuestionEditDialogComponent,
 		QuestionAddDialogComponent,
 		ManageQuizzesComponent,
-		UserDetailComponent,
+		TesterDetailComponent,
 		QuizAddDialogComponent,
 		CapitalizeFirstPipe,
 		EmployeeDashboardComponent,

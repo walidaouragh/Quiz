@@ -8,9 +8,9 @@ namespace Quiz.API.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<UserAnswer, AnswerToPost>();
-            CreateMap<User, UserToRegister>();
-            CreateMap<List<UserAnswer>, List<AnswerToPost>>();
+            CreateMap<TesterAnswer, AnswerToPost>();
+            CreateMap<Tester, TesterToRegister>();
+            CreateMap<List<TesterAnswer>, List<AnswerToPost>>();
             CreateMap<Option, AnswerToPost>();
         }
     }

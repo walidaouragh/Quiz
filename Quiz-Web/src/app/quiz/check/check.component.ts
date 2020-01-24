@@ -24,11 +24,11 @@ export class CheckComponent implements OnInit {
 	public options: IOption[];
 	public quiz: IQuiz;
 	public quizId: number;
-	public userId: number;
+	public testerId: number;
 
 	ngOnInit() {
 		this.quizId = +this.route.snapshot.paramMap.get('quizId');
-		this.userId = +this.route.snapshot.paramMap.get('userId');
+		this.testerId = +this.route.snapshot.paramMap.get('testerId');
 		this.getQuiz(this.quizId);
 		this.getSelectedOptions();
 	}
@@ -52,7 +52,7 @@ export class CheckComponent implements OnInit {
 	}
 
 	public backToTest(id, quizName): void {
-		this.router.navigate([`quiz/test/${id}/${this.userId}/${quizName}`]);
+		this.router.navigate([`quiz/test/${id}/${this.testerId}/${quizName}`]);
 	}
 
 	public openConfirmationDialog(): void {

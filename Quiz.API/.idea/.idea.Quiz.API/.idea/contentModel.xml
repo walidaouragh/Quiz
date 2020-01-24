@@ -19,8 +19,8 @@
           <e p="EmployeeController.cs" t="Include" />
           <e p="QuestionController.cs" t="Include" />
           <e p="QuizController.cs" t="Include" />
-          <e p="UserAnswerController.cs" t="Include" />
-          <e p="UserController.cs" t="Include" />
+          <e p="TesterAnswerController.cs" t="Include" />
+          <e p="TesterController.cs" t="Include" />
         </e>
         <e p="DbContext" t="Include">
           <e p="QuizDbContext.cs" t="Include" />
@@ -30,8 +30,8 @@
           <e p="MappingProfile.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="20200120201917_employee.cs" t="Include" />
-          <e p="20200120201917_employee.Designer.cs" t="Include" />
+          <e p="20200124202308_replacedUserToTester.cs" t="Include" />
+          <e p="20200124202308_replacedUserToTester.Designer.cs" t="Include" />
           <e p="QuizDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
@@ -46,9 +46,9 @@
           <e p="QuestionDto.cs" t="Include" />
           <e p="Questions.cs" t="Include" />
           <e p="Quiz.cs" t="Include" />
-          <e p="User.cs" t="Include" />
-          <e p="UserAnswer.cs" t="Include" />
-          <e p="UserToRegister.cs" t="Include" />
+          <e p="Tester.cs" t="Include" />
+          <e p="TesterAnswer.cs" t="Include" />
+          <e p="TesterToRegister.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -80,13 +80,13 @@
             <e p="IQuizRepository.cs" t="Include" />
             <e p="QuizRepository.cs" t="Include" />
           </e>
-          <e p="User" t="Include">
-            <e p="IUserRepository.cs" t="Include" />
-            <e p="UserRepository.cs" t="Include" />
+          <e p="Tester" t="Include">
+            <e p="ITesterRepository.cs" t="Include" />
+            <e p="TesterRepository.cs" t="Include" />
           </e>
-          <e p="UserAnswerRepository" t="Include">
-            <e p="IUserAnswerRepository.cs" t="Include" />
-            <e p="UserAnswerRepository.cs" t="Include" />
+          <e p="TesterAnswerRepository" t="Include">
+            <e p="ITesterAnswerRepository.cs" t="Include" />
+            <e p="TesterAnswerRepository.cs" t="Include" />
           </e>
         </e>
         <e p="Startup.cs" t="Include" />
