@@ -1,3 +1,5 @@
+using System;
+
 namespace Quiz.API.Models
 {
     public class EmployeeToRegister
@@ -6,5 +8,7 @@ namespace Quiz.API.Models
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public int? SchoolId { get; set; }
+        public DateTime? HireDate { get; set; }
     }
 }

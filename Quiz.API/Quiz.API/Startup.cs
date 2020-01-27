@@ -18,8 +18,9 @@ using Quiz.API.Repositories;
 using Quiz.API.Repositories.AnswerRepository;
 using Quiz.API.Repositories.EmployeeRepository;
 using Quiz.API.Repositories.QuestionRepository;
-using Quiz.API.Repositories.Tester;
+using Quiz.API.Repositories.SchoolRepository;
 using Quiz.API.Repositories.TesterAnswerRepository;
+using Quiz.API.Repositories.TesterRepository;
 
 namespace Quiz.API
 {
@@ -50,6 +51,7 @@ namespace Quiz.API
             services.AddScoped<ITesterRepository, TesterRepository>();
             services.AddScoped<IQuestionRepository, QuestionRepository>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<ISchoolRepository, SchoolRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo

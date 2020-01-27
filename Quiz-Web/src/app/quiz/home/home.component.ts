@@ -13,15 +13,17 @@ export class HomeComponent implements OnInit {
 
 	public quizzes: IQuiz[];
 	public testerId: number;
+	public schoolId: number;
 
 	ngOnInit() {
 		this.testerId = +this.route.snapshot.paramMap.get('testerId');
-		this.quizService.getQuizzes().subscribe((q: IQuiz[]) => {
+		this.schoolId = +this.route.snapshot.paramMap.get('schoolId');
+		this.quizService.getQuizzes(this.schoolId).subscribe((q: IQuiz[]) => {
 			this.quizzes = q;
 		});
 	}
 
 	public onNavigateToQuiz(id, quizName): void {
-		this.router.navigate([`quiz/test/${id}/${this.testerId}/${quizName}`]);
+		this.router.navigate([`quiz/test/${this.schoolId}/${id}/${this.testerId}/${quizName}`]);
 	}
 }

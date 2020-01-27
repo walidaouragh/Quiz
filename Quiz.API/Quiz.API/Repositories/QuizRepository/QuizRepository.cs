@@ -14,27 +14,29 @@ namespace Quiz.API.Repositories
         {
             _context = dbContext;
         }
-        public async Task<List<Models.Quiz>> GetQuizzes()
+        public async Task<List<Models.Quiz>> GetQuizzes(int schoolId)
         {
             return await _context.Quiz
+                .Where(x => x.SchoolId == schoolId)
                 .Include(x => x.Questions)
                 .ThenInclude(x => x.Options)
                 .ToListAsync();
         }
 
-        public async Task<Models.Quiz> GetQuiz(int id)
+        public async Task<Models.Quiz> GetQuiz(int schoolId, int id)
         {
             return await _context.Quiz
                 .Include(x => x.Questions)
                 .ThenInclude(x => x.Options)
-                .Where(x => x.QuizId == id).FirstOrDefaultAsync();
+                .Where(x => x.SchoolId == schoolId && x.QuizId == id).FirstOrDefaultAsync();
         }
 
         public async Task AddQuiz(Models.Quiz quiz)
         {
             var quizToAdd = new Models.Quiz()
             {
-               QuizName = quiz.QuizName
+               QuizName = quiz.QuizName,
+               SchoolId = quiz.SchoolId
             };
             _context.Quiz.Add(quizToAdd);
             await _context.SaveChangesAsync();

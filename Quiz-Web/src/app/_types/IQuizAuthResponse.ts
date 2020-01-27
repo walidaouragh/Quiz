@@ -5,6 +5,7 @@ export interface IEmployeeAuthRequest {
 
 export interface IQuizAuthResponse {
 	employeeId: number;
+	schoolId: number;
 	success: boolean;
 	token: string;
 	isAdmin: boolean;

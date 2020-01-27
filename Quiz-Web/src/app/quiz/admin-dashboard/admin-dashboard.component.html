@@ -1,22 +1,12 @@
 <app-navbar></app-navbar>
 <div class="container margin-top">
-	<div class="row mb-2 margin-left-right">
-		<button class="btn btn-pink btn-block" routerLink="/quiz/admin-dashboard/manage">
-			<span class="font-weight-bold">Manage Quizzes</span>
-		</button>
+	<h5>Schools</h5>
+	<div class="row" *ngIf="schools && schools.length > 0; else noSchools">
+		<div class="col-6 mb-2" *ngFor="let s of schools">
+			<button class="btn btn-pink btn-block" (click)="onNavigateToSchool(s.schoolId)">
+				<span class="font-weight-bold">{{ s.schoolName | titlecase }}</span>
+			</button>
+		</div>
 	</div>
-	<mat-card>
-		<mat-tab-group mat-stretch-tabs>
-			<mat-tab label="Testers">
-				<div *ngIf="testers">
-					<app-testers-table [testers]="testers" (getTesters)="getTesters()"></app-testers-table>
-				</div>
-			</mat-tab>
-			<mat-tab label="Employees">
-				<div *ngIf="employees">
-					<app-employees-table [employees]="employees"></app-employees-table>
-				</div>
-			</mat-tab>
-		</mat-tab-group>
-	</mat-card>
+	<ng-template #noSchools><h1 style="text-align: center; color: red">No Schools</h1></ng-template>
 </div>

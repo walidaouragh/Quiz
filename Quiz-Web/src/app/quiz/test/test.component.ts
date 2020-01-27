@@ -38,6 +38,7 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 	public questionText: string;
 	public quizName: string;
 	public correctAnswersPercentage: number;
+	public schoolId: number;
 
 	ngOnInit() {
 		this.answersForm = new FormGroup({
@@ -47,12 +48,13 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 		this.quizId = +this.route.snapshot.paramMap.get('id');
 		this.testerId = +this.route.snapshot.paramMap.get('testerId');
 		this.quizName = this.route.snapshot.paramMap.get('quizName');
+		this.schoolId = +this.route.snapshot.paramMap.get('schoolId');
 
-		this.getQuiz(this.quizId);
+		this.getQuiz(this.schoolId, this.quizId);
 	}
 
-	public getQuiz(id: number): void {
-		this.quizService.getQuiz(id).subscribe((q: IQuiz) => {
+	public getQuiz(schoolId: number, id: number): void {
+		this.quizService.getQuiz(schoolId, id).subscribe((q: IQuiz) => {
 			this.quiz = q;
 			this.quiz.questions.forEach(item => {
 				let formArray = <FormArray>this.answersForm.get('options');
@@ -102,7 +104,7 @@ export class TestComponent extends ComponentCanDeactivate implements OnInit {
 						this.incorrectAnswers = falseArray.length;
 					}
 				});
-				this.router.navigate([`/quiz/${this.quizId}/result/${this.testerId}`]);
+				this.router.navigate([`/quiz/${this.schoolId}/${this.quizId}/result/${this.testerId}`]);
 			},
 			(error: HttpErrorResponse) => {
 				console.log(error);

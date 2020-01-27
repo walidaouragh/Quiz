@@ -11,7 +11,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { ManageQuizzesComponent } from './manage-quizzes/manage-quizzes.component';
 import { QuestionComponent } from './admin-dashboard/edit-question/question.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
-import { TesterDetailComponent } from "./tester-detail/tester-detail.component";
+import { TesterDetailComponent } from './tester-detail/tester-detail.component';
+import { SchoolComponent } from './admin-dashboard/school/school.component';
 
 const quizRoutes: Routes = [
 	{
@@ -19,26 +20,26 @@ const quizRoutes: Routes = [
 		component: QuizComponent,
 		children: [
 			{
-				path: 'home/:testerId',
+				path: 'home/:testerId/:schoolId',
 				component: HomeComponent,
 				data: {
 					title: 'Home'
 				}
 			},
 			{
-				path: 'test/:id/:testerId/:quizName',
+				path: 'test/:schoolId/:id/:testerId/:quizName',
 				component: TestComponent,
 				data: { reuse: true, title: 'Test' }
 			},
 			{
-				path: ':quizId/result/:testerId',
+				path: ':schoolId/:quizId/result/:testerId',
 				component: ResultComponent,
 				data: {
 					title: 'Result'
 				}
 			},
 			{
-				path: ':quizId/check/:testerId',
+				path: ':schoolId/:quizId/check/:testerId',
 				component: CheckComponent,
 				data: {
 					title: 'Check'
@@ -53,28 +54,36 @@ const quizRoutes: Routes = [
 				}
 			},
 			{
-				path: 'admin-dashboard/manage/:id',
+				path: 'admin-dashboard/:schoolId',
+				component: SchoolComponent,
+				data: {
+					reuse: true,
+					title: 'Admin'
+				}
+			},
+			{
+				path: 'admin-dashboard/manage/:schoolId/:id',
 				component: QuestionComponent,
 				data: {
 					title: 'Admin'
 				}
 			},
 			{
-				path: 'admin-dashboard/manage',
+				path: 'admin-dashboard/manage/:schoolId',
 				component: ManageQuizzesComponent,
 				data: {
 					title: 'Manage'
 				}
 			},
 			{
-				path: 'admin-dashboard/tester-detail/:testerId',
+				path: 'admin-dashboard/tester-detail/:schoolId/:testerId',
 				component: TesterDetailComponent,
 				data: {
 					title: 'Manage'
 				}
 			},
 			{
-				path: 'employee-dashboard',
+				path: 'employee-dashboard/:schoolId',
 				component: EmployeeDashboardComponent,
 				data: {
 					title: 'employee-dashboard'

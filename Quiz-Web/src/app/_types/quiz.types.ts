@@ -17,6 +17,7 @@ declare module namespace {
 
 	export interface IQuiz {
 		quizId: number;
+		schoolId: number;
 		quizName: string;
 		questions: Array<IQuestion>;
 	}

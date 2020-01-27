@@ -5,7 +5,7 @@
 	</div>
 	<div class="row">
 		<div class="col-6 mb-2" *ngFor="let q of quizzes">
-			<button class="btn btn-pink btn-block" (click)="onQuizPick(q.quizId)">
+			<button class="btn btn-pink btn-block" (click)="onQuizPick(q.schoolId, q.quizId)">
 				<span class="font-weight-bold">{{ q.quizName | titlecase }}</span>
 			</button>
 		</div>

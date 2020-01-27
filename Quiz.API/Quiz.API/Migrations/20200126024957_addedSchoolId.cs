@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Quiz.API.Migrations
 {
-    public partial class replacedUserToTester : Migration
+    public partial class addedSchoolId : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,6 +21,41 @@ namespace Quiz.API.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetRoles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Schools",
+                columns: table => new
+                {
+                    SchoolId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    SchoolName = table.Column<string>(nullable: true),
+                    Location = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Schools", x => x.SchoolId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetRoleClaims",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    RoleId = table.Column<int>(nullable: false),
+                    ClaimType = table.Column<string>(nullable: true),
+                    ClaimValue = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetRoleClaims", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -43,13 +78,21 @@ namespace Quiz.API.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
+                    SchoolId = table.Column<int>(nullable: true),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
-                    IsAdmin = table.Column<bool>(nullable: false)
+                    IsAdmin = table.Column<bool>(nullable: false),
+                    HireDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Employees", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Employees_Schools_SchoolId",
+                        column: x => x.SchoolId,
+                        principalTable: "Schools",
+                        principalColumn: "SchoolId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -58,11 +101,18 @@ namespace Quiz.API.Migrations
                 {
                     QuizId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    QuizName = table.Column<string>(nullable: true)
+                    QuizName = table.Column<string>(nullable: true),
+                    SchoolId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Quiz", x => x.QuizId);
+                    table.ForeignKey(
+                        name: "FK_Quiz_Schools_SchoolId",
+                        column: x => x.SchoolId,
+                        principalTable: "Schools",
+                        principalColumn: "SchoolId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -71,33 +121,20 @@ namespace Quiz.API.Migrations
                 {
                     TesterId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    TestDate = table.Column<DateTime>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true)
+                    LastName = table.Column<string>(nullable: true),
+                    SchoolId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Testers", x => x.TesterId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AspNetRoleClaims",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    RoleId = table.Column<int>(nullable: false),
-                    ClaimType = table.Column<string>(nullable: true),
-                    ClaimValue = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetRoleClaims", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
-                        column: x => x.RoleId,
-                        principalTable: "AspNetRoles",
-                        principalColumn: "Id",
+                        name: "FK_Testers_Schools_SchoolId",
+                        column: x => x.SchoolId,
+                        principalTable: "Schools",
+                        principalColumn: "SchoolId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -293,6 +330,11 @@ namespace Quiz.API.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Employees_SchoolId",
+                table: "Employees",
+                column: "SchoolId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Options_QuestionId",
                 table: "Options",
                 column: "QuestionId");
@@ -303,9 +345,19 @@ namespace Quiz.API.Migrations
                 column: "QuizId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Quiz_SchoolId",
+                table: "Quiz",
+                column: "SchoolId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_TesterAnswers_TesterId",
                 table: "TesterAnswers",
                 column: "TesterId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Testers_SchoolId",
+                table: "Testers",
+                column: "SchoolId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -345,6 +397,9 @@ namespace Quiz.API.Migrations
 
             migrationBuilder.DropTable(
                 name: "Quiz");
+
+            migrationBuilder.DropTable(
+                name: "Schools");
         }
     }
 }

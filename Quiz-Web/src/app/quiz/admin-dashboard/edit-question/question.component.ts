@@ -24,6 +24,7 @@ export class QuestionComponent implements OnInit, AfterViewInit {
 	public quizId: number;
 	public quiz: IQuiz;
 	public editDialogRef: Subscription;
+	public schoolId: number;
 
 	ngAfterViewInit(): void {
 		this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#eaeaea';
@@ -31,10 +32,11 @@ export class QuestionComponent implements OnInit, AfterViewInit {
 
 	ngOnInit() {
 		this.quizId = +this.route.snapshot.paramMap.get('id');
-		this.getQuiz(this.quizId);
+		this.schoolId = +this.route.snapshot.paramMap.get('schoolId');
+		this.getQuiz(this.schoolId, this.quizId);
 	}
-	public getQuiz(id: number): void {
-		this.quizService.getQuiz(id).subscribe((q: IQuiz) => {
+	public getQuiz(schoolId: number, id: number): void {
+		this.quizService.getQuiz(schoolId, id).subscribe((q: IQuiz) => {
 			this.quiz = q;
 		});
 	}
@@ -59,7 +61,7 @@ export class QuestionComponent implements OnInit, AfterViewInit {
 				.afterClosed()
 				.subscribe((isTrue: boolean) => {
 					if (isTrue) {
-						this.getQuiz(this.quizId);
+						this.getQuiz(this.schoolId, this.quizId);
 					}
 				});
 		}
@@ -81,7 +83,7 @@ export class QuestionComponent implements OnInit, AfterViewInit {
 				.afterClosed()
 				.subscribe((isTrue: boolean) => {
 					if (isTrue) {
-						this.getQuiz(this.quizId);
+						this.getQuiz(this.schoolId, this.quizId);
 					}
 				});
 		}
@@ -94,7 +96,7 @@ export class QuestionComponent implements OnInit, AfterViewInit {
 		this.dialog.open(ConfirmDialogComponent, dialogConfig);
 
 		this.quizService.deleteQuestions(quizId, questionId).subscribe(res => {
-			this.getQuiz(this.quizId);
+			this.getQuiz(this.schoolId, this.quizId);
 		});
 	}
 

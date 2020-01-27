@@ -39,13 +39,24 @@
 									<mat-error *ngIf="f.lastName.errors.required">Last Name is required</mat-error>
 								</mat-error>
 							</mat-form-field>
-							<mat-form-field style="width: 100%" class="mb-1">
+							<mat-form-field style="width: 100%">
 								<input matInput placeholder="E Mail" type="email" formControlName="email" />
 								<mat-error *ngIf="submitted && f.email.errors">
 									<mat-error *ngIf="f.email.errors.required">Email is required</mat-error>
 									<mat-error *ngIf="f.email.errors.email"
 										>Email must be a valid email address</mat-error
 									>
+								</mat-error>
+							</mat-form-field>
+							<mat-form-field style="width: 100%" class="mb-1">
+								<mat-label>School</mat-label>
+								<mat-select formControlName="schoolId">
+									<mat-option *ngFor="let school of schools" [value]="school.schoolId">
+										{{school.schoolName}}
+									</mat-option>
+								</mat-select>
+								<mat-error *ngIf="submitted && f.schoolId.errors">
+									<mat-error *ngIf="f.schoolId.errors.required">School is required</mat-error>
 								</mat-error>
 							</mat-form-field>
 							<button class="mat-green" mat-raised-button type="submit">Submit</button>

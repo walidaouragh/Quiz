@@ -48,6 +48,17 @@
 									>
 								</mat-error>
 							</mat-form-field>
+							<mat-form-field style="width: 100%" class="mb-1">
+								<mat-label>School</mat-label>
+								<mat-select formControlName="schoolId">
+									<mat-option *ngFor="let school of schools" [value]="school.schoolId">
+										{{ school.schoolName }}
+									</mat-option>
+								</mat-select>
+								<mat-error *ngIf="submitted && f.schoolId.errors">
+									<mat-error *ngIf="f.schoolId.errors.required">School is required</mat-error>
+								</mat-error>
+							</mat-form-field>
 							<mat-form-field style="width: 100%" class="mb-2">
 								<input matInput placeholder="Password" type="password" formControlName="password" />
 								<mat-error *ngIf="submitted && f.password.errors">

@@ -37,29 +37,29 @@ namespace Quiz.API.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet]
-        public async Task<List<EmployeeToReturn>> GetAllEmployees()
+        [HttpGet("{schoolId}")]
+        public async Task<List<EmployeeToReturn>> GetAllEmployees(int schoolId)
         {
-            List<Employee> employees = await _employeeRepository.GetAllEmployees().ToListAsync();
+            List<Employee> employees = await _employeeRepository.GetAllEmployees(schoolId).ToListAsync();
             List<EmployeeToReturn> results = employees.Where(e => e.Email != null && e.Email.Any()).Select(MapEmployeeToEmployeeResult).ToList();
 
             return results;
         }
 
-        [HttpGet("{employeeId}")]
-        public async Task<IActionResult> GetEmployeeById(int employeeId)
+        [HttpGet("{schoolId}/{employeeId}")]
+        public async Task<IActionResult> GetEmployeeById(int schoolId, int employeeId)
         {
-            var result = await _employeeRepository.GetEmployeeById(employeeId);
+            var result = await _employeeRepository.GetEmployeeById(schoolId, employeeId);
 
             if (result == null)
             {
-                return NotFound($"Could not find quiz with id: {employeeId}");
+                return NotFound($"Could not find employee with id: {employeeId}");
             }
 
             return Ok(MapEmployeeToEmployeeResult(result));
         }
 
-        [HttpGet("{email}")]
+        [HttpGet("email/{email}")]
         public async Task<IActionResult> GetEmployeeByEmail(string email)
         {
             var result = await _employeeRepository.GetEmployeeByEmail(email);
@@ -127,6 +127,7 @@ namespace Quiz.API.Controllers
                 IsAdmin = employee.IsAdmin,
                 DisplayName = $"{employee.FirstName} {employee.LastName}",
                 EmployeeId = employee.Id,
+                schoolId = employee.SchoolId,
                 Token = _employeeRepository.GenerateJwtToken(employee),
             };
             return authResult;
@@ -137,6 +138,7 @@ namespace Quiz.API.Controllers
             var employeeToReturn = new EmployeeToReturn()
             {
                 EmployeeId = employee.Id,
+                SchoolId = employee.SchoolId,
                 FirstName = employee.FirstName,
                 LastName = employee.LastName,
                 UserName = employee.UserName,

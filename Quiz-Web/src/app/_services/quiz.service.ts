@@ -19,12 +19,12 @@ export class QuizService {
 	public totalQuestions$: BehaviorSubject<number> = new BehaviorSubject<number>(null);
 	public selectedAnswers$: BehaviorSubject<IOption[]> = new BehaviorSubject<IOption[]>([]);
 
-	public getQuizzes(): Observable<any> {
-		return this.http.get('https://localhost:5001/api/quiz');
+	public getQuizzes(schoolId: number): Observable<any> {
+		return this.http.get(`https://localhost:5001/api/quiz/${schoolId}`);
 	}
 
-	public getQuiz(id: number): Observable<any> {
-		return this.http.get(`https://localhost:5001/api/quiz/${id}`);
+	public getQuiz(schoolId: number, quizId: number): Observable<any> {
+		return this.http.get(`https://localhost:5001/api/quiz/${schoolId}/${quizId}`);
 	}
 
 	public register(tester: ITester): Observable<any> {
@@ -51,12 +51,12 @@ export class QuizService {
 		return this.http.delete(`https://localhost:5001/api/question/delete/${quizId}/${questionId}`);
 	}
 
-	public getTesters(): Observable<any> {
-		return this.http.get('https://localhost:5001/api/tester');
+	public getTesters(schoolId: number): Observable<any> {
+		return this.http.get(`https://localhost:5001/api/tester/${schoolId}`);
 	}
 
-	public getTesterById(testerId: number): Observable<any> {
-		return this.http.get(`https://localhost:5001/api/tester/${testerId}`);
+	public getTesterById(schoolId: number, testerId: number): Observable<any> {
+		return this.http.get(`https://localhost:5001/api/tester/${schoolId}/${testerId}`);
 	}
 
 	public deleteTester(testerId: number): Observable<any> {
@@ -71,11 +71,15 @@ export class QuizService {
 		return this.http.post('https://localhost:5001/api/employee/register', employee);
 	}
 
-	public getEmployees(): Observable<any> {
-		return this.http.get('https://localhost:5001/api/employee');
+	public getEmployees(schoolId: number): Observable<any> {
+		return this.http.get(`https://localhost:5001/api/employee/${schoolId}`);
 	}
 
 	public setEmployeeAsAdmin(employeeId: number, isAdmin: boolean): Observable<any> {
 		return this.http.put(`https://localhost:5001/api/employee/set-admin/${employeeId}/${isAdmin}`, null);
+	}
+
+	public getSchools(): Observable<any> {
+		return this.http.get('https://localhost:5001/api/school');
 	}
 }

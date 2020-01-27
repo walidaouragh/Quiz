@@ -18,10 +18,10 @@ namespace Quiz.API.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetQuizzes()
+        [HttpGet("{schoolId}")]
+        public async Task<IActionResult> GetQuizzesBySchoolId(int schoolId)
         {
-            var result = await  _quizRepository.GetQuizzes();
+            var result = await  _quizRepository.GetQuizzes(schoolId);
 
             if (result != null && result.Count > 0)
             {
@@ -31,10 +31,10 @@ namespace Quiz.API.Controllers
             return NoContent();
         }
 
-        [HttpGet("{quizId}")]
-        public async Task<IActionResult> GetQuiz(int quizId)
+        [HttpGet("{schoolId}/{quizId}")]
+        public async Task<IActionResult> GetQuiz(int schoolId, int quizId)
         {
-            var result = await  _quizRepository.GetQuiz(quizId);
+            var result = await  _quizRepository.GetQuiz(schoolId,quizId);
             if (result == null)
             {
                 return NotFound($"Could not find quiz with id: {quizId}");
@@ -45,7 +45,7 @@ namespace Quiz.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddQuiz([FromBody] Models.Quiz quiz)
         {
-            var quizExist = await  _quizRepository.GetQuizzes();
+            var quizExist = await  _quizRepository.GetQuizzes(quiz.SchoolId);
 
             if (quizExist != null && quizExist.Count > 0)
             {

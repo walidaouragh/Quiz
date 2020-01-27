@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Quiz.API.Models;
-using Quiz.API.Repositories.Tester;
+using Quiz.API.Repositories.TesterRepository;
 
 namespace Quiz.API.Controllers
 {
@@ -22,7 +22,10 @@ namespace Quiz.API.Controllers
         [HttpPost]
         public async Task<IActionResult> RegisterTester([FromBody]Tester testerToRegister)
         {
-            if (string.IsNullOrEmpty(testerToRegister.Email) || string.IsNullOrEmpty(testerToRegister.FirstName) || string.IsNullOrEmpty(testerToRegister.LastName))
+            if (string.IsNullOrEmpty(testerToRegister.SchoolId.ToString()) ||
+                string.IsNullOrEmpty(testerToRegister.Email) ||
+                string.IsNullOrEmpty(testerToRegister.FirstName) ||
+                string.IsNullOrEmpty(testerToRegister.LastName))
             {
                  return UnprocessableEntity($"Missing name or email");
             }
@@ -40,10 +43,10 @@ namespace Quiz.API.Controllers
             return Ok(tester);
         }
 
-        [HttpGet("{testerId}")]
-        public async Task<IActionResult> GetTesterById(int testerId)
+        [HttpGet("{schoolId}/{testerId}")]
+        public async Task<IActionResult> GetTesterById(int schoolId, int testerId)
         {
-            var tester = await _testerRepository.GetTesterById(testerId);
+            var tester = await _testerRepository.GetTesterById(schoolId, testerId);
             if (tester == null)
             {
                 return NotFound($"Could not find tester with id: {testerId}");
@@ -52,10 +55,10 @@ namespace Quiz.API.Controllers
             return Ok(tester);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAllTesters()
+        [HttpGet("{schoolId}")]
+        public async Task<IActionResult> GetAllTesters(int schoolId)
         {
-            var testers = await _testerRepository.GetAllTesters();
+            var testers = await _testerRepository.GetAllTesters(schoolId);
             if (testers == null)
             {
                 return NotFound($"Could not find testers");

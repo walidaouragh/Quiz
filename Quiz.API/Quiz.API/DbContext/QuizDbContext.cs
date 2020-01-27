@@ -18,6 +18,8 @@ namespace Quiz.API.DbContext
         public DbSet<Tester> Testers { get; set; }
         public DbSet<Employee> Employees { get; set; }
 
+        public DbSet<School> Schools { get; set; }
+
           protected override void OnModelCreating(ModelBuilder builder)
         {
             if (builder == null)

@@ -42,20 +42,22 @@ namespace Quiz.API.Repositories.EmployeeRepository
                 LastName = employeeToRegister.LastName,
                 UserName = employeeToRegister.Email,
                 Email = employeeToRegister.Email,
+                SchoolId = employeeToRegister.SchoolId,
+                HireDate = DateTime.Now
             };
 
            var response = await _userManager.CreateAsync(employee, employeeToRegister.Password);
            return response;
         }
 
-        public IQueryable<Employee> GetAllEmployees()
+        public IQueryable<Employee> GetAllEmployees(int schoolId)
         {
-            return  _dbContext.Employees;
+            return  _dbContext.Employees.Where(e =>e.SchoolId == schoolId);
         }
 
-        public async Task<Employee> GetEmployeeById(int id)
+        public async Task<Employee> GetEmployeeById(int schoolId, int id)
         {
-            return await _dbContext.Employees.Where(r => r.Id == id).FirstOrDefaultAsync();
+            return await _dbContext.Employees.Where(r => r.Id == id && r.SchoolId == schoolId).FirstOrDefaultAsync();
         }
 
         public async Task<Employee> GetEmployeeByEmail(string email)
@@ -83,7 +85,9 @@ namespace Quiz.API.Repositories.EmployeeRepository
                 UserName = AdminUserEmail,
                 FirstName = AdminUserFirstName,
                 LastName = AdminUserLastName,
-                IsAdmin = true
+                IsAdmin = true,
+                SchoolId = null,
+                HireDate = DateTime.UtcNow,
             };
 
             var response = await _userManager.CreateAsync(user, "P@ss0wrd!");

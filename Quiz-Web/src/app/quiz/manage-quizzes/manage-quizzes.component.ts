@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../../_services/quiz.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import IQuiz = namespace.IQuiz;
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
@@ -12,23 +12,30 @@ import { QuizAddDialogComponent } from '../dialogs/quiz-add-dialog/quiz-add-dial
 	styleUrls: ['./manage-quizzes.component.scss']
 })
 export class ManageQuizzesComponent implements OnInit {
-	constructor(private quizService: QuizService, private router: Router, public dialog: MatDialog) {}
+	constructor(
+		private quizService: QuizService,
+		private router: Router,
+		public dialog: MatDialog,
+		private route: ActivatedRoute
+	) {}
 	public quizzes: IQuiz[];
 	public quiz: IQuiz;
 	public addQuizDialogRef: Subscription;
+	public schoolId: number;
 
 	ngOnInit() {
 		this.getQuizzes();
 	}
 
 	public getQuizzes(): void {
-		this.quizService.getQuizzes().subscribe((q: IQuiz[]) => {
+		this.schoolId = +this.route.snapshot.paramMap.get('schoolId');
+		this.quizService.getQuizzes(this.schoolId).subscribe((q: IQuiz[]) => {
 			this.quizzes = q;
 		});
 	}
 
-	public onQuizPick(id: number): void {
-		this.router.navigate([`quiz/admin-dashboard/manage/${id}`]);
+	public onQuizPick(schoolId: number, id: number): void {
+		this.router.navigate([`quiz/admin-dashboard/manage/${schoolId}/${id}`]);
 	}
 
 	public openAddQuizDialog(): void {
@@ -37,6 +44,7 @@ export class ManageQuizzesComponent implements OnInit {
 		dialogConfig.disableClose = true;
 		dialogConfig.autoFocus = true;
 		dialogConfig.width = '50%';
+		dialogConfig.data = this.schoolId;
 
 		if (this.dialog) {
 			this.addQuizDialogRef = this.dialog

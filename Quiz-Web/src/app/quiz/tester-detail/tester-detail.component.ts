@@ -14,10 +14,12 @@ export class TesterDetailComponent implements OnInit {
 	public testerId: number;
 	public correctAnswers: number;
 	public wrongAnswers: number;
+	public schoolId: number;
 	public displayedUserColumns: string[] = ['question', 'choice', 'correct'];
 	ngOnInit() {
 		this.testerId = +this.route.snapshot.paramMap.get('testerId');
-		this.quizService.getTesterById(this.testerId).subscribe((tester: ITester) => {
+		this.schoolId = +this.route.snapshot.paramMap.get('schoolId');
+		this.quizService.getTesterById(this.schoolId, this.testerId).subscribe((tester: ITester) => {
 			this.tester = tester;
 			this.correctAnswers = this.tester.testerAnswers.filter(c => c.isCorrect).length;
 			this.wrongAnswers = this.tester.testerAnswers.filter(c => !c.isCorrect).length;

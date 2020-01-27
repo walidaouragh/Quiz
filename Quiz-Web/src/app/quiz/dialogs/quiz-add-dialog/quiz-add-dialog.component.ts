@@ -4,6 +4,7 @@ import { QuizService } from '../../../_services/quiz.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import IQuiz = namespace.IQuiz;
 import { HttpErrorResponse } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'app-quiz-add-dialog',
@@ -24,12 +25,14 @@ export class QuizAddDialogComponent implements OnInit {
 
 	ngOnInit() {
 		this.form = this.fb.group({
-			quizName: new FormControl('', Validators.required)
+			quizName: new FormControl('', Validators.required),
+			schoolId: new FormControl('')
 		});
 	}
 
 	public onSubmit(form: FormGroup): void {
 		this.submitted = true;
+		this.form.get('schoolId').setValue(this.modalData);
 		this.quizService.creatQuiz(this.form.value).subscribe(
 			(res: IQuiz) => {
 				this.dialogRef.close(true);

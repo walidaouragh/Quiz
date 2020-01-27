@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -5,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Quiz.API.DbContext;
 using Quiz.API.Models;
 
-namespace Quiz.API.Repositories.Tester
+namespace Quiz.API.Repositories.TesterRepository
 {
 
     public class TesterRepository : ITesterRepository
@@ -15,14 +16,16 @@ namespace Quiz.API.Repositories.Tester
         {
             _context = context;
         }
-        public async Task<Models.Tester> RegisterTester(TesterToRegister testerToRegister)
+        public async Task<Tester> RegisterTester(TesterToRegister testerToRegister)
         {
-            var tester = new Models.Tester
+            var tester = new Tester
             {
                 TesterId = testerToRegister.TesterId,
+                SchoolId = testerToRegister.SchoolId,
                 Email = testerToRegister.Email,
                 FirstName = testerToRegister.FirstName,
-                LastName = testerToRegister.LastName
+                LastName = testerToRegister.LastName,
+                TestDate = DateTime.Now
             };
 
             _context.Testers.Add(tester);
@@ -31,24 +34,25 @@ namespace Quiz.API.Repositories.Tester
             return tester;
         }
 
-        public async Task<Models.Tester> GetTesterById(int TesterId)
+        public async Task<Tester> GetTesterById(int schoolId, int TesterId)
         {
             var tester = await _context.Testers
                 .Include(x => x.TesterAnswers)
-                .Where(u => u.TesterId == TesterId)
+                .Where(u => u.TesterId == TesterId && u.SchoolId == schoolId)
                 .FirstOrDefaultAsync();
             return tester;
         }
 
-        public async Task<List<Models.Tester>> GetAllTesters()
+        public async Task<List<Tester>> GetAllTesters(int schoolId)
         {
             var testers = await _context.Testers
                 .Include(x => x.TesterAnswers)
+                .Where(u => u.SchoolId == schoolId)
                 .ToListAsync();
             return testers;
         }
 
-        public async Task<Models.Tester> GetTesterByEmail(string testerEmail)
+        public async Task<Tester> GetTesterByEmail(string testerEmail)
         {
             var tester = await _context.Testers
                 .Where(u => u.Email == testerEmail)

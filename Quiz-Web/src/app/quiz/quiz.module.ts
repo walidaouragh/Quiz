@@ -29,6 +29,7 @@ import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashbo
 import { TestersTableComponent } from './admin-dashboard/testers-table/testers-table.component';
 import { EmployeesTableComponent } from './admin-dashboard/employees-table/employees-table.component';
 import { TesterDetailComponent } from "./tester-detail/tester-detail.component";
+import { SchoolComponent } from './admin-dashboard/school/school.component';
 
 @NgModule({
 	imports: [
@@ -62,7 +63,8 @@ import { TesterDetailComponent } from "./tester-detail/tester-detail.component";
 		CapitalizeFirstPipe,
 		EmployeeDashboardComponent,
 		TestersTableComponent,
-		EmployeesTableComponent
+		EmployeesTableComponent,
+		SchoolComponent
 	],
 	providers: [QuizService, CanDeactivateGuard, HeaderTitleService],
 	entryComponents: [

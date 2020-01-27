@@ -10,188 +10,388 @@ namespace Quiz.API.DbContext
           public static void SeedDatabase(QuizDbContext context) {
             if (context.Database.GetMigrations().Count() > 0
                     && context.Database.GetPendingMigrations().Count() == 0
-                    && context.Quiz.Count() == 0) {
+                    && context.Schools.Count() == 0)
+            {
 
-                context.Quiz.AddRange(
-                    new Models.Quiz {
-                        QuizName = "English",
-                        Questions = new List<Question> {
-                            new Question
+                context.Schools.AddRange(
+                    new School
+                    {
+                        SchoolName = "Learn Languages",
+                        Location = "Batna",
+                        Quizzes = new List<Models.Quiz>()
+                        {
+                            new Models.Quiz
                             {
-                                QuestionText = "What is the capital of algeria?",
-                                Options = new List<Option>
+                                QuizName = "English",
+                                Questions = new List<Question>
                                 {
-                                    new Option
+                                    new Question
                                     {
-                                        OptionText = "Batna",
-                                        IsCorrect = false
+                                        QuestionText = "What is the capital of algeria?",
+                                        Options = new List<Option>
+                                        {
+                                            new Option
+                                            {
+                                                OptionText = "Batna",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Annaba",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Biskra",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Algiers",
+                                                IsCorrect = true
+                                            }
+                                        }
+
                                     },
-                                    new Option
+                                    new Question
                                     {
-                                        OptionText = "Annaba",
-                                        IsCorrect = false
+                                        QuestionText = "How many countries are inside the United Kingdom?",
+                                        Options = new List<Option>
+                                        {
+                                            new Option
+                                            {
+                                                OptionText = "Two",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Three",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "One",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Four",
+                                                IsCorrect = true
+                                            }
+                                        }
+
                                     },
-                                    new Option
+                                    new Question
                                     {
-                                        OptionText = "Biskra",
-                                        IsCorrect = false
+                                        QuestionText = "The idea of Socialism was articulated and advanced by whom?",
+                                        Options = new List<Option>
+                                        {
+                                            new Option
+                                            {
+                                                OptionText = "Vladimir Lenin",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Joseph Stalin",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Vladimir Putin",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Karl Marx",
+                                                IsCorrect = true
+                                            }
+                                        }
+
                                     },
-                                    new Option
+                                    new Question
                                     {
-                                        OptionText = "Algiers",
-                                        IsCorrect = true
+                                        QuestionText = "HTML is what type of language?",
+                                        Options = new List<Option>
+                                        {
+                                            new Option
+                                            {
+                                                OptionText = "Markup Language",
+                                                IsCorrect = true
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Scripting Language",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Programming Language",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Macro Language",
+                                                IsCorrect = false
+                                            }
+                                        }
+
                                     }
                                 }
-
                             },
-                            new Question
+                            new Models.Quiz()
                             {
-                                QuestionText = "How many countries are inside the United Kingdom?",
-                                Options = new List<Option>
+                                QuizName = "عربية",
+                                Questions = new List<Question>
                                 {
-                                    new Option
+                                    new Question
                                     {
-                                        OptionText = "Two",
-                                        IsCorrect = false
+                                        QuestionText = "ما هي عاصمة الجزائر",
+                                        Options = new List<Option>
+                                        {
+                                            new Option
+                                            {
+                                                OptionText = "باتنة",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "عنابة",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "الجزائر",
+                                                IsCorrect = true
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "بسكرة",
+                                                IsCorrect = false
+                                            }
+                                        }
                                     },
-                                    new Option
+                                    new Question
                                     {
-                                        OptionText = "Three",
-                                        IsCorrect = false
+                                        QuestionText = "من الأديب العربي الذي نال جائزة نوبل للآداب عام 1988م",
+                                        Options = new List<Option>
+                                        {
+                                            new Option
+                                            {
+                                                OptionText = "وليد",
+                                                IsCorrect = true
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "نذير",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "علي",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "عبد الله",
+                                                IsCorrect = false
+                                            }
+                                        }
                                     },
-                                    new Option
-                                    {
-                                        OptionText = "One",
-                                        IsCorrect = false
-                                    },
-                                    new Option
-                                    {
-                                        OptionText = "Four",
-                                        IsCorrect = true
-                                    }
                                 }
-
-                            },
-                            new Question
-                            {
-                                QuestionText = "The idea of Socialism was articulated and advanced by whom?",
-                                Options = new List<Option>
-                                {
-                                    new Option
-                                    {
-                                        OptionText = "Vladimir Lenin",
-                                        IsCorrect = false
-                                    },
-                                    new Option
-                                    {
-                                        OptionText = "Joseph Stalin",
-                                        IsCorrect = false
-                                    },
-                                    new Option
-                                    {
-                                        OptionText = "Vladimir Putin",
-                                        IsCorrect = false
-                                    },
-                                    new Option
-                                    {
-                                        OptionText = "Karl Marx",
-                                        IsCorrect = true
-                                    }
-                                }
-
-                            },
-                            new Question
-                            {
-                                QuestionText = "HTML is what type of language?",
-                                Options = new List<Option>
-                                {
-                                    new Option
-                                    {
-                                        OptionText = "Markup Language",
-                                        IsCorrect = true
-                                    },
-                                    new Option
-                                    {
-                                        OptionText = "Scripting Language",
-                                        IsCorrect = false
-                                    },
-                                    new Option
-                                    {
-                                        OptionText = "Programming Language",
-                                        IsCorrect = false
-                                    },
-                                    new Option
-                                    {
-                                        OptionText = "Macro Language",
-                                        IsCorrect = false
-                                    }
-                                }
-
                             }
-                        }
+                        },
                     },
-                        new Models.Quiz {
-                        QuizName = "عربية",
-                        Questions = new List<Question> {
-                            new Question
+                    new School
+                    {
+                        SchoolName = "Learn Math",
+                        Location = "Annaba",
+                        Quizzes = new List<Models.Quiz>()
+                        {
+                            new Models.Quiz
                             {
-                                QuestionText = "ما هي عاصمة الجزائر",
-                                Options = new List<Option>
+                                QuizName = "Frensh",
+                                Questions = new List<Question>
                                 {
-                                    new Option
+                                    new Question
                                     {
-                                        OptionText = "باتنة",
-                                        IsCorrect = false
+                                        QuestionText = "What is the capital of algeria?",
+                                        Options = new List<Option>
+                                        {
+                                            new Option
+                                            {
+                                                OptionText = "Batna",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Annaba",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Biskra",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Algiers",
+                                                IsCorrect = true
+                                            }
+                                        }
+
                                     },
-                                    new Option
+                                    new Question
                                     {
-                                        OptionText = "عنابة",
-                                        IsCorrect = false
+                                        QuestionText = "How many countries are inside the United Kingdom?",
+                                        Options = new List<Option>
+                                        {
+                                            new Option
+                                            {
+                                                OptionText = "Two",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Three",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "One",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Four",
+                                                IsCorrect = true
+                                            }
+                                        }
+
                                     },
-                                    new Option
+                                    new Question
                                     {
-                                        OptionText = "الجزائر",
-                                        IsCorrect = true
+                                        QuestionText = "The idea of Socialism was articulated and advanced by whom?",
+                                        Options = new List<Option>
+                                        {
+                                            new Option
+                                            {
+                                                OptionText = "Vladimir Lenin",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Joseph Stalin",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Vladimir Putin",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Karl Marx",
+                                                IsCorrect = true
+                                            }
+                                        }
+
                                     },
-                                    new Option
+                                    new Question
                                     {
-                                        OptionText = "بسكرة",
-                                        IsCorrect = false
+                                        QuestionText = "HTML is what type of language?",
+                                        Options = new List<Option>
+                                        {
+                                            new Option
+                                            {
+                                                OptionText = "Markup Language",
+                                                IsCorrect = true
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Scripting Language",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Programming Language",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "Macro Language",
+                                                IsCorrect = false
+                                            }
+                                        }
+
                                     }
                                 }
-
                             },
-                            new Question
+                            new Models.Quiz()
                             {
-                                QuestionText = "من الأديب العربي الذي نال جائزة نوبل للآداب عام 1988م",
-                                Options = new List<Option>
+                                QuizName = "Dutch",
+                                Questions = new List<Question>
                                 {
-                                    new Option
+                                    new Question
                                     {
-                                        OptionText = "وليد",
-                                        IsCorrect = true
+                                        QuestionText = "ما هي عاصمة الجزائر",
+                                        Options = new List<Option>
+                                        {
+                                            new Option
+                                            {
+                                                OptionText = "باتنة",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "عنابة",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "الجزائر",
+                                                IsCorrect = true
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "بسكرة",
+                                                IsCorrect = false
+                                            }
+                                        }
                                     },
-                                    new Option
+                                    new Question
                                     {
-                                        OptionText = "نذير",
-                                        IsCorrect = false
+                                        QuestionText = "من الأديب العربي الذي نال جائزة نوبل للآداب عام 1988م",
+                                        Options = new List<Option>
+                                        {
+                                            new Option
+                                            {
+                                                OptionText = "وليد",
+                                                IsCorrect = true
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "نذير",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "علي",
+                                                IsCorrect = false
+                                            },
+                                            new Option
+                                            {
+                                                OptionText = "عبد الله",
+                                                IsCorrect = false
+                                            }
+                                        }
                                     },
-                                    new Option
-                                    {
-                                        OptionText = "علي",
-                                        IsCorrect = false
-                                    },
-                                    new Option
-                                    {
-                                        OptionText = "عبد الله",
-                                        IsCorrect = false
-                                    }
                                 }
-
-                            },
-                        }
-                    });
-                context.SaveChanges();
+                            }
+                        },
+                    }
+                    );
+                    context.SaveChanges();
             }
         }
     }

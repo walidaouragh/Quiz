@@ -5,6 +5,7 @@ export interface IEmployee {
 	lastName: string;
 	isAdmin?: boolean;
 	password: string;
+	hireDate: Date;
 }
 
 export interface IEmployeeAdmin {
@@ -13,4 +14,5 @@ export interface IEmployeeAdmin {
 	firstName: string;
 	lastName: string;
 	isAdmin: boolean;
+	hireDate: Date;
 }

@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IEmployee } from '../../_types/IEmployee';
 import { HttpErrorResponse } from '@angular/common/http';
+import ISchool = namespace.ISchool;
 
 @Component({
 	selector: 'app-employee-register',
@@ -16,14 +17,17 @@ export class EmployeeRegisterComponent implements OnInit {
 	public employeeRegisterForm: FormGroup;
 	public errorMessage: string;
 	public submitted: boolean = false;
+	public schools: ISchool[];
 
 	ngOnInit() {
 		this.employeeRegisterForm = this.fb.group({
 			firstName: ['', Validators.required],
 			lastName: ['', Validators.required],
 			email: ['', [Validators.required, Validators.email]],
-			password: ['', [Validators.required]]
+			password: ['', [Validators.required]],
+			schoolId: ['', Validators.required]
 		});
+		this.getSchools();
 	}
 
 	// convenience getter for easy access to form fields
@@ -33,6 +37,7 @@ export class EmployeeRegisterComponent implements OnInit {
 
 	public onSubmit(form: FormGroup): void {
 		this.submitted = true;
+		if (form.invalid) return;
 		this.quizService.registerEmployee(form.value).subscribe(
 			(employee: IEmployee) => {
 				if (form.valid) {
@@ -44,5 +49,11 @@ export class EmployeeRegisterComponent implements OnInit {
 				console.log(this.errorMessage);
 			}
 		);
+	}
+
+	public getSchools(): void {
+		this.quizService.getSchools().subscribe((schools: ISchool[]) => {
+			this.schools = schools;
+		});
 	}
 }

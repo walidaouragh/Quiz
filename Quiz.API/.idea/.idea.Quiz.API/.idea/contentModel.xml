@@ -19,6 +19,7 @@
           <e p="EmployeeController.cs" t="Include" />
           <e p="QuestionController.cs" t="Include" />
           <e p="QuizController.cs" t="Include" />
+          <e p="SchoolController.cs" t="Include" />
           <e p="TesterAnswerController.cs" t="Include" />
           <e p="TesterController.cs" t="Include" />
         </e>
@@ -30,8 +31,8 @@
           <e p="MappingProfile.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="20200124202308_replacedUserToTester.cs" t="Include" />
-          <e p="20200124202308_replacedUserToTester.Designer.cs" t="Include" />
+          <e p="20200126024957_addedSchoolId.cs" t="Include" />
+          <e p="20200126024957_addedSchoolId.Designer.cs" t="Include" />
           <e p="QuizDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
@@ -46,6 +47,7 @@
           <e p="QuestionDto.cs" t="Include" />
           <e p="Questions.cs" t="Include" />
           <e p="Quiz.cs" t="Include" />
+          <e p="School.cs" t="Include" />
           <e p="Tester.cs" t="Include" />
           <e p="TesterAnswer.cs" t="Include" />
           <e p="TesterToRegister.cs" t="Include" />
@@ -80,13 +82,17 @@
             <e p="IQuizRepository.cs" t="Include" />
             <e p="QuizRepository.cs" t="Include" />
           </e>
-          <e p="Tester" t="Include">
-            <e p="ITesterRepository.cs" t="Include" />
-            <e p="TesterRepository.cs" t="Include" />
+          <e p="SchoolRepository" t="Include">
+            <e p="ISchoolRepository.cs" t="Include" />
+            <e p="SchoolRepository.cs" t="Include" />
           </e>
           <e p="TesterAnswerRepository" t="Include">
             <e p="ITesterAnswerRepository.cs" t="Include" />
             <e p="TesterAnswerRepository.cs" t="Include" />
+          </e>
+          <e p="TesterRepository" t="Include">
+            <e p="ITesterRepository.cs" t="Include" />
+            <e p="TesterRepository.cs" t="Include" />
           </e>
         </e>
         <e p="Startup.cs" t="Include" />

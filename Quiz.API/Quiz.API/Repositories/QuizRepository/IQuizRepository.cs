@@ -6,9 +6,9 @@ namespace Quiz.API.Repositories
 {
     public interface IQuizRepository
     {
-        Task<List<Models.Quiz>> GetQuizzes();
+        Task<List<Models.Quiz>> GetQuizzes(int schoolId);
 
-        Task<Models.Quiz> GetQuiz(int id);
+        Task<Models.Quiz> GetQuiz(int schoolId, int id);
 
         Task AddQuiz(Models.Quiz quiz);
     }
