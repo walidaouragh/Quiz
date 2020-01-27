@@ -1,6 +1,8 @@
 <app-navbar></app-navbar>
 <div class="container margin-top">
-	<h5>Schools</h5>
+	<button class="btn btn-pink btn-block mb-2 disabled">
+		<span class="font-weight-bold">Schools</span>
+	</button>
 	<div class="row" *ngIf="schools && schools.length > 0; else noSchools">
 		<div class="col-6 mb-2" *ngFor="let s of schools">
 			<button class="btn btn-pink btn-block" (click)="onNavigateToSchool(s.schoolId)">
