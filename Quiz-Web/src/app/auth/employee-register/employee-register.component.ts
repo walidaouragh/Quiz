@@ -40,8 +40,9 @@ export class EmployeeRegisterComponent implements OnInit {
 		if (form.invalid) return;
 		this.quizService.registerEmployee(form.value).subscribe(
 			(employee: IEmployee) => {
+				console.log(employee);
 				if (form.valid) {
-					this.router.navigate([`./quiz/employee-dashboard`]);
+					this.router.navigate([`./quiz/employee-dashboard/${employee.schoolId}`]);
 				}
 			},
 			(error: HttpErrorResponse) => {

@@ -6,6 +6,7 @@ export interface IEmployee {
 	isAdmin?: boolean;
 	password: string;
 	hireDate: Date;
+	schoolId: number;
 }
 
 export interface IEmployeeAdmin {

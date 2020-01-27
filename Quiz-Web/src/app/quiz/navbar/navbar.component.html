@@ -1,14 +1,18 @@
 <mat-toolbar color="accent">
 	<div>
-		<a *ngIf="userDetail.isAdmin" mat-icon-button routerLink="/quiz/admin-dashboard">
+		<a *ngIf="userDetail && userDetail.isAdmin" mat-icon-button routerLink="/quiz/admin-dashboard">
 			Quiz
 		</a>
-		<a *ngIf="!userDetail.isAdmin" mat-icon-button [routerLink]="['/quiz/employee-dashboard', userDetail.schoolId]">
+		<a
+			*ngIf="userDetail && !userDetail.isAdmin"
+			mat-icon-button
+			[routerLink]="['/quiz/employee-dashboard', userDetail.schoolId]"
+		>
 			Dashboard
 		</a>
 		<span fxFlex></span>
 		<div style="position: absolute; right: 0">
-			<a *ngIf="userDetail.displayName" mat-button style="cursor: default">
+			<a *ngIf="userDetail && userDetail.displayName" mat-button style="cursor: default">
 				{{ userDetail.displayName | titlecase }}
 			</a>
 			<a (click)="logout()" mat-icon-button class="ml-xs" title="Sign Out">

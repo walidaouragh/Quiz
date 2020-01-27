@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+<div class="container margin-top">
+	<div class="row mb-2 margin-left-right">
+		<button class="btn btn-pink btn-block" [routerLink]="['/quiz/admin-dashboard/manage', schoolId]">
+			<span class="font-weight-bold">Manage Quizzes</span>
+		</button>
+	</div>
+	<mat-card>
+		<mat-tab-group mat-stretch-tabs>
+			<mat-tab label="Testers">
+				<div *ngIf="testers">
+					<app-testers-table [testers]="testers" (getTesters)="getTesters()"></app-testers-table>
+				</div>
+			</mat-tab>
+			<mat-tab label="Employees">
+				<div *ngIf="employees">
+					<app-employees-table [employees]="employees"></app-employees-table>
+				</div>
+			</mat-tab>
+		</mat-tab-group>
+	</mat-card>
+</div>
