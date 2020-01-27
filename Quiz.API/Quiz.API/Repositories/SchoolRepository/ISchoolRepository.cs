@@ -7,5 +7,6 @@ namespace Quiz.API.Repositories.SchoolRepository
     public interface ISchoolRepository
     {
         Task<List<School>> GetAllSchools();
+        Task<School> GetSchoolById(int schoolId);
     }
 }

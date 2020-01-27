@@ -82,4 +82,8 @@ export class QuizService {
 	public getSchools(): Observable<any> {
 		return this.http.get('https://localhost:5001/api/school');
 	}
+
+	public getSchool(schoolId: number): Observable<any> {
+		return this.http.get(`https://localhost:5001/api/school/${schoolId}`);
+	}
 }

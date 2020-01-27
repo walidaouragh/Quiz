@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IEmployeeAdmin } from '../../_types/IEmployee';
 import ITester = namespace.ITester;
 import { HttpErrorResponse } from '@angular/common/http';
+import ISchool = namespace.ISchool;
 
 @Component({
 	selector: 'app-employee-dashboard',
@@ -18,9 +19,11 @@ export class EmployeeDashboardComponent implements OnInit {
 	public employees: IEmployeeAdmin[];
 	public isLoadingResults: boolean;
 	public schoolId: number;
+	public schoolDetail: ISchool;
 
 	ngOnInit() {
 		this.schoolId = +this.route.snapshot.paramMap.get('schoolId');
+		this.getSchoolDetail();
 		this.getEmployees();
 		this.getTesters();
 	}
@@ -53,5 +56,11 @@ export class EmployeeDashboardComponent implements OnInit {
 				console.log(error);
 			}
 		);
+	}
+
+	public getSchoolDetail(): void {
+		this.quizService.getSchool(this.schoolId).subscribe((school: ISchool) => {
+			this.schoolDetail = school;
+		});
 	}
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Quiz.API.DbContext;
@@ -23,6 +24,11 @@ namespace Quiz.API.Repositories.SchoolRepository
                 .Include(e => e.Employees)
                 .Include(t => t.Testers)*/
                 .ToListAsync();
+        }
+
+        public async Task<School> GetSchoolById(int schoolId)
+        {
+            return await  _dbContext.Schools.Where(s => s.SchoolId == schoolId).FirstOrDefaultAsync();
         }
     }
 }

@@ -25,5 +25,16 @@ namespace Quiz.API.Controllers
             }
             return NoContent();
         }
+
+        [HttpGet("{schoolId}")]
+        public async Task<IActionResult> GetSchoolById(int schoolId)
+        {
+            var school = await  _schoolRepository.GetSchoolById(schoolId);
+            if (school == null)
+            {
+                return NotFound($"Could not find school with id: {schoolId}");
+            }
+            return Ok(school);
+        }
     }
 }
