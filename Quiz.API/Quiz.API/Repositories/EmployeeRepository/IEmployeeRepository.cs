@@ -15,7 +15,7 @@ namespace Quiz.API.Repositories.EmployeeRepository
 
         string GenerateJwtToken(Employee employee);
 
-        Task<Employee> GetEmployeeById(int schoolId, int id);
+        Task<Employee> GetEmployeeById(int schoolId, int employeeId);
 
         IQueryable<Employee> GetAllEmployees(int schoolId);
 

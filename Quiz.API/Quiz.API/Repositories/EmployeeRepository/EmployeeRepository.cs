@@ -23,11 +23,11 @@ namespace Quiz.API.Repositories.EmployeeRepository
         private const string AdminUserLastName = "Aouragh";
 
         private readonly QuizDbContext _dbContext;
-        private readonly UserManager<Employee> _userManager;
-        private readonly SignInManager<Employee> _signInManager;
+        private readonly UserManager<EmployeeAuthentication> _userManager;
+        private readonly SignInManager<EmployeeAuthentication> _signInManager;
         private readonly IConfiguration _configuration;
 
-        public EmployeeRepository(QuizDbContext dbContext, UserManager<Employee> userManager, SignInManager<Employee> signInManager, IConfiguration configuration)
+        public EmployeeRepository(QuizDbContext dbContext, UserManager<EmployeeAuthentication> userManager, SignInManager<EmployeeAuthentication> signInManager, IConfiguration configuration)
         {
             _dbContext = dbContext;
             _userManager = userManager;
@@ -36,14 +36,20 @@ namespace Quiz.API.Repositories.EmployeeRepository
         }
         public async Task<IdentityResult> RegisterEmployee(EmployeeToRegister employeeToRegister)
         {
-            var employee = new Employee()
+            var employee = new EmployeeAuthentication()
             {
-                FirstName = employeeToRegister.FirstName,
-                LastName = employeeToRegister.LastName,
                 UserName = employeeToRegister.Email,
                 Email = employeeToRegister.Email,
-                SchoolId = employeeToRegister.SchoolId,
-                HireDate = DateTime.Now
+
+                Employee = new Employee()
+                {
+                    SchoolId = employeeToRegister.SchoolId,
+                    FirstName = employeeToRegister.FirstName,
+                    LastName = employeeToRegister.LastName,
+                    Email = employeeToRegister.Email,
+                    HireDate = DateTime.UtcNow,
+                    IsAdmin = false,
+                }
             };
 
            var response = await _userManager.CreateAsync(employee, employeeToRegister.Password);
@@ -55,9 +61,9 @@ namespace Quiz.API.Repositories.EmployeeRepository
             return  _dbContext.Employees.Where(e =>e.SchoolId == schoolId);
         }
 
-        public async Task<Employee> GetEmployeeById(int schoolId, int id)
+        public async Task<Employee> GetEmployeeById(int schoolId, int employeeId)
         {
-            return await _dbContext.Employees.Where(r => r.Id == id && r.SchoolId == schoolId).FirstOrDefaultAsync();
+            return await _dbContext.Employees.Where(r => r.EmployeeId == employeeId && r.SchoolId == schoolId).FirstOrDefaultAsync();
         }
 
         public async Task<Employee> GetEmployeeByEmail(string email)
@@ -67,7 +73,7 @@ namespace Quiz.API.Repositories.EmployeeRepository
 
         public async Task<SignInResult> AuthenticateEmployee(string email, string password)
         {
-            var employee = await _dbContext.Employees.SingleOrDefaultAsync(e => e.Email == email);
+            var employee = await _userManager.FindByNameAsync(email);
             return employee == null ? null : await _signInManager.CheckPasswordSignInAsync(employee, password, false);
         }
 
@@ -79,16 +85,23 @@ namespace Quiz.API.Repositories.EmployeeRepository
                 "AdminPassword": "P@ss0wrd!"
             }*/
 
-            var user = new Employee()
+            var user = new EmployeeAuthentication()
             {
                 Email = AdminUserEmail,
                 UserName = AdminUserEmail,
-                FirstName = AdminUserFirstName,
-                LastName = AdminUserLastName,
-                IsAdmin = true,
-                SchoolId = null,
-                HireDate = DateTime.UtcNow,
+
+                Employee = new Employee()
+                {
+                    SchoolId = null,
+                    FirstName = AdminUserFirstName,
+                    LastName = AdminUserLastName,
+                    Email = AdminUserEmail,
+                    HireDate = DateTime.UtcNow,
+                    IsAdmin = true,
+                }
+
             };
+
 
             var response = await _userManager.CreateAsync(user, "P@ss0wrd!");
 
@@ -97,7 +110,7 @@ namespace Quiz.API.Repositories.EmployeeRepository
 
         public async Task SetEmployeeAdminStatus(int employeeId, bool isAdmin)
         {
-            var employeeRecords = _dbContext.Employees.Where(p => p.Id == employeeId);
+            var employeeRecords = _dbContext.Employees.Where(p => p.EmployeeId == employeeId);
             foreach (var employee in employeeRecords)
             {
                 employee.IsAdmin = isAdmin;
@@ -115,7 +128,7 @@ namespace Quiz.API.Repositories.EmployeeRepository
 
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.NameIdentifier, employee.Id.ToString(CultureInfo.InvariantCulture)),
+                new Claim(ClaimTypes.NameIdentifier, employee.EmployeeId.ToString(CultureInfo.InvariantCulture)),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
 

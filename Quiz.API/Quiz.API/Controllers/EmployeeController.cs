@@ -126,7 +126,7 @@ namespace Quiz.API.Controllers
                 Success = true,
                 IsAdmin = employee.IsAdmin,
                 DisplayName = $"{employee.FirstName} {employee.LastName}",
-                EmployeeId = employee.Id,
+                EmployeeId = employee.EmployeeId,
                 schoolId = employee.SchoolId,
                 Token = _employeeRepository.GenerateJwtToken(employee),
             };
@@ -137,11 +137,10 @@ namespace Quiz.API.Controllers
         {
             var employeeToReturn = new EmployeeToReturn()
             {
-                EmployeeId = employee.Id,
+                EmployeeId = employee.EmployeeId,
                 SchoolId = employee.SchoolId,
                 FirstName = employee.FirstName,
                 LastName = employee.LastName,
-                UserName = employee.UserName,
                 Email = employee.Email,
                 IsAdmin = employee.IsAdmin,
             };

@@ -31,14 +31,15 @@
           <e p="MappingProfile.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="20200126024957_addedSchoolId.cs" t="Include" />
-          <e p="20200126024957_addedSchoolId.Designer.cs" t="Include" />
+          <e p="20200128220018_addedEmployeeAuthentication.cs" t="Include" />
+          <e p="20200128220018_addedEmployeeAuthentication.Designer.cs" t="Include" />
           <e p="QuizDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
           <e p="Answers.cs" t="Include" />
           <e p="AnswerToPost.cs" t="Include" />
           <e p="Employee.cs" t="Include" />
+          <e p="EmployeeAuthentication.cs" t="Include" />
           <e p="EmployeeAuthorizationResult.cs" t="Include" />
           <e p="EmployeeToLogin.cs" t="Include" />
           <e p="EmployeeToRegister.cs" t="Include" />

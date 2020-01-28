@@ -79,7 +79,7 @@ namespace Quiz.API
                 .AddDefaultUI();*/
 
             //we have to add this when we use only one IdentityUser and IdentityDbContext
-            services.AddDefaultIdentity<Employee>()
+            services.AddDefaultIdentity<EmployeeAuthentication>()
                .AddEntityFrameworkStores<QuizDbContext>();
 
 

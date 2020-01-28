@@ -6,7 +6,7 @@ using Quiz.API.Models;
 
 namespace Quiz.API.DbContext
 {
-    public class QuizDbContext : IdentityDbContext<Employee, IdentityRole<int>, int>
+    public class QuizDbContext : IdentityDbContext<EmployeeAuthentication, IdentityRole<int>, int>
     {
         public QuizDbContext(DbContextOptions<QuizDbContext> options): base(options) { }
         public QuizDbContext() { }
@@ -29,9 +29,9 @@ namespace Quiz.API.DbContext
 
             base.OnModelCreating(builder);
 
-            // This to override default AspNetUsers table name to be Employees
-            builder.Entity<Employee>(
-                entity => entity.ToTable(name: "Employees"));
+            // This to override default AspNetUsers table name to be EmployeeAuthentication
+            builder.Entity<EmployeeAuthentication>(
+                entity => entity.ToTable(name: "EmployeeAuthentication"));
         }
     }
  }
