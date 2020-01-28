@@ -10,8 +10,8 @@ using Quiz.API.DbContext;
 namespace Quiz.API.Migrations
 {
     [DbContext(typeof(QuizDbContext))]
-    [Migration("20200126024957_addedSchoolId")]
-    partial class addedSchoolId
+    [Migration("20200128220018_addedEmployeeAuthentication")]
+    partial class addedEmployeeAuthentication
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -135,6 +135,31 @@ namespace Quiz.API.Migrations
 
             modelBuilder.Entity("Quiz.API.Models.Employee", b =>
                 {
+                    b.Property<int>("EmployeeId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<DateTime>("HireDate");
+
+                    b.Property<bool>("IsAdmin");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<int?>("SchoolId");
+
+                    b.HasKey("EmployeeId");
+
+                    b.HasIndex("SchoolId");
+
+                    b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("Quiz.API.Models.EmployeeAuthentication", b =>
+                {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -149,13 +174,7 @@ namespace Quiz.API.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<string>("FirstName");
-
-                    b.Property<DateTime>("HireDate");
-
-                    b.Property<bool>("IsAdmin");
-
-                    b.Property<string>("LastName");
+                    b.Property<int?>("EmployeeId");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -173,8 +192,6 @@ namespace Quiz.API.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed");
 
-                    b.Property<int?>("SchoolId");
-
                     b.Property<string>("SecurityStamp");
 
                     b.Property<bool>("TwoFactorEnabled");
@@ -184,6 +201,8 @@ namespace Quiz.API.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("EmployeeId");
+
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
 
@@ -192,9 +211,7 @@ namespace Quiz.API.Migrations
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.HasIndex("SchoolId");
-
-                    b.ToTable("Employees");
+                    b.ToTable("EmployeeAuthentication");
                 });
 
             modelBuilder.Entity("Quiz.API.Models.Option", b =>
@@ -245,7 +262,7 @@ namespace Quiz.API.Migrations
 
                     b.Property<string>("QuizName");
 
-                    b.Property<int?>("SchoolId");
+                    b.Property<int>("SchoolId");
 
                     b.HasKey("QuizId");
 
@@ -327,7 +344,7 @@ namespace Quiz.API.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
                 {
-                    b.HasOne("Quiz.API.Models.Employee")
+                    b.HasOne("Quiz.API.Models.EmployeeAuthentication")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -335,7 +352,7 @@ namespace Quiz.API.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
                 {
-                    b.HasOne("Quiz.API.Models.Employee")
+                    b.HasOne("Quiz.API.Models.EmployeeAuthentication")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -348,7 +365,7 @@ namespace Quiz.API.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Quiz.API.Models.Employee")
+                    b.HasOne("Quiz.API.Models.EmployeeAuthentication")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -356,7 +373,7 @@ namespace Quiz.API.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
                 {
-                    b.HasOne("Quiz.API.Models.Employee")
+                    b.HasOne("Quiz.API.Models.EmployeeAuthentication")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -367,6 +384,13 @@ namespace Quiz.API.Migrations
                     b.HasOne("Quiz.API.Models.School")
                         .WithMany("Employees")
                         .HasForeignKey("SchoolId");
+                });
+
+            modelBuilder.Entity("Quiz.API.Models.EmployeeAuthentication", b =>
+                {
+                    b.HasOne("Quiz.API.Models.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId");
                 });
 
             modelBuilder.Entity("Quiz.API.Models.Option", b =>
@@ -389,7 +413,8 @@ namespace Quiz.API.Migrations
                 {
                     b.HasOne("Quiz.API.Models.School")
                         .WithMany("Quizzes")
-                        .HasForeignKey("SchoolId");
+                        .HasForeignKey("SchoolId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Quiz.API.Models.Tester", b =>
